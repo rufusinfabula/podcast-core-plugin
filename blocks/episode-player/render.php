@@ -28,6 +28,12 @@ $podcast_core_secs  = podcast_core_duration_to_seconds( (string) podcast_core_ge
 if ( ! $podcast_core_audio && ! ( $podcast_core_video && ! empty( $attributes['showVideo'] ) ) ) {
 	return;
 }
+if ( ! $podcast_core_audio ) {
+	// Video only: no player bar.
+	$podcast_core_embed = wp_oembed_get( $podcast_core_video );
+	echo $podcast_core_embed ? '<div class="pc-player-video">' . $podcast_core_embed . '</div>' : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	return;
+}
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'pc-player' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<?php if ( $podcast_core_audio ) : ?>
@@ -58,13 +64,14 @@ if ( ! $podcast_core_audio && ! ( $podcast_core_video && ! empty( $attributes['s
 		</div>
 	</div>
 	<?php endif; ?>
-
-	<?php
-	if ( $podcast_core_video && ! empty( $attributes['showVideo'] ) ) {
-		$podcast_core_embed = wp_oembed_get( $podcast_core_video );
-		if ( $podcast_core_embed ) {
-			echo '<div class="pc-player__video">' . $podcast_core_embed . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- oEmbed HTML from a trusted provider.
-		}
-	}
-	?>
 </div>
+<?php
+// The video is a sibling of the player, not a child: themes can make the player
+// sticky without the (tall) video sticking with it.
+if ( $podcast_core_video && ! empty( $attributes['showVideo'] ) ) {
+	$podcast_core_embed = wp_oembed_get( $podcast_core_video );
+	if ( $podcast_core_embed ) {
+		$podcast_core_align = ! empty( $attributes['align'] ) ? ' align' . sanitize_html_class( $attributes['align'] ) : '';
+		echo '<div class="pc-player-video' . esc_attr( $podcast_core_align ) . '">' . $podcast_core_embed . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- oEmbed HTML from a trusted provider.
+	}
+}

@@ -80,15 +80,15 @@
 	margin-left: 4px;
 	border-style: solid;
 	border-width: 9px 0 9px 15px;
-	border-color: transparent transparent transparent Canvas;
+	border-color: transparent transparent transparent var(--pc-icon, Canvas);
 }
 .pc-player.is-playing .pc-player__icon {
 	margin-left: 0;
 	width: 14px;
 	height: 18px;
 	border: 0;
-	border-left: 5px solid Canvas;
-	border-right: 5px solid Canvas;
+	border-left: 5px solid var(--pc-icon, Canvas);
+	border-right: 5px solid var(--pc-icon, Canvas);
 }
 .pc-player__seek {
 	flex: 1;
@@ -119,7 +119,10 @@
 	font-size: 0.85em;
 	white-space: nowrap;
 }
-.pc-player__video iframe {
+.pc-player-video {
+	margin-top: var(--pc-gap, 1.25rem);
+}
+.pc-player-video iframe {
 	display: block;
 	width: 100%;
 	height: auto;

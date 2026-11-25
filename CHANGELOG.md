@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1 – unreleased
+- Fix: theme.json block styles for the Episode Player were output for a wrong class (`.wp-block-podcast-episode-player`) because WordPress strips `core/` from block names; the block now declares its root selector.
+- The video embed is rendered after the player instead of inside it, so themes can make the player sticky without the video.
+- Player icon colour can be set with the `--pc-icon` custom property.
+
 ## 0.2.0 – unreleased
 - Episode post type (`podcast_episode`) and Series taxonomy (`podcast_series`) with configurable URL bases.
 - Native episode fields (number, season, audio URL, duration, video URL) with an "Episode details" panel in the block editor.
