@@ -1,0 +1,134 @@
+/*
+ * Episode Player — neutral base styles.
+ * Themes customise it through these custom properties or the .pc-player__* classes.
+ */
+.pc-player {
+	--pc-accent: currentColor;
+	--pc-track: color-mix(in srgb, currentColor 20%, transparent);
+	--pc-radius: 12px;
+	--pc-gap: 1.25rem;
+	--pc-cover-size: 160px;
+	--pc-button-size: 56px;
+	display: flex;
+	flex-direction: column;
+	gap: var(--pc-gap);
+}
+.pc-player__main {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--pc-gap);
+}
+.pc-player__cover {
+	flex: 0 0 var(--pc-cover-size);
+}
+.pc-player__cover-img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1;
+	object-fit: cover;
+	border-radius: var(--pc-radius);
+}
+.pc-player__body {
+	flex: 1 1 260px;
+	min-width: 0;
+}
+.pc-player__number {
+	margin: 0;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+.pc-player__number-value {
+	font-weight: 700;
+}
+.pc-player__title {
+	margin: 0.25em 0 0.75em;
+	font-weight: 600;
+}
+.pc-player__audio {
+	width: 100%;
+}
+.pc-player__controls {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+.pc-player__controls[hidden] {
+	display: none;
+}
+.pc-player__toggle {
+	flex: 0 0 var(--pc-button-size);
+	width: var(--pc-button-size);
+	height: var(--pc-button-size);
+	border: 0;
+	border-radius: 50%;
+	background: var(--pc-accent);
+	cursor: pointer;
+	display: grid;
+	place-items: center;
+	padding: 0;
+}
+.pc-player__toggle:focus-visible {
+	outline: 2px solid var(--pc-accent);
+	outline-offset: 3px;
+}
+.pc-player__icon {
+	width: 0;
+	height: 0;
+	margin-left: 4px;
+	border-style: solid;
+	border-width: 9px 0 9px 15px;
+	border-color: transparent transparent transparent Canvas;
+}
+.pc-player.is-playing .pc-player__icon {
+	margin-left: 0;
+	width: 14px;
+	height: 18px;
+	border: 0;
+	border-left: 5px solid Canvas;
+	border-right: 5px solid Canvas;
+}
+.pc-player__seek {
+	flex: 1;
+	min-width: 80px;
+	height: 6px;
+	appearance: none;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	background: linear-gradient(to right, var(--pc-accent) var(--pc-progress, 0%), var(--pc-track) var(--pc-progress, 0%));
+	cursor: pointer;
+}
+.pc-player__seek::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: var(--pc-accent);
+}
+.pc-player__seek::-moz-range-thumb {
+	width: 14px;
+	height: 14px;
+	border: 0;
+	border-radius: 50%;
+	background: var(--pc-accent);
+}
+.pc-player__time {
+	font-variant-numeric: tabular-nums;
+	font-size: 0.85em;
+	white-space: nowrap;
+}
+.pc-player__video iframe {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border-radius: var(--pc-radius);
+}
+.pc-player__placeholder {
+	padding: 1rem;
+	border: 1px dashed currentColor;
+	border-radius: var(--pc-radius);
+	opacity: 0.7;
+}

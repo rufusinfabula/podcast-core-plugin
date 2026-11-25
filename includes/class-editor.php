@@ -1,0 +1,32 @@
+<?php
+/**
+ * "Episode details" panel in the block editor sidebar.
+ *
+ * @package PodcastCore
+ */
+
+namespace PodcastCore;
+
+defined( 'ABSPATH' ) || exit;
+
+final class Editor {
+
+	public static function init(): void {
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue' ) );
+	}
+
+	public static function enqueue(): void {
+		$screen = get_current_screen();
+		if ( ! $screen || PODCAST_CORE_EPISODE !== $screen->post_type ) {
+			return;
+		}
+		wp_enqueue_script(
+			'podcast-core-episode-panel',
+			PODCAST_CORE_URL . 'assets/js/episode-panel.js',
+			array( 'wp-plugins', 'wp-editor', 'wp-element', 'wp-components', 'wp-data', 'wp-core-data', 'wp-i18n' ),
+			PODCAST_CORE_VERSION,
+			true
+		);
+		wp_set_script_translations( 'podcast-core-episode-panel', 'podcast-core-plugin', PODCAST_CORE_DIR . 'languages' );
+	}
+}

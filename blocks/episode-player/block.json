@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "podcast-core/episode-player",
+  "title": "Episode Player",
+  "category": "media",
+  "icon": "controls-play",
+  "description": "Audio player for the current episode, with cover, episode number and optional video.",
+  "keywords": [ "podcast", "audio", "player", "episode" ],
+  "textdomain": "podcast-core-plugin",
+  "usesContext": [ "postId", "postType" ],
+  "attributes": {
+    "showCover": { "type": "boolean", "default": true },
+    "showNumber": { "type": "boolean", "default": true },
+    "showVideo": { "type": "boolean", "default": true }
+  },
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ],
+    "color": { "background": true, "text": true },
+    "spacing": { "margin": true, "padding": true }
+  },
+  "editorScript": "file:./editor.js",
+  "viewScript": "file:./view.js",
+  "style": "file:./style.css",
+  "render": "file:./render.php"
+}

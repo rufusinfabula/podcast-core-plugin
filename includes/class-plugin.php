@@ -10,8 +10,7 @@ namespace PodcastCore;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Plugin singleton: wires up hooks. Features (episodes, series, player)
- * are added as separate classes in includes/ and registered here.
+ * Wires up all plugin components.
  */
 final class Plugin {
 
@@ -26,10 +25,33 @@ final class Plugin {
 	}
 
 	private function __construct() {
-		add_action( 'init', array( $this, 'load_textdomain' ) );
+		add_action( 'init', array( $this, 'load_textdomain' ), 0 );
+
+		Settings::init();
+		Post_Types::init();
+		Episode_Meta::init();
+		Editor::init();
+		Blocks::init();
+		Schema::init();
+
+		if ( defined( 'WP_CLI' ) && WP_CLI ) {
+			\WP_CLI::add_command( 'podcast-core', CLI::class );
+		}
 	}
 
 	public function load_textdomain(): void {
 		load_plugin_textdomain( 'podcast-core-plugin', false, dirname( plugin_basename( PODCAST_CORE_FILE ) ) . '/languages' );
+	}
+
+	/**
+	 * Registers content types and flushes rewrite rules so archive URLs work immediately.
+	 */
+	public static function activate(): void {
+		Post_Types::register();
+		flush_rewrite_rules();
+	}
+
+	public static function deactivate(): void {
+		flush_rewrite_rules();
 	}
 }

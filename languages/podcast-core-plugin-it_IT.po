@@ -1,0 +1,283 @@
+# Copyright (C) 2026 Rufusinfabula
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Podcast Core Plugin 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/podcast-core-plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-25T19:25:55+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: podcast-core-plugin\n"
+
+#. Plugin Name of the plugin
+#: podcast-core-plugin.php
+msgid "Podcast Core Plugin"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: podcast-core-plugin.php
+msgid "https://github.com/rufusinfabula/podcast-core-plugin"
+msgstr ""
+
+#. Description of the plugin
+#: podcast-core-plugin.php
+msgid "Episodes, series and an audio player for podcast websites. Lightweight, no third-party dependencies."
+msgstr "Episodi, serie e un player audio per i siti di podcast. Leggero, senza dipendenze da plugin di terze parti."
+
+#. Author of the plugin
+#: podcast-core-plugin.php
+msgid "Rufusinfabula"
+msgstr ""
+
+#. translators: %s: episode number
+#: blocks/episode-player/render.php:43
+#, php-format
+msgid "Episode %s"
+msgstr "Episodio %s"
+
+#: blocks/episode-player/render.php:52
+msgid "Play"
+msgstr "Riproduci"
+
+#: blocks/episode-player/render.php:52
+msgid "Pause"
+msgstr "Pausa"
+
+#: blocks/episode-player/render.php:55
+msgid "Seek"
+msgstr "Posizione di ascolto"
+
+#: includes/class-post-types.php:25
+msgid "Episodes"
+msgstr "Episodi"
+
+#: includes/class-post-types.php:26
+msgid "Episode"
+msgstr "Episodio"
+
+#: includes/class-post-types.php:27
+#: includes/class-settings.php:110
+#: includes/class-settings.php:111
+msgid "Podcast"
+msgstr "Podcast"
+
+#: includes/class-post-types.php:28
+msgid "All episodes"
+msgstr "Tutti gli episodi"
+
+#: includes/class-post-types.php:29
+msgid "Add new episode"
+msgstr "Aggiungi nuovo episodio"
+
+#: includes/class-post-types.php:30
+msgid "Add episode"
+msgstr "Aggiungi episodio"
+
+#: includes/class-post-types.php:31
+msgid "Edit episode"
+msgstr "Modifica episodio"
+
+#: includes/class-post-types.php:32
+msgid "New episode"
+msgstr "Nuovo episodio"
+
+#: includes/class-post-types.php:33
+msgid "View episode"
+msgstr "Visualizza episodio"
+
+#: includes/class-post-types.php:34
+msgid "View episodes"
+msgstr "Visualizza episodi"
+
+#: includes/class-post-types.php:35
+msgid "Search episodes"
+msgstr "Cerca episodi"
+
+#: includes/class-post-types.php:36
+msgid "No episodes found."
+msgstr "Nessun episodio trovato."
+
+#: includes/class-post-types.php:37
+msgid "No episodes found in Trash."
+msgstr "Nessun episodio nel cestino."
+
+#: includes/class-post-types.php:38
+msgid "Episode archives"
+msgstr "Archivio episodi"
+
+#: includes/class-post-types.php:39
+msgid "Episodes list"
+msgstr "Elenco episodi"
+
+#: includes/class-post-types.php:60
+#: includes/class-post-types.php:61
+msgid "Series"
+msgstr "Serie"
+
+#: includes/class-post-types.php:62
+msgid "All series"
+msgstr "Tutte le serie"
+
+#: includes/class-post-types.php:63
+msgid "Edit series"
+msgstr "Modifica serie"
+
+#: includes/class-post-types.php:64
+msgid "View series"
+msgstr "Visualizza serie"
+
+#: includes/class-post-types.php:65
+msgid "Add new series"
+msgstr "Aggiungi nuova serie"
+
+#: includes/class-post-types.php:66
+msgid "New series name"
+msgstr "Nome della nuova serie"
+
+#: includes/class-post-types.php:67
+msgid "Search series"
+msgstr "Cerca serie"
+
+#: includes/class-post-types.php:68
+msgid "No series found."
+msgstr "Nessuna serie trovata."
+
+#: includes/class-post-types.php:69
+msgid "&larr; Back to series"
+msgstr "&larr; Torna alle serie"
+
+#: includes/class-settings.php:58
+msgid "Addresses"
+msgstr "Indirizzi"
+
+#: includes/class-settings.php:59
+msgid "Episodes base"
+msgstr "Base degli episodi"
+
+#: includes/class-settings.php:59
+msgid "URL of the episode archive, e.g. /episodes/"
+msgstr "Indirizzo dell'archivio episodi, ad es. /episodi/"
+
+#: includes/class-settings.php:60
+msgid "Series base"
+msgstr "Base delle serie"
+
+#: includes/class-settings.php:60
+msgid "URL prefix of series pages, e.g. /series/name/"
+msgstr "Prefisso delle pagine delle serie, ad es. /serie/nome/"
+
+#: includes/class-settings.php:62
+msgid "Show"
+msgstr "Programma"
+
+#: includes/class-settings.php:63
+msgid "Show name"
+msgstr "Nome del podcast"
+
+#: includes/class-settings.php:63
+msgid "Leave empty to use the site title."
+msgstr "Lascia vuoto per usare il titolo del sito."
+
+#: includes/class-settings.php:64
+msgid "Spotify"
+msgstr ""
+
+#: includes/class-settings.php:65
+msgid "Apple Podcasts"
+msgstr ""
+
+#: includes/class-settings.php:66
+msgid "YouTube"
+msgstr ""
+
+#: includes/class-settings.php:67
+msgid "RSS feed"
+msgstr "Feed RSS"
+
+#: includes/class-settings.php:121
+msgid "Podcast settings"
+msgstr "Impostazioni podcast"
+
+#: assets/js/episode-panel.js:31
+msgid "Episode details"
+msgstr "Dettagli episodio"
+
+#: assets/js/episode-panel.js:33
+msgid "Episode number"
+msgstr "Numero episodio"
+
+#: assets/js/episode-panel.js:40
+msgid "Season"
+msgstr "Stagione"
+
+#: assets/js/episode-panel.js:47
+msgid "Audio file URL (MP3)"
+msgstr "URL del file audio (MP3)"
+
+#: assets/js/episode-panel.js:55
+msgid "Duration"
+msgstr "Durata"
+
+#: assets/js/episode-panel.js:56
+msgid "HH:MM:SS, MM:SS or seconds."
+msgstr "HH:MM:SS, MM:SS oppure secondi."
+
+#: assets/js/episode-panel.js:63
+msgid "Video URL (YouTube, Vimeo…)"
+msgstr "URL del video (YouTube, Vimeo…)"
+
+#: blocks/episode-player/editor.js:28
+msgid "Display"
+msgstr "Visualizzazione"
+
+#: blocks/episode-player/editor.js:29
+msgid "Show cover image"
+msgstr "Mostra immagine di copertina"
+
+#: blocks/episode-player/editor.js:30
+msgid "Show episode number"
+msgstr "Mostra numero episodio"
+
+#: blocks/episode-player/editor.js:31
+msgid "Show video"
+msgstr "Mostra video"
+
+#: blocks/episode-player/editor.js:45
+msgid "Episode player: set an audio URL in \"Episode details\" to see it here."
+msgstr "Player episodio: inserisci l'URL audio in \"Dettagli episodio\" per vederlo qui."
+
+#: blocks/episode-player/block.json
+msgctxt "block title"
+msgid "Episode Player"
+msgstr "Player episodio"
+
+#: blocks/episode-player/block.json
+msgctxt "block description"
+msgid "Audio player for the current episode, with cover, episode number and optional video."
+msgstr "Player audio dell'episodio corrente, con copertina, numero dell'episodio e video opzionale."
+
+#: blocks/episode-player/block.json
+msgctxt "block keyword"
+msgid "podcast"
+msgstr "podcast"
+
+#: blocks/episode-player/block.json
+msgctxt "block keyword"
+msgid "audio"
+msgstr "audio"
+
+#: blocks/episode-player/block.json
+msgctxt "block keyword"
+msgid "player"
+msgstr "player"
+
+#: blocks/episode-player/block.json
+msgctxt "block keyword"
+msgid "episode"
+msgstr "episodio"
