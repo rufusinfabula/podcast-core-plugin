@@ -24,6 +24,7 @@
 		say( __( 'Reading the feed…', 'podcast-core-plugin' ) );
 		try {
 			const p = await wp.apiFetch( { path: '/podcast-core/v1/import/preview' } );
+			// translators: 1: episodes in the feed, 2: new episodes, 3: episodes already on the site.
 			let html = sprintf( __( '%1$d episodes in the feed: %2$d new, %3$d already on the site.', 'podcast-core-plugin' ), p.total, p.new, p.existing );
 			if ( p.sample.length ) {
 				html += '</p><ul style="list-style:disc;margin-left:2em">' + p.sample.map( ( t ) => '<li>' + esc( t ) + '</li>' ).join( '' ) + ( p.new > p.sample.length ? '<li>…</li>' : '' ) + '</ul><p>';
@@ -54,6 +55,7 @@
 					total = r.created + r.pending;
 				}
 				bar.value = total ? Math.round( ( created / total ) * 100 ) : 100;
+				// translators: 1: episodes imported so far, 2: new episodes to import.
 				say( sprintf( __( 'Imported %1$d of %2$d new episodes…', 'podcast-core-plugin' ), created, total ) );
 				if ( ! r.pending || ! r.created ) {
 					break;
@@ -66,7 +68,8 @@
 		bar.value = 100;
 		busy( false );
 		let html = created
-			? sprintf( __( 'Done: %d new episodes imported.', 'podcast-core-plugin' ), created )
+			? // translators: %d: number of imported episodes.
+			  sprintf( __( 'Done: %d new episodes imported.', 'podcast-core-plugin' ), created )
 			: __( 'Everything is up to date: no new episodes.', 'podcast-core-plugin' );
 		if ( errors.length ) {
 			html += '</p><p><strong>' + __( 'Problems:', 'podcast-core-plugin' ) + '</strong></p><ul style="list-style:disc;margin-left:2em">' + errors.map( ( e ) => '<li>' + esc( e ) + '</li>' ).join( '' ) + '</ul><p>';
