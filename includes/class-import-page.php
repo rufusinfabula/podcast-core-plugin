@@ -142,6 +142,24 @@ final class Import_Page {
 					</td>
 				</tr>
 				<tr>
+					<th scope="row"><?php esc_html_e( 'Spotify API', 'podcast-core-plugin' ); ?></th>
+					<td>
+						<?php
+						if ( Spotify::api_configured() ) {
+							$name = Spotify::api_show_name();
+							if ( is_wp_error( $name ) ) {
+								echo esc_html( $name->get_error_message() );
+							} else {
+								/* translators: %s: show name on Spotify */
+								printf( esc_html__( 'Connected — show: %s', 'podcast-core-plugin' ), esc_html( $name ) );
+							}
+						} else {
+							esc_html_e( 'Not configured (optional)', 'podcast-core-plugin' );
+						}
+						?>
+					</td>
+				</tr>
+				<tr>
 					<th scope="row"><?php esc_html_e( 'Last update', 'podcast-core-plugin' ); ?></th>
 					<td id="pc-import-last">
 						<?php

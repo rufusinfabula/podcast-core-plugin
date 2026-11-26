@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.0 – unreleased
+- **Spotify Web API (optional)**: with a Client ID and Client Secret (Settings → Podcast → Spotify API) and the show link in the *Spotify* field, the plugin finds the Spotify link of every episode for shows hosted anywhere, matching by title (case, accents and punctuation ignored) or by the most similar title published within two days. Used to fetch the Spotify episode image.
+- Lookup order for the Spotify link: episode field → Spotify for Creators page → Web API.
+- Spotify API status on the Import page. The Client Secret is never shown again after saving.
+
 ## 0.5.0 – unreleased
 - **Episodes per page** setting for the episode archive and series pages.
 - **Episode images from Spotify**: Settings → Podcast → *Episode image* = *From Spotify (horizontal 16:9)* uses the cover Spotify shows for each episode (640×360, official oEmbed). The open.spotify.com link of each episode is read from the public Spotify for Creators page and stored (`podcast_core_spotify_url`, editable in Episode details); if it cannot be found, the feed image is used.

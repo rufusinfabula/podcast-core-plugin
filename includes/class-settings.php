@@ -33,6 +33,8 @@ final class Settings {
 			'feed_url'      => '',
 			'auto_sync'     => true,
 			'image_source'  => 'feed',
+			'spotify_client_id'     => '',
+			'spotify_client_secret' => '',
 		);
 	}
 
@@ -85,6 +87,19 @@ final class Settings {
 				'spotify' => __( 'From Spotify (horizontal 16:9)', 'podcast-core-plugin' ),
 			)
 		);
+
+		add_settings_section(
+			'podcast_core_spotify_api',
+			__( 'Spotify API (optional)', 'podcast-core-plugin' ),
+			function () {
+				echo '<p>' . esc_html__( 'Needed only if your podcast is not hosted on Spotify for Creators: the plugin then finds the Spotify link of each episode by itself (to get the Spotify image). Requires the show link in the "Spotify" field above.', 'podcast-core-plugin' ) . '</p>';
+				echo '<ol><li>' . wp_kses( __( 'Sign in on <a href="https://developer.spotify.com/dashboard" target="_blank" rel="noopener">developer.spotify.com/dashboard</a> and create an app (any name; Redirect URI: your site address; API: Web API).', 'podcast-core-plugin' ), array( 'a' => array( 'href' => array(), 'target' => array(), 'rel' => array() ) ) ) . '</li>';
+				echo '<li>' . esc_html__( 'Open the app settings and copy the Client ID and the Client Secret here.', 'podcast-core-plugin' ) . '</li></ol>';
+			},
+			self::PAGE
+		);
+		self::field( 'spotify_client_id', __( 'Client ID', 'podcast-core-plugin' ), 'podcast_core_spotify_api', 'text' );
+		self::field( 'spotify_client_secret', __( 'Client Secret', 'podcast-core-plugin' ), 'podcast_core_spotify_api', 'password', __( 'Stored and never shown again. Leave empty to keep the saved one.', 'podcast-core-plugin' ) );
 	}
 
 	private static function field( string $key, string $label, string $section, string $type, string $help = '', array $options = array() ): void {
@@ -98,6 +113,18 @@ final class Settings {
 						printf( '<option value="%s" %s>%s</option>', esc_attr( $value ), selected( self::get( $key ), $value, false ), esc_html( $text ) );
 					}
 					echo '</select>';
+					if ( $help ) {
+						printf( '<p class="description">%s</p>', esc_html( $help ) );
+					}
+					return;
+				}
+				if ( 'password' === $type ) {
+					printf(
+						'<input type="password" id="podcast_core_%1$s" name="%2$s[%1$s]" value="" class="regular-text" autocomplete="new-password" placeholder="%3$s" />',
+						esc_attr( $key ),
+						esc_attr( self::OPTION ),
+						esc_attr( self::get( $key ) ? '••••••••••••' : '' )
+					);
 					if ( $help ) {
 						printf( '<p class="description">%s</p>', esc_html( $help ) );
 					}
@@ -144,6 +171,10 @@ final class Settings {
 		foreach ( array( 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'feed_url' ) as $key ) {
 			$clean[ $key ] = esc_url_raw( $input[ $key ] ?? '' );
 		}
+		$clean['spotify_client_id'] = sanitize_text_field( $input['spotify_client_id'] ?? '' );
+		$secret                     = sanitize_text_field( $input['spotify_client_secret'] ?? '' );
+		// Empty field = keep the saved secret; removing the Client ID removes the secret too.
+		$clean['spotify_client_secret'] = '' === $clean['spotify_client_id'] ? '' : ( '' !== $secret ? $secret : (string) self::get( 'spotify_client_secret' ) );
 		$clean['auto_sync']    = ! empty( $input['auto_sync'] );
 		$clean['image_source'] = in_array( $input['image_source'] ?? '', array( 'feed', 'spotify' ), true ) ? $input['image_source'] : 'feed';
 		return $clean;
