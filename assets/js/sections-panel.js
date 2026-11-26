@@ -17,9 +17,28 @@
 		( getBlockType( block.name ) || {} ).title ||
 		block.name;
 
-	// Sections = children of the <main> group; without one, the top-level blocks
-	// that are not template parts.
-	const findSections = ( blocks ) => {
+	// Sections = the blocks of the edited page (inside Post Content when the template
+	// is shown), otherwise the children of the template's <main> group, otherwise the
+	// top-level blocks that are not template parts.
+	const findSections = ( select ) => {
+		const editor = select( 'core/block-editor' );
+		const blocks = editor.getBlocks();
+		const walk = ( list ) => {
+			for ( const b of list ) {
+				if ( b.name === 'core/post-content' ) {
+					return b;
+				}
+				const found = walk( editor.getBlocks( b.clientId ) );
+				if ( found ) {
+					return found;
+				}
+			}
+			return null;
+		};
+		const postContent = walk( blocks );
+		if ( postContent ) {
+			return editor.getBlocks( postContent.clientId );
+		}
 		const main = blocks.find( ( b ) => b.attributes?.tagName === 'main' );
 		if ( main ) {
 			return main.innerBlocks;
@@ -28,7 +47,7 @@
 	};
 
 	function SectionsPanel() {
-		const sections = useSelect( ( select ) => findSections( select( 'core/block-editor' ).getBlocks() ), [] );
+		const sections = useSelect( ( select ) => findSections( select ), [] );
 		const { updateBlockAttributes, selectBlock } = useDispatch( 'core/block-editor' );
 
 		const setVisible = ( block, visible ) => {

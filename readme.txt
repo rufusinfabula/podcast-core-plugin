@@ -4,7 +4,7 @@ Tags: podcast, episodes, audio player, series
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.3.0
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,9 @@ This plugin is in early development.
 2. Activate the plugin from the Plugins screen.
 
 == Changelog ==
+
+= 0.3.1 =
+* Sections panel works when editing pages.
 
 = 0.3.0 =
 * Section blocks: Hero, Episodes, News, Call to action.

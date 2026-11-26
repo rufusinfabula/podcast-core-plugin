@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.1 – unreleased
+- Sections panel lists the blocks of the edited page (inside Post Content) when editing a page in the Site Editor.
+
 ## 0.3.0 – unreleased
 - Section blocks: **Hero**, **Episodes section**, **News section**, **Call to action section** (`podcast-core/*`). Containers with colour, spacing, margin, border and typography support, so each kind of section can be styled for the whole site in Design → Styles → Blocks.
 - **Sections** panel in the Site Editor (and block editor): a switch per section of the template's main area. Switching off uses native block visibility (`metadata.blockVisibility = false`): the section stays in the template but is not rendered.
