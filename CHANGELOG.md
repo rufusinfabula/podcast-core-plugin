@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 – unreleased
+- Section blocks: **Hero**, **Episodes section**, **News section**, **Call to action section** (`podcast-core/*`). Containers with colour, spacing, margin, border and typography support, so each kind of section can be styled for the whole site in Design → Styles → Blocks.
+- **Sections** panel in the Site Editor (and block editor): a switch per section of the template's main area. Switching off uses native block visibility (`metadata.blockVisibility = false`): the section stays in the template but is not rendered.
+
 ## 0.2.1 – unreleased
 - Fix: theme.json block styles for the Episode Player were output for a wrong class (`.wp-block-podcast-episode-player`) because WordPress strips `core/` from block names; the block now declares its root selector.
 - The video embed is rendered after the player instead of inside it, so themes can make the player sticky without the video.

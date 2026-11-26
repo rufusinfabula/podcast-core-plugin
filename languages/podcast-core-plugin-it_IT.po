@@ -36,20 +36,20 @@ msgid "Rufusinfabula"
 msgstr ""
 
 #. translators: %s: episode number
-#: blocks/episode-player/render.php:43
+#: blocks/episode-player/render.php:49
 #, php-format
 msgid "Episode %s"
 msgstr "Episodio %s"
 
-#: blocks/episode-player/render.php:52
+#: blocks/episode-player/render.php:58
 msgid "Play"
 msgstr "Riproduci"
 
-#: blocks/episode-player/render.php:52
+#: blocks/episode-player/render.php:58
 msgid "Pause"
 msgstr "Pausa"
 
-#: blocks/episode-player/render.php:55
+#: blocks/episode-player/render.php:61
 msgid "Seek"
 msgstr "Posizione di ascolto"
 
@@ -232,6 +232,31 @@ msgstr "HH:MM:SS, MM:SS oppure secondi."
 msgid "Video URL (YouTube, Vimeo…)"
 msgstr "URL del video (YouTube, Vimeo…)"
 
+#: assets/js/sections-panel.js:66
+msgid "Select section"
+msgstr "Seleziona la sezione"
+
+#: assets/js/sections-panel.js:68
+msgid "Edit"
+msgstr "Modifica"
+
+#: assets/js/sections-panel.js:73
+msgid "Open a template or a page to see its sections."
+msgstr "Apri un template o una pagina per vederne le sezioni."
+
+#: assets/js/sections-panel.js:78
+#: assets/js/sections-panel.js:81
+msgid "Sections"
+msgstr "Sezioni"
+
+#: assets/js/sections-panel.js:85
+msgid "Switch sections on or off. Hidden sections stay in the page and can be switched back on at any time."
+msgstr "Attiva o disattiva le sezioni. Le sezioni nascoste restano nella pagina e si possono riattivare in qualsiasi momento."
+
+#: assets/js/sections-panel.js:90
+msgid "Spacing and colours of each kind of section: Design → Styles → Blocks."
+msgstr "Spaziature e colori di ogni tipo di sezione: Design → Stili → Blocchi."
+
 #: blocks/episode-player/editor.js:28
 msgid "Display"
 msgstr "Visualizzazione"
@@ -263,6 +288,10 @@ msgid "Audio player for the current episode, with cover, episode number and opti
 msgstr "Player audio dell'episodio corrente, con copertina, numero dell'episodio e video opzionale."
 
 #: blocks/episode-player/block.json
+#: blocks/sections/cta-section/block.json
+#: blocks/sections/episodes-section/block.json
+#: blocks/sections/hero/block.json
+#: blocks/sections/news-section/block.json
 msgctxt "block keyword"
 msgid "podcast"
 msgstr "podcast"
@@ -281,3 +310,51 @@ msgstr "player"
 msgctxt "block keyword"
 msgid "episode"
 msgstr "episodio"
+
+#: blocks/sections/cta-section/block.json
+msgctxt "block title"
+msgid "Call to action section"
+msgstr "Sezione call to action"
+
+#: blocks/sections/cta-section/block.json
+msgctxt "block description"
+msgid "A section that promotes a series, an episode or anything else."
+msgstr "Una sezione che promuove una serie, un episodio o altro."
+
+#: blocks/sections/cta-section/block.json
+#: blocks/sections/episodes-section/block.json
+#: blocks/sections/hero/block.json
+#: blocks/sections/news-section/block.json
+msgctxt "block keyword"
+msgid "section"
+msgstr "sezione"
+
+#: blocks/sections/episodes-section/block.json
+msgctxt "block title"
+msgid "Episodes section"
+msgstr "Sezione episodi"
+
+#: blocks/sections/episodes-section/block.json
+msgctxt "block description"
+msgid "A section that lists episodes."
+msgstr "Una sezione che elenca gli episodi."
+
+#: blocks/sections/hero/block.json
+msgctxt "block title"
+msgid "Hero"
+msgstr "Hero"
+
+#: blocks/sections/hero/block.json
+msgctxt "block description"
+msgid "The opening section of a page: tagline, text, buttons and images."
+msgstr "La sezione di apertura di una pagina: slogan, testo, pulsanti e immagini."
+
+#: blocks/sections/news-section/block.json
+msgctxt "block title"
+msgid "News section"
+msgstr "Sezione news"
+
+#: blocks/sections/news-section/block.json
+msgctxt "block description"
+msgid "A section that lists blog posts."
+msgstr "Una sezione che elenca gli articoli del blog."

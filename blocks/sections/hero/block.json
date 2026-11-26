@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "podcast-core/hero",
+  "title": "Hero",
+  "category": "theme",
+  "icon": "cover-image",
+  "description": "The opening section of a page: tagline, text, buttons and images.",
+  "keywords": [
+    "podcast",
+    "section"
+  ],
+  "textdomain": "podcast-core-plugin",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "blockGap": true,
+      "__experimentalDefaultControls": {
+        "padding": true,
+        "margin": true
+      }
+    },
+    "typography": {
+      "fontSize": true
+    },
+    "__experimentalBorder": {
+      "radius": true,
+      "color": true,
+      "width": true,
+      "style": true
+    },
+    "layout": {
+      "default": {
+        "type": "constrained"
+      },
+      "allowSizingOnChildren": true
+    }
+  },
+  "selectors": {
+    "root": ".wp-block-podcast-core-hero"
+  },
+  "editorScript": "podcast-core-sections-editor"
+}

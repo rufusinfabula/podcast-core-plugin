@@ -12,6 +12,8 @@ Lightweight, no third-party dependencies. Pairs with [Podcast Core Theme](https:
 - **Episode Player** block (`podcast-core/episode-player`): cover, episode number, custom audio controls, optional video embed. Accessible (native range input, keyboard friendly), works with several players per page, falls back to native audio controls without JavaScript
 - schema.org `PodcastEpisode` structured data on episode pages
 - **Settings → Podcast**: archive and series URL bases, show name, platform links (Spotify, Apple Podcasts, YouTube, RSS)
+- **Section blocks** (Hero, Episodes section, News section, Call to action section): style every instance at once in *Design → Styles → Blocks*
+- **Sections panel** in the Site Editor: switch sections of a template on/off without deleting them
 - WP-CLI migration from other setups (e.g. CPT UI + ACF)
 - Translation ready; Italian included
 
