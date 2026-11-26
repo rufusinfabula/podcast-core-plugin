@@ -71,6 +71,10 @@ wp i18n make-mo languages/podcast-core-plugin-it_IT.po languages/
 wp i18n make-json languages/podcast-core-plugin-it_IT.po languages/ --no-purge
 ```
 
+## Credits
+
+Developed by **[Fabio Ranfi Solutions](https://www.fabioranfi.it)** — Fabio Ranfi, GitHub [@rufusinfabula](https://github.com/rufusinfabula).
+
 ## License
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).
