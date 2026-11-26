@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0 – unreleased
+- **Import from RSS**: Settings → Podcast → *Feed to import* and *Automatic update* (hourly check); Podcast → *Import from RSS* page with preview, *Force update now* and progress; `wp podcast-core import [--dry-run] [--url=]`.
+- Each feed item becomes a published episode with its original date, title, description converted to blocks (paragraphs, lists, headings), audio URL, duration, episode and season number, link to the episode page on the platform and cover image (downloaded once into the Media Library and reused).
+- Episodes already on the site (same guid, or same audio URL for episodes added by hand) are never overwritten.
+- New field: *Episode page on the podcast platform* (`podcast_core_source_url`).
+- Action `podcast_core_episode_imported`.
+
 ## 0.3.1 – unreleased
 - Sections panel lists the blocks of the edited page (inside Post Content) when editing a page in the Site Editor.
 

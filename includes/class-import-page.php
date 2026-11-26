@@ -1,0 +1,136 @@
+<?php
+/**
+ * Podcast → Import from RSS: preview, import with progress, "Force update", status.
+ *
+ * @package PodcastCore
+ */
+
+namespace PodcastCore;
+
+defined( 'ABSPATH' ) || exit;
+
+final class Import_Page {
+
+	private const SLUG  = 'podcast-core-import';
+	private const BATCH = 5;
+
+	public static function init(): void {
+		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
+		add_action( 'rest_api_init', array( __CLASS__, 'routes' ) );
+	}
+
+	public static function menu(): void {
+		$hook = add_submenu_page(
+			'edit.php?post_type=' . PODCAST_CORE_EPISODE,
+			__( 'Import from RSS', 'podcast-core-plugin' ),
+			__( 'Import from RSS', 'podcast-core-plugin' ),
+			'manage_options',
+			self::SLUG,
+			array( __CLASS__, 'render' )
+		);
+		add_action( 'admin_print_scripts-' . $hook, array( __CLASS__, 'assets' ) );
+	}
+
+	public static function assets(): void {
+		wp_enqueue_script( 'podcast-core-import', PODCAST_CORE_URL . 'assets/js/import-page.js', array( 'wp-api-fetch', 'wp-i18n' ), PODCAST_CORE_VERSION, true );
+		wp_set_script_translations( 'podcast-core-import', 'podcast-core-plugin', PODCAST_CORE_DIR . 'languages' );
+		wp_localize_script( 'podcast-core-import', 'podcastCoreImport', array( 'batch' => self::BATCH ) );
+	}
+
+	public static function routes(): void {
+		$permission = fn() => current_user_can( 'manage_options' );
+		register_rest_route(
+			'podcast-core/v1',
+			'/import/preview',
+			array(
+				'methods'             => 'GET',
+				'permission_callback' => $permission,
+				'callback'            => fn() => self::response( Importer::preview() ),
+			)
+		);
+		register_rest_route(
+			'podcast-core/v1',
+			'/import/run',
+			array(
+				'methods'             => 'POST',
+				'permission_callback' => $permission,
+				'callback'            => fn() => self::response( Importer::sync( 'manual', self::BATCH ) ),
+			)
+		);
+	}
+
+	private static function response( $result ) {
+		if ( is_wp_error( $result ) ) {
+			return new \WP_Error( $result->get_error_code(), $result->get_error_message(), array( 'status' => 400 ) );
+		}
+		return rest_ensure_response( $result );
+	}
+
+	public static function render(): void {
+		$feed     = Importer::feed_url();
+		$status   = get_option( Importer::STATUS_OPT );
+		$next     = wp_next_scheduled( Importer::CRON_HOOK );
+		$settings = admin_url( 'options-general.php?page=podcast-core' );
+		?>
+		<div class="wrap">
+			<h1><?php esc_html_e( 'Import from RSS', 'podcast-core-plugin' ); ?></h1>
+			<p><?php esc_html_e( 'Creates one episode for each item of your podcast feed: title, description, date, audio, duration, number, season and cover image. Episodes already on the site are recognised and never overwritten, so your edits are safe.', 'podcast-core-plugin' ); ?></p>
+
+			<table class="form-table" role="presentation">
+				<tr>
+					<th scope="row"><?php esc_html_e( 'Feed', 'podcast-core-plugin' ); ?></th>
+					<td>
+						<?php if ( $feed ) : ?>
+							<code><?php echo esc_html( $feed ); ?></code>
+						<?php else : ?>
+							<em><?php esc_html_e( 'Not set.', 'podcast-core-plugin' ); ?></em>
+						<?php endif; ?>
+						— <a href="<?php echo esc_url( $settings ); ?>"><?php esc_html_e( 'Change in Settings → Podcast', 'podcast-core-plugin' ); ?></a>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><?php esc_html_e( 'Automatic update', 'podcast-core-plugin' ); ?></th>
+					<td>
+						<?php
+						if ( $next ) {
+							/* translators: %s: date and time */
+							printf( esc_html__( 'On — next check: %s', 'podcast-core-plugin' ), esc_html( wp_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $next ) ) );
+						} else {
+							esc_html_e( 'Off', 'podcast-core-plugin' );
+						}
+						?>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"><?php esc_html_e( 'Last update', 'podcast-core-plugin' ); ?></th>
+					<td id="pc-import-last">
+						<?php
+						if ( $status ) {
+							$r = $status['result'];
+							echo esc_html( wp_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $status['time'] ) ) . ' — ';
+							if ( isset( $r['error'] ) ) {
+								echo esc_html( $r['error'] );
+							} else {
+								/* translators: 1: imported episodes, 2: episodes already on the site */
+								printf( esc_html__( '%1$d imported, %2$d already on the site', 'podcast-core-plugin' ), (int) $r['created'], (int) $r['existing'] );
+							}
+						} else {
+							esc_html_e( 'Never', 'podcast-core-plugin' );
+						}
+						?>
+					</td>
+				</tr>
+			</table>
+
+			<?php if ( $feed ) : ?>
+				<p>
+					<button type="button" class="button" id="pc-import-preview"><?php esc_html_e( 'Check the feed', 'podcast-core-plugin' ); ?></button>
+					<button type="button" class="button button-primary" id="pc-import-run"><?php esc_html_e( 'Force update now', 'podcast-core-plugin' ); ?></button>
+				</p>
+				<div id="pc-import-output" aria-live="polite"></div>
+				<progress id="pc-import-progress" max="100" value="0" style="width:100%;max-width:600px;display:none"></progress>
+			<?php endif; ?>
+		</div>
+		<?php
+	}
+}

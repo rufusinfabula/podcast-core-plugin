@@ -1,1 +1,1 @@
-<?php return array( 'dependencies' => array( 'wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render' ), 'version' => '0.3.1' );
+<?php return array( 'dependencies' => array( 'wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n', 'wp-server-side-render' ), 'version' => '0.4.0' );

@@ -29,6 +29,8 @@ final class Settings {
 			'apple_url'     => '',
 			'youtube_url'   => '',
 			'rss_url'       => '',
+			'feed_url'      => '',
+			'auto_sync'     => true,
 		);
 	}
 
@@ -65,6 +67,10 @@ final class Settings {
 		self::field( 'apple_url', __( 'Apple Podcasts', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
 		self::field( 'youtube_url', __( 'YouTube', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
 		self::field( 'rss_url', __( 'RSS feed', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
+
+		add_settings_section( 'podcast_core_import', __( 'Import from RSS', 'podcast-core-plugin' ), '__return_false', self::PAGE );
+		self::field( 'feed_url', __( 'Feed to import', 'podcast-core-plugin' ), 'podcast_core_import', 'url', __( 'RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above.', 'podcast-core-plugin' ) );
+		self::field( 'auto_sync', __( 'Automatic update', 'podcast-core-plugin' ), 'podcast_core_import', 'checkbox', __( 'Check the feed every hour and import new episodes.', 'podcast-core-plugin' ) );
 	}
 
 	private static function field( string $key, string $label, string $section, string $type, string $help = '' ): void {
@@ -72,6 +78,16 @@ final class Settings {
 			'podcast_core_' . $key,
 			$label,
 			function () use ( $key, $type, $help ) {
+				if ( 'checkbox' === $type ) {
+					printf(
+						'<label><input type="checkbox" id="podcast_core_%1$s" name="%2$s[%1$s]" value="1" %3$s /> %4$s</label>',
+						esc_attr( $key ),
+						esc_attr( self::OPTION ),
+						checked( (bool) self::get( $key ), true, false ),
+						esc_html( $help )
+					);
+					return;
+				}
 				printf(
 					'<input type="%1$s" id="podcast_core_%2$s" name="%3$s[%2$s]" value="%4$s" class="regular-text" />',
 					esc_attr( $type ),
@@ -99,9 +115,10 @@ final class Settings {
 			$clean[ $key ] = '' !== $slug ? $slug : $defaults[ $key ];
 		}
 		$clean['show_name'] = sanitize_text_field( $input['show_name'] ?? '' );
-		foreach ( array( 'spotify_url', 'apple_url', 'youtube_url', 'rss_url' ) as $key ) {
+		foreach ( array( 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'feed_url' ) as $key ) {
 			$clean[ $key ] = esc_url_raw( $input[ $key ] ?? '' );
 		}
+		$clean['auto_sync'] = ! empty( $input['auto_sync'] );
 		return $clean;
 	}
 

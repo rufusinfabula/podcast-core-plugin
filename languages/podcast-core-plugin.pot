@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Podcast Core Plugin 0.2.1\n"
+"Project-Id-Version: Podcast Core Plugin 0.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/podcast-core-plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-26T06:03:44+00:00\n"
+"POT-Creation-Date: 2026-11-26T07:06:41+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: podcast-core-plugin\n"
@@ -52,6 +52,89 @@ msgstr ""
 msgid "Seek"
 msgstr ""
 
+#. translators: %d: HTTP status code
+#: includes/class-feed.php:36
+#, php-format
+msgid "The feed answered with HTTP status %d."
+msgstr ""
+
+#: includes/class-feed.php:49
+msgid "This address does not contain a valid RSS feed."
+msgstr ""
+
+#: includes/class-import-page.php:25
+#: includes/class-import-page.php:26
+#: includes/class-import-page.php:76
+#: includes/class-settings.php:71
+msgid "Import from RSS"
+msgstr ""
+
+#: includes/class-import-page.php:77
+msgid "Creates one episode for each item of your podcast feed: title, description, date, audio, duration, number, season and cover image. Episodes already on the site are recognised and never overwritten, so your edits are safe."
+msgstr ""
+
+#: includes/class-import-page.php:81
+msgid "Feed"
+msgstr ""
+
+#: includes/class-import-page.php:86
+msgid "Not set."
+msgstr ""
+
+#: includes/class-import-page.php:88
+msgid "Change in Settings → Podcast"
+msgstr ""
+
+#: includes/class-import-page.php:92
+#: includes/class-settings.php:73
+msgid "Automatic update"
+msgstr ""
+
+#. translators: %s: date and time
+#: includes/class-import-page.php:97
+#, php-format
+msgid "On — next check: %s"
+msgstr ""
+
+#: includes/class-import-page.php:99
+msgid "Off"
+msgstr ""
+
+#: includes/class-import-page.php:105
+msgid "Last update"
+msgstr ""
+
+#. translators: 1: imported episodes, 2: episodes already on the site
+#: includes/class-import-page.php:115
+#, php-format
+msgid "%1$d imported, %2$d already on the site"
+msgstr ""
+
+#: includes/class-import-page.php:118
+msgid "Never"
+msgstr ""
+
+#: includes/class-import-page.php:127
+msgid "Check the feed"
+msgstr ""
+
+#: includes/class-import-page.php:128
+msgid "Force update now"
+msgstr ""
+
+#: includes/class-importer.php:55
+#: includes/class-importer.php:106
+msgid "Set the feed address in Settings → Podcast first."
+msgstr ""
+
+#: includes/class-importer.php:58
+msgid "An import is already running. Try again in a few minutes."
+msgstr ""
+
+#: includes/class-importer.php:313
+msgid "The episode image is not a supported image type."
+msgstr ""
+
 #: includes/class-post-types.php:25
 msgid "Episodes"
 msgstr ""
@@ -61,8 +144,8 @@ msgid "Episode"
 msgstr ""
 
 #: includes/class-post-types.php:27
-#: includes/class-settings.php:110
-#: includes/class-settings.php:111
+#: includes/class-settings.php:127
+#: includes/class-settings.php:128
 msgid "Podcast"
 msgstr ""
 
@@ -151,55 +234,67 @@ msgstr ""
 msgid "&larr; Back to series"
 msgstr ""
 
-#: includes/class-settings.php:58
+#: includes/class-settings.php:60
 msgid "Addresses"
 msgstr ""
 
-#: includes/class-settings.php:59
+#: includes/class-settings.php:61
 msgid "Episodes base"
 msgstr ""
 
-#: includes/class-settings.php:59
+#: includes/class-settings.php:61
 msgid "URL of the episode archive, e.g. /episodes/"
 msgstr ""
 
-#: includes/class-settings.php:60
+#: includes/class-settings.php:62
 msgid "Series base"
 msgstr ""
 
-#: includes/class-settings.php:60
+#: includes/class-settings.php:62
 msgid "URL prefix of series pages, e.g. /series/name/"
 msgstr ""
 
-#: includes/class-settings.php:62
+#: includes/class-settings.php:64
 msgid "Show"
 msgstr ""
 
-#: includes/class-settings.php:63
+#: includes/class-settings.php:65
 msgid "Show name"
 msgstr ""
 
-#: includes/class-settings.php:63
+#: includes/class-settings.php:65
 msgid "Leave empty to use the site title."
 msgstr ""
 
-#: includes/class-settings.php:64
+#: includes/class-settings.php:66
 msgid "Spotify"
 msgstr ""
 
-#: includes/class-settings.php:65
+#: includes/class-settings.php:67
 msgid "Apple Podcasts"
 msgstr ""
 
-#: includes/class-settings.php:66
+#: includes/class-settings.php:68
 msgid "YouTube"
 msgstr ""
 
-#: includes/class-settings.php:67
+#: includes/class-settings.php:69
 msgid "RSS feed"
 msgstr ""
 
-#: includes/class-settings.php:121
+#: includes/class-settings.php:72
+msgid "Feed to import"
+msgstr ""
+
+#: includes/class-settings.php:72
+msgid "RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above."
+msgstr ""
+
+#: includes/class-settings.php:73
+msgid "Check the feed every hour and import new episodes."
+msgstr ""
+
+#: includes/class-settings.php:138
 msgid "Podcast settings"
 msgstr ""
 
@@ -228,31 +323,78 @@ msgid "HH:MM:SS, MM:SS or seconds."
 msgstr ""
 
 #: assets/js/episode-panel.js:63
+msgid "Episode page on the podcast platform"
+msgstr ""
+
+#: assets/js/episode-panel.js:64
+msgid "Filled in automatically by the RSS import (e.g. the Spotify episode page)."
+msgstr ""
+
+#: assets/js/episode-panel.js:72
 msgid "Video URL (YouTube, Vimeo…)"
 msgstr ""
 
-#: assets/js/sections-panel.js:66
-msgid "Select section"
+#: assets/js/import-page.js:19
+msgid "Something went wrong."
 msgstr ""
 
-#: assets/js/sections-panel.js:68
-msgid "Edit"
+#: assets/js/import-page.js:24
+msgid "Reading the feed…"
 msgstr ""
 
-#: assets/js/sections-panel.js:73
-msgid "Open a template or a page to see its sections."
+#: assets/js/import-page.js:27
+#, js-format
+msgid "%1$d episodes in the feed: %2$d new, %3$d already on the site."
 msgstr ""
 
-#: assets/js/sections-panel.js:78
-#: assets/js/sections-panel.js:81
-msgid "Sections"
+#: assets/js/import-page.js:46
+msgid "Importing… keep this page open."
+msgstr ""
+
+#: assets/js/import-page.js:57
+#, js-format
+msgid "Imported %1$d of %2$d new episodes…"
+msgstr ""
+
+#: assets/js/import-page.js:69
+#, js-format
+msgid "Done: %d new episodes imported."
+msgstr ""
+
+#: assets/js/import-page.js:70
+msgid "Everything is up to date: no new episodes."
+msgstr ""
+
+#: assets/js/import-page.js:72
+msgid "Problems:"
+msgstr ""
+
+#: assets/js/import-page.js:75
+msgid "Just now"
 msgstr ""
 
 #: assets/js/sections-panel.js:85
+msgid "Select section"
+msgstr ""
+
+#: assets/js/sections-panel.js:87
+msgid "Edit"
+msgstr ""
+
+#: assets/js/sections-panel.js:92
+msgid "Open a template or a page to see its sections."
+msgstr ""
+
+#: assets/js/sections-panel.js:97
+#: assets/js/sections-panel.js:100
+msgid "Sections"
+msgstr ""
+
+#: assets/js/sections-panel.js:104
 msgid "Switch sections on or off. Hidden sections stay in the page and can be switched back on at any time."
 msgstr ""
 
-#: assets/js/sections-panel.js:90
+#: assets/js/sections-panel.js:109
 msgid "Spacing and colours of each kind of section: Design → Styles → Blocks."
 msgstr ""
 

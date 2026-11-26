@@ -22,6 +22,7 @@ final class Episode_Meta {
 			'audio_url'      => array( 'string', 'esc_url_raw' ),
 			'duration'       => array( 'string', array( __CLASS__, 'sanitize_duration' ) ),
 			'video_url'      => array( 'string', 'esc_url_raw' ),
+			'source_url'     => array( 'string', 'esc_url_raw' ),
 		);
 	}
 
@@ -30,6 +31,17 @@ final class Episode_Meta {
 	}
 
 	public static function register(): void {
+		// Feed identifier of imported episodes (not editable).
+		register_post_meta(
+			PODCAST_CORE_EPISODE,
+			'podcast_core_guid',
+			array(
+				'type'          => 'string',
+				'single'        => true,
+				'show_in_rest'  => false,
+				'auth_callback' => '__return_false',
+			)
+		);
 		foreach ( self::fields() as $name => list( $type, $sanitize ) ) {
 			register_post_meta(
 				PODCAST_CORE_EPISODE,

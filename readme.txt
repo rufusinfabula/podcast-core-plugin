@@ -4,7 +4,7 @@ Tags: podcast, episodes, audio player, series
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.3.1
+Stable tag: 0.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +19,7 @@ Podcast Core Plugin turns WordPress into a home for your podcast:
 * An accessible audio player block with cover and optional video
 * schema.org PodcastEpisode structured data
 * Settings for archive URLs and the platforms where your show is available
+* Import from your podcast RSS feed (Spotify for Creators, Anchor, Spreaker…), with automatic hourly updates
 * A WP-CLI command to migrate episodes from other setups (e.g. CPT UI + ACF)
 
 No third-party plugins required. Works with any theme; pairs with Podcast Core Theme.
@@ -31,6 +32,9 @@ This plugin is in early development.
 2. Activate the plugin from the Plugins screen.
 
 == Changelog ==
+
+= 0.4.0 =
+* Import episodes from an RSS feed, with hourly automatic update and manual force update.
 
 = 0.3.1 =
 * Sections panel works when editing pages.

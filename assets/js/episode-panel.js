@@ -60,6 +60,15 @@
 				__nextHasNoMarginBottom: true,
 			} ),
 			el( TextControl, {
+				label: __( 'Episode page on the podcast platform', 'podcast-core-plugin' ),
+				help: __( 'Filled in automatically by the RSS import (e.g. the Spotify episode page).', 'podcast-core-plugin' ),
+				type: 'url',
+				value: meta.podcast_core_source_url || '',
+				onChange: ( v ) => set( 'podcast_core_source_url', v ),
+				__next40pxDefaultSize: true,
+				__nextHasNoMarginBottom: true,
+			} ),
+			el( TextControl, {
 				label: __( 'Video URL (YouTube, Vimeo…)', 'podcast-core-plugin' ),
 				type: 'url',
 				value: meta.podcast_core_video_url || '',

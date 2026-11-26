@@ -14,6 +14,7 @@ Lightweight, no third-party dependencies. Pairs with [Podcast Core Theme](https:
 - **Settings → Podcast**: archive and series URL bases, show name, platform links (Spotify, Apple Podcasts, YouTube, RSS)
 - **Section blocks** (Hero, Episodes section, News section, Call to action section): style every instance at once in *Design → Styles → Blocks*
 - **Sections panel** in the Site Editor: switch sections of a template on/off without deleting them
+- **Import from RSS**: one episode per feed item (text, audio, cover, number, season, date); hourly automatic update plus *Force update now*; local edits are never overwritten
 - WP-CLI migration from other setups (e.g. CPT UI + ACF)
 - Translation ready; Italian included
 
@@ -34,6 +35,17 @@ Templates: `single-podcast_episode.html`, `archive-podcast_episode.html`, `taxon
 Player styling: override the CSS custom properties on `.pc-player` (`--pc-accent`, `--pc-track`, `--pc-radius`, `--pc-gap`, `--pc-cover-size`, `--pc-button-size`) or target the `.pc-player__*` classes.
 
 Filter: `podcast_core_schema_episode` ( array $data, WP_Post $post ).
+
+## Importing from your podcast feed
+
+1. *Settings → Podcast → Import from RSS*: paste the RSS address of your show (Spotify for Creators, Anchor, Spreaker, Buzzsprout…) and choose whether to update automatically every hour.
+2. *Podcast → Import from RSS*: **Check the feed**, then **Force update now**. Episodes are imported in small batches with a progress bar.
+3. Edit any imported episode as usual: later updates only add new episodes.
+
+```bash
+wp podcast-core import --dry-run
+wp podcast-core import
+```
 
 ## Migrating existing episodes
 

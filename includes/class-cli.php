@@ -110,6 +110,59 @@ final class CLI {
 	}
 
 	/**
+	 * Imports episodes from the podcast RSS feed. Existing episodes are never changed.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--url=<url>]
+	 * : Feed address. Default: the one in Settings → Podcast.
+	 *
+	 * [--dry-run]
+	 * : Only count new and existing episodes.
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp podcast-core import --dry-run
+	 *     wp podcast-core import
+	 *
+	 * @param array $args       Positional args.
+	 * @param array $assoc_args Named args.
+	 */
+	public function import( array $args, array $assoc_args ): void {
+		if ( ! empty( $assoc_args['url'] ) ) {
+			add_filter(
+				'option_' . Settings::OPTION,
+				function ( $value ) use ( $assoc_args ) {
+					$value             = (array) $value;
+					$value['feed_url'] = $assoc_args['url'];
+					return $value;
+				}
+			);
+		}
+		if ( ! empty( $assoc_args['dry-run'] ) ) {
+			$preview = Importer::preview();
+			if ( is_wp_error( $preview ) ) {
+				WP_CLI::error( $preview->get_error_message() );
+			}
+			WP_CLI::log( sprintf( 'Feed: %s', Importer::feed_url() ) );
+			WP_CLI::log( sprintf( 'Episodes in feed: %d — new: %d — already on the site: %d', $preview['total'], $preview['new'], $preview['existing'] ) );
+			foreach ( $preview['sample'] as $title ) {
+				WP_CLI::log( '  + ' . $title );
+			}
+			return;
+		}
+		add_action( 'podcast_core_episode_imported', fn( $id, $e ) => WP_CLI::log( sprintf( '#%d %s', $id, $e['title'] ) ), 10, 2 );
+		$result = Importer::sync( 'cli' );
+		if ( is_wp_error( $result ) ) {
+			WP_CLI::error( $result->get_error_message() );
+		}
+		foreach ( $result['errors'] as $error ) {
+			WP_CLI::warning( $error );
+		}
+		WP_CLI::success( sprintf( '%d imported, %d already on the site.', $result['created'], $result['existing'] ) );
+	}
+
+	/**
 	 * Copies terms (keeping slug, description and hierarchy). Returns old_id => new_id.
 	 */
 	private function migrate_terms( string $from_tax, bool $dry_run ): array {

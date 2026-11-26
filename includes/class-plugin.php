@@ -33,6 +33,8 @@ final class Plugin {
 		Editor::init();
 		Blocks::init();
 		Schema::init();
+		Importer::init();
+		Import_Page::init();
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			\WP_CLI::add_command( 'podcast-core', CLI::class );
@@ -52,6 +54,7 @@ final class Plugin {
 	}
 
 	public static function deactivate(): void {
+		wp_clear_scheduled_hook( Importer::CRON_HOOK );
 		flush_rewrite_rules();
 	}
 }
