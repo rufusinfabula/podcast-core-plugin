@@ -24,7 +24,7 @@ final class Feed {
 			$url,
 			array(
 				'timeout'    => 30,
-				'user-agent' => 'Podcast Core Plugin/' . PODCAST_CORE_VERSION . '; ' . home_url( '/' ),
+				'user-agent' => 'Podcast Core Engine/' . PODCAST_CORE_VERSION . '; ' . home_url( '/' ),
 			)
 		);
 		if ( is_wp_error( $response ) ) {
@@ -33,7 +33,7 @@ final class Feed {
 		$code = wp_remote_retrieve_response_code( $response );
 		if ( 200 !== $code ) {
 			/* translators: %d: HTTP status code */
-			return new \WP_Error( 'podcast_core_feed_http', sprintf( __( 'The feed answered with HTTP status %d.', 'podcast-core-plugin' ), $code ) );
+			return new \WP_Error( 'podcast_core_feed_http', sprintf( __( 'The feed answered with HTTP status %d.', 'podcast-core-engine' ), $code ) );
 		}
 		return self::parse( wp_remote_retrieve_body( $response ) );
 	}
@@ -46,7 +46,7 @@ final class Feed {
 		$rss      = simplexml_load_string( $xml, 'SimpleXMLElement', LIBXML_NOCDATA | LIBXML_NONET );
 		libxml_use_internal_errors( $previous );
 		if ( ! $rss || ! isset( $rss->channel ) ) {
-			return new \WP_Error( 'podcast_core_feed_invalid', __( 'This address does not contain a valid RSS feed.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_feed_invalid', __( 'This address does not contain a valid RSS feed.', 'podcast-core-engine' ) );
 		}
 
 		$episodes = array();

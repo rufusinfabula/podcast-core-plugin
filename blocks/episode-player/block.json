@@ -12,7 +12,7 @@
     "player",
     "episode"
   ],
-  "textdomain": "podcast-core-plugin",
+  "textdomain": "podcast-core-engine",
   "usesContext": [
     "postId",
     "postType"

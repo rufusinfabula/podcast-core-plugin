@@ -63,57 +63,57 @@ final class Settings {
 			)
 		);
 
-		add_settings_section( 'podcast_core_urls', __( 'Addresses', 'podcast-core-plugin' ), '__return_false', self::PAGE );
-		self::field( 'episodes_slug', __( 'Episodes base', 'podcast-core-plugin' ), 'podcast_core_urls', 'text', __( 'URL of the episode archive, e.g. /episodes/', 'podcast-core-plugin' ) );
-		self::field( 'series_slug', __( 'Series base', 'podcast-core-plugin' ), 'podcast_core_urls', 'text', __( 'URL prefix of series pages, e.g. /series/name/', 'podcast-core-plugin' ) );
-		self::field( 'per_page', __( 'Episodes per page', 'podcast-core-plugin' ), 'podcast_core_urls', 'number', __( 'In the episode archive and on series pages. 0 = same as Settings → Reading.', 'podcast-core-plugin' ) );
+		add_settings_section( 'podcast_core_urls', __( 'Addresses', 'podcast-core-engine' ), '__return_false', self::PAGE );
+		self::field( 'episodes_slug', __( 'Episodes base', 'podcast-core-engine' ), 'podcast_core_urls', 'text', __( 'URL of the episode archive, e.g. /episodes/', 'podcast-core-engine' ) );
+		self::field( 'series_slug', __( 'Series base', 'podcast-core-engine' ), 'podcast_core_urls', 'text', __( 'URL prefix of series pages, e.g. /series/name/', 'podcast-core-engine' ) );
+		self::field( 'per_page', __( 'Episodes per page', 'podcast-core-engine' ), 'podcast_core_urls', 'number', __( 'In the episode archive and on series pages. 0 = same as Settings → Reading.', 'podcast-core-engine' ) );
 		self::field(
 			'order',
-			__( 'Episode order', 'podcast-core-plugin' ),
+			__( 'Episode order', 'podcast-core-engine' ),
 			'podcast_core_urls',
 			'select',
-			__( 'In the episode archive and on series pages. Each series can override it (Podcast → Series). Narrative shows usually list the first episode first.', 'podcast-core-plugin' ),
+			__( 'In the episode archive and on series pages. Each series can override it (Podcast → Series). Narrative shows usually list the first episode first.', 'podcast-core-engine' ),
 			array(
-				'desc' => __( 'Newest first', 'podcast-core-plugin' ),
-				'asc'  => __( 'Oldest first', 'podcast-core-plugin' ),
+				'desc' => __( 'Newest first', 'podcast-core-engine' ),
+				'asc'  => __( 'Oldest first', 'podcast-core-engine' ),
 			)
 		);
 
-		add_settings_section( 'podcast_core_show', __( 'Show', 'podcast-core-plugin' ), '__return_false', self::PAGE );
-		self::field( 'show_name', __( 'Show name', 'podcast-core-plugin' ), 'podcast_core_show', 'text', __( 'Leave empty to use the site title.', 'podcast-core-plugin' ) );
-		self::field( 'spotify_url', __( 'Spotify', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
-		self::field( 'apple_url', __( 'Apple Podcasts', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
-		self::field( 'youtube_url', __( 'YouTube', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
-		self::field( 'rss_url', __( 'RSS feed', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
-		self::field( 'newsletter_url', __( 'Email sign-up', 'podcast-core-plugin' ), 'podcast_core_show', 'url', __( 'Page where listeners sign up to get new episodes or your newsletter by email (Substack, Mailchimp, Brevo…). Used by the theme\'s sign-up buttons.', 'podcast-core-plugin' ) );
+		add_settings_section( 'podcast_core_show', __( 'Show', 'podcast-core-engine' ), '__return_false', self::PAGE );
+		self::field( 'show_name', __( 'Show name', 'podcast-core-engine' ), 'podcast_core_show', 'text', __( 'Leave empty to use the site title.', 'podcast-core-engine' ) );
+		self::field( 'spotify_url', __( 'Spotify', 'podcast-core-engine' ), 'podcast_core_show', 'url' );
+		self::field( 'apple_url', __( 'Apple Podcasts', 'podcast-core-engine' ), 'podcast_core_show', 'url' );
+		self::field( 'youtube_url', __( 'YouTube', 'podcast-core-engine' ), 'podcast_core_show', 'url' );
+		self::field( 'rss_url', __( 'RSS feed', 'podcast-core-engine' ), 'podcast_core_show', 'url' );
+		self::field( 'newsletter_url', __( 'Email sign-up', 'podcast-core-engine' ), 'podcast_core_show', 'url', __( 'Page where listeners sign up to get new episodes or your newsletter by email (Substack, Mailchimp, Brevo…). Used by the theme\'s sign-up buttons.', 'podcast-core-engine' ) );
 
-		add_settings_section( 'podcast_core_import', __( 'Import from RSS', 'podcast-core-plugin' ), '__return_false', self::PAGE );
-		self::field( 'feed_url', __( 'Feed to import', 'podcast-core-plugin' ), 'podcast_core_import', 'url', __( 'RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above.', 'podcast-core-plugin' ) );
-		self::field( 'auto_sync', __( 'Automatic update', 'podcast-core-plugin' ), 'podcast_core_import', 'checkbox', __( 'Check the feed every hour and import new episodes.', 'podcast-core-plugin' ) );
+		add_settings_section( 'podcast_core_import', __( 'Import from RSS', 'podcast-core-engine' ), '__return_false', self::PAGE );
+		self::field( 'feed_url', __( 'Feed to import', 'podcast-core-engine' ), 'podcast_core_import', 'url', __( 'RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above.', 'podcast-core-engine' ) );
+		self::field( 'auto_sync', __( 'Automatic update', 'podcast-core-engine' ), 'podcast_core_import', 'checkbox', __( 'Check the feed every hour and import new episodes.', 'podcast-core-engine' ) );
 		self::field(
 			'image_source',
-			__( 'Episode image', 'podcast-core-plugin' ),
+			__( 'Episode image', 'podcast-core-engine' ),
 			'podcast_core_import',
 			'select',
-			__( 'Spotify images are the horizontal covers shown in the Spotify app (640×360). If Spotify does not provide one, the feed image is used.', 'podcast-core-plugin' ),
+			__( 'Spotify images are the horizontal covers shown in the Spotify app (640×360). If Spotify does not provide one, the feed image is used.', 'podcast-core-engine' ),
 			array(
-				'feed'    => __( 'From the feed (usually square)', 'podcast-core-plugin' ),
-				'spotify' => __( 'From Spotify (horizontal 16:9)', 'podcast-core-plugin' ),
+				'feed'    => __( 'From the feed (usually square)', 'podcast-core-engine' ),
+				'spotify' => __( 'From Spotify (horizontal 16:9)', 'podcast-core-engine' ),
 			)
 		);
 
 		add_settings_section(
 			'podcast_core_spotify_api',
-			__( 'Spotify API (optional)', 'podcast-core-plugin' ),
+			__( 'Spotify API (optional)', 'podcast-core-engine' ),
 			function () {
-				echo '<p>' . esc_html__( 'Needed only if your podcast is not hosted on Spotify for Creators: the plugin then finds the Spotify link of each episode by itself (to get the Spotify image). Requires the show link in the "Spotify" field above.', 'podcast-core-plugin' ) . '</p>';
-				echo '<ol><li>' . wp_kses( __( 'Sign in on <a href="https://developer.spotify.com/dashboard" target="_blank" rel="noopener">developer.spotify.com/dashboard</a> and create an app (any name; Redirect URI: your site address; API: Web API).', 'podcast-core-plugin' ), array( 'a' => array( 'href' => array(), 'target' => array(), 'rel' => array() ) ) ) . '</li>';
-				echo '<li>' . esc_html__( 'Open the app settings and copy the Client ID and the Client Secret here.', 'podcast-core-plugin' ) . '</li></ol>';
+				echo '<p>' . esc_html__( 'Needed only if your podcast is not hosted on Spotify for Creators: the plugin then finds the Spotify link of each episode by itself (to get the Spotify image). Requires the show link in the "Spotify" field above.', 'podcast-core-engine' ) . '</p>';
+				echo '<ol><li>' . wp_kses( __( 'Sign in on <a href="https://developer.spotify.com/dashboard" target="_blank" rel="noopener">developer.spotify.com/dashboard</a> and create an app (any name; Redirect URI: your site address; API: Web API).', 'podcast-core-engine' ), array( 'a' => array( 'href' => array(), 'target' => array(), 'rel' => array() ) ) ) . '</li>';
+				echo '<li>' . esc_html__( 'Open the app settings and copy the Client ID and the Client Secret here.', 'podcast-core-engine' ) . '</li></ol>';
 			},
 			self::PAGE
 		);
-		self::field( 'spotify_client_id', __( 'Client ID', 'podcast-core-plugin' ), 'podcast_core_spotify_api', 'text' );
-		self::field( 'spotify_client_secret', __( 'Client Secret', 'podcast-core-plugin' ), 'podcast_core_spotify_api', 'password', __( 'Stored and never shown again. Leave empty to keep the saved one.', 'podcast-core-plugin' ) );
+		self::field( 'spotify_client_id', __( 'Client ID', 'podcast-core-engine' ), 'podcast_core_spotify_api', 'text' );
+		self::field( 'spotify_client_secret', __( 'Client Secret', 'podcast-core-engine' ), 'podcast_core_spotify_api', 'password', __( 'Stored and never shown again. Leave empty to keep the saved one.', 'podcast-core-engine' ) );
 	}
 
 	private static function field( string $key, string $label, string $section, string $type, string $help = '', array $options = array() ): void {
@@ -197,8 +197,8 @@ final class Settings {
 
 	public static function add_page(): void {
 		add_options_page(
-			__( 'Podcast', 'podcast-core-plugin' ),
-			__( 'Podcast', 'podcast-core-plugin' ),
+			__( 'Podcast', 'podcast-core-engine' ),
+			__( 'Podcast', 'podcast-core-engine' ),
 			'manage_options',
 			self::PAGE,
 			array( __CLASS__, 'render_page' )
@@ -208,7 +208,7 @@ final class Settings {
 	public static function render_page(): void {
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Podcast settings', 'podcast-core-plugin' ); ?></h1>
+			<h1><?php esc_html_e( 'Podcast settings', 'podcast-core-engine' ); ?></h1>
 			<form action="options.php" method="post">
 				<?php
 				settings_fields( self::PAGE );

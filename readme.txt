@@ -1,10 +1,10 @@
-=== Podcast Core Plugin ===
+=== Podcast Core Engine ===
 Contributors: rufusinfabula
 Tags: podcast, episodes, audio player, rss import, spotify
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.8.1
+Stable tag: 0.9.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Publish your podcast on WordPress: episodes, series, a sticky audio player and a
 
 == Description ==
 
-Podcast Core Plugin turns WordPress into the home of your podcast. Paste your RSS feed: every episode becomes a page on your site, with its player, cover, number and description — and new episodes arrive by themselves.
+Podcast Core Engine turns WordPress into the home of your podcast. Paste your RSS feed: every episode becomes a page on your site, with its player, cover, number and description — and new episodes arrive by themselves.
 
 = Episodes and series =
 
@@ -40,11 +40,11 @@ Podcast Core Plugin turns WordPress into the home of your podcast. Paste your RS
 * WP-CLI commands: `wp podcast-core import`, `wp podcast-core images`, `wp podcast-core migrate` (from other setups such as CPT UI + ACF).
 * No third-party plugins required. Translation ready; Italian included.
 
-Works with any theme; designed together with **Podcast Core Theme**.
+Works with any theme; designed together with **Podcast Core Studio**.
 
 == Installation ==
 
-1. In your admin area, go to Plugins → Add New Plugin, search for "Podcast Core Plugin" and install it, or upload the plugin zip.
+1. In your admin area, go to Plugins → Add New Plugin, search for "Podcast Core Engine" and install it, or upload the plugin zip.
 2. Activate the plugin.
 3. Go to Settings → Podcast: paste your podcast RSS feed in *Feed to import* and choose the episode image source.
 4. Go to Podcast → Import from RSS and click *Force update now*.
@@ -72,6 +72,9 @@ Settings → Podcast → Episode image → From Spotify. If your show is not hos
 Yes: Settings → Podcast → Episode order → Oldest first. Each series can also have its own order (Podcast → Series).
 
 == Changelog ==
+
+= 0.9.0 =
+* Renamed to Podcast Core Engine (was Podcast Core Plugin). Settings and content are unchanged.
 
 = 0.8.0 =
 * Bulk series assignment, series filter and number/season columns in the episodes list.

@@ -43,7 +43,7 @@ final class Plugin {
 	}
 
 	public function load_textdomain(): void {
-		load_plugin_textdomain( 'podcast-core-plugin', false, dirname( plugin_basename( PODCAST_CORE_FILE ) ) . '/languages' );
+		load_plugin_textdomain( 'podcast-core-engine', false, dirname( plugin_basename( PODCAST_CORE_FILE ) ) . '/languages' );
 	}
 
 	/**

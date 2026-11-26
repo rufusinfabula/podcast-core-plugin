@@ -20,16 +20,16 @@
 	const fail = ( e ) => {
 		busy( false );
 		bar.style.display = 'none';
-		say( '<strong>' + esc( e.message || __( 'Something went wrong.', 'podcast-core-plugin' ) ) + '</strong>' );
+		say( '<strong>' + esc( e.message || __( 'Something went wrong.', 'podcast-core-engine' ) ) + '</strong>' );
 	};
 
 	previewBtn.addEventListener( 'click', async () => {
 		busy( true );
-		say( __( 'Reading the feed…', 'podcast-core-plugin' ) );
+		say( __( 'Reading the feed…', 'podcast-core-engine' ) );
 		try {
 			const p = await wp.apiFetch( { path: '/podcast-core/v1/import/preview' } );
 			// translators: 1: episodes in the feed, 2: new episodes, 3: episodes already on the site.
-			let html = sprintf( __( '%1$d episodes in the feed: %2$d new, %3$d already on the site.', 'podcast-core-plugin' ), p.total, p.new, p.existing );
+			let html = sprintf( __( '%1$d episodes in the feed: %2$d new, %3$d already on the site.', 'podcast-core-engine' ), p.total, p.new, p.existing );
 			if ( p.sample.length ) {
 				html += '</p><ul style="list-style:disc;margin-left:2em">' + p.sample.map( ( t ) => '<li>' + esc( t ) + '</li>' ).join( '' ) + ( p.new > p.sample.length ? '<li>…</li>' : '' ) + '</ul><p>';
 			}
@@ -48,7 +48,7 @@
 		let total = null;
 		bar.style.display = 'block';
 		bar.value = 0;
-		say( __( 'Importing… keep this page open.', 'podcast-core-plugin' ) );
+		say( __( 'Importing… keep this page open.', 'podcast-core-engine' ) );
 		try {
 			// Each request imports a small batch (images are downloaded), until nothing is left.
 			for ( ;; ) {
@@ -60,7 +60,7 @@
 				}
 				bar.value = total ? Math.round( ( created / total ) * 100 ) : 100;
 				// translators: 1: episodes imported so far, 2: new episodes to import.
-				say( sprintf( __( 'Imported %1$d of %2$d new episodes…', 'podcast-core-plugin' ), created, total ) );
+				say( sprintf( __( 'Imported %1$d of %2$d new episodes…', 'podcast-core-engine' ), created, total ) );
 				if ( ! r.pending || ! r.created ) {
 					break;
 				}
@@ -73,13 +73,13 @@
 		busy( false );
 		let html = created
 			? // translators: %d: number of imported episodes.
-			  sprintf( __( 'Done: %d new episodes imported.', 'podcast-core-plugin' ), created )
-			: __( 'Everything is up to date: no new episodes.', 'podcast-core-plugin' );
+			  sprintf( __( 'Done: %d new episodes imported.', 'podcast-core-engine' ), created )
+			: __( 'Everything is up to date: no new episodes.', 'podcast-core-engine' );
 		if ( errors.length ) {
-			html += '</p><p><strong>' + __( 'Problems:', 'podcast-core-plugin' ) + '</strong></p><ul style="list-style:disc;margin-left:2em">' + errors.map( ( e ) => '<li>' + esc( e ) + '</li>' ).join( '' ) + '</ul><p>';
+			html += '</p><p><strong>' + __( 'Problems:', 'podcast-core-engine' ) + '</strong></p><ul style="list-style:disc;margin-left:2em">' + errors.map( ( e ) => '<li>' + esc( e ) + '</li>' ).join( '' ) + '</ul><p>';
 		}
 		say( html );
-		document.getElementById( 'pc-import-last' ).textContent = __( 'Just now', 'podcast-core-plugin' );
+		document.getElementById( 'pc-import-last' ).textContent = __( 'Just now', 'podcast-core-engine' );
 	} );
 
 	if ( imagesBtn ) {
@@ -90,7 +90,7 @@
 			let done = 0;
 			let total = null;
 			let errors = [];
-			say( __( 'Downloading images from Spotify… keep this page open.', 'podcast-core-plugin' ) );
+			say( __( 'Downloading images from Spotify… keep this page open.', 'podcast-core-engine' ) );
 			try {
 				for ( ;; ) {
 					const r = await wp.apiFetch( { path: '/podcast-core/v1/import/images', method: 'POST' } );
@@ -101,7 +101,7 @@
 					errors = errors.concat( r.errors );
 					bar.value = total ? Math.round( ( ( total - r.remaining ) / total ) * 100 ) : 100;
 					// translators: 1: images updated so far, 2: images to update.
-					say( sprintf( __( 'Updated %1$d of %2$d images…', 'podcast-core-plugin' ), done, total ) );
+					say( sprintf( __( 'Updated %1$d of %2$d images…', 'podcast-core-engine' ), done, total ) );
 					if ( ! r.remaining ) {
 						break;
 					}
@@ -113,9 +113,9 @@
 			bar.value = 100;
 			busy( false );
 			// translators: %d: number of updated images.
-			let html = sprintf( __( 'Done: %d images updated.', 'podcast-core-plugin' ), done );
+			let html = sprintf( __( 'Done: %d images updated.', 'podcast-core-engine' ), done );
 			if ( errors.length ) {
-				html += '</p><p><strong>' + __( 'Kept the feed image for:', 'podcast-core-plugin' ) + '</strong></p><ul style="list-style:disc;margin-left:2em">' + errors.map( ( e ) => '<li>' + esc( e ) + '</li>' ).join( '' ) + '</ul><p>';
+				html += '</p><p><strong>' + __( 'Kept the feed image for:', 'podcast-core-engine' ) + '</strong></p><ul style="list-style:disc;margin-left:2em">' + errors.map( ( e ) => '<li>' + esc( e ) + '</li>' ).join( '' ) + '</ul><p>';
 			}
 			say( html );
 		} );

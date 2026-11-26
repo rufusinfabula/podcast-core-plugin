@@ -82,31 +82,31 @@
 								variant: 'tertiary',
 								size: 'small',
 								onClick: () => selectBlock( block.clientId ),
-								label: __( 'Select section', 'podcast-core-plugin' ),
+								label: __( 'Select section', 'podcast-core-engine' ),
 								showTooltip: true,
-								children: __( 'Edit', 'podcast-core-plugin' ),
+								children: __( 'Edit', 'podcast-core-engine' ),
 							} )
 						)
 					)
 			  )
-			: el( 'p', null, __( 'Open a template or a page to see its sections.', 'podcast-core-plugin' ) );
+			: el( 'p', null, __( 'Open a template or a page to see its sections.', 'podcast-core-engine' ) );
 
 		return el(
 			Fragment,
 			null,
-			el( PluginSidebarMoreMenuItem, { target: 'podcast-core-sections', icon: 'layout' }, __( 'Sections', 'podcast-core-plugin' ) ),
+			el( PluginSidebarMoreMenuItem, { target: 'podcast-core-sections', icon: 'layout' }, __( 'Sections', 'podcast-core-engine' ) ),
 			el(
 				PluginSidebar,
-				{ name: 'podcast-core-sections', title: __( 'Sections', 'podcast-core-plugin' ), icon: 'layout' },
+				{ name: 'podcast-core-sections', title: __( 'Sections', 'podcast-core-engine' ), icon: 'layout' },
 				el(
 					PanelBody,
 					null,
-					el( 'p', { style: { marginTop: 0 } }, __( 'Switch sections on or off. Hidden sections stay in the page and can be switched back on at any time.', 'podcast-core-plugin' ) ),
+					el( 'p', { style: { marginTop: 0 } }, __( 'Switch sections on or off. Hidden sections stay in the page and can be switched back on at any time.', 'podcast-core-engine' ) ),
 					content,
 					el(
 						'p',
 						{ style: { color: '#757575', fontSize: '12px' } },
-						__( 'Spacing and colours of each kind of section: Design → Styles → Blocks.', 'podcast-core-plugin' )
+						__( 'Spacing and colours of each kind of section: Design → Styles → Blocks.', 'podcast-core-engine' )
 					)
 				)
 			)

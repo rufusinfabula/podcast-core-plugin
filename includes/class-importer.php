@@ -52,10 +52,10 @@ final class Importer {
 	public static function sync( string $trigger = 'manual', ?int $limit = null ) {
 		$url = self::feed_url();
 		if ( '' === $url ) {
-			return new \WP_Error( 'podcast_core_no_feed', __( 'Set the feed address in Settings → Podcast first.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_no_feed', __( 'Set the feed address in Settings → Podcast first.', 'podcast-core-engine' ) );
 		}
 		if ( get_transient( self::LOCK ) ) {
-			return new \WP_Error( 'podcast_core_locked', __( 'An import is already running. Try again in a few minutes.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_locked', __( 'An import is already running. Try again in a few minutes.', 'podcast-core-engine' ) );
 		}
 		set_transient( self::LOCK, 1, 30 * MINUTE_IN_SECONDS );
 
@@ -104,7 +104,7 @@ final class Importer {
 	public static function preview() {
 		$url = self::feed_url();
 		if ( '' === $url ) {
-			return new \WP_Error( 'podcast_core_no_feed', __( 'Set the feed address in Settings → Podcast first.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_no_feed', __( 'Set the feed address in Settings → Podcast first.', 'podcast-core-engine' ) );
 		}
 		$episodes = Feed::fetch( $url );
 		if ( is_wp_error( $episodes ) ) {
@@ -312,7 +312,7 @@ final class Importer {
 		);
 		if ( ! isset( $exts[ $mime ] ) ) {
 			wp_delete_file( $tmp );
-			return new \WP_Error( 'podcast_core_image_type', __( 'The episode image is not a supported image type.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_image_type', __( 'The episode image is not a supported image type.', 'podcast-core-engine' ) );
 		}
 		$file = array(
 			'name'     => sanitize_title( mb_substr( $title, 0, 60 ) ) . '.' . $exts[ $mime ],

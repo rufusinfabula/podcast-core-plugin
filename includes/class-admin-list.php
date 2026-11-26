@@ -33,10 +33,10 @@ final class Admin_List {
 			return;
 		}
 		$current = isset( $_GET[ PODCAST_CORE_SERIES ] ) ? sanitize_title( wp_unslash( $_GET[ PODCAST_CORE_SERIES ] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		echo '<label class="screen-reader-text" for="podcast-core-series-filter">' . esc_html__( 'Filter by series', 'podcast-core-plugin' ) . '</label>';
+		echo '<label class="screen-reader-text" for="podcast-core-series-filter">' . esc_html__( 'Filter by series', 'podcast-core-engine' ) . '</label>';
 		echo '<select name="' . esc_attr( PODCAST_CORE_SERIES ) . '" id="podcast-core-series-filter">';
-		printf( '<option value="">%s</option>', esc_html__( 'All series', 'podcast-core-plugin' ) );
-		printf( '<option value="%s" %s>%s</option>', esc_attr( self::NONE ), selected( $current, self::NONE, false ), esc_html__( '— No series —', 'podcast-core-plugin' ) );
+		printf( '<option value="">%s</option>', esc_html__( 'All series', 'podcast-core-engine' ) );
+		printf( '<option value="%s" %s>%s</option>', esc_attr( self::NONE ), selected( $current, self::NONE, false ), esc_html__( '— No series —', 'podcast-core-engine' ) );
 		foreach ( self::series() as $term ) {
 			printf( '<option value="%s" %s>%s (%d)</option>', esc_attr( $term->slug ), selected( $current, $term->slug, false ), esc_html( $term->name ), (int) $term->count );
 		}
@@ -91,13 +91,13 @@ final class Admin_List {
 		$move = array();
 		foreach ( $series as $term ) {
 			/* translators: %s: series name */
-			$add[ 'podcast_core_add_' . $term->term_id ] = sprintf( __( 'Add to “%s”', 'podcast-core-plugin' ), $term->name );
+			$add[ 'podcast_core_add_' . $term->term_id ] = sprintf( __( 'Add to “%s”', 'podcast-core-engine' ), $term->name );
 			/* translators: %s: series name */
-			$move[ 'podcast_core_move_' . $term->term_id ] = sprintf( __( 'Move to “%s” (only this series)', 'podcast-core-plugin' ), $term->name );
+			$move[ 'podcast_core_move_' . $term->term_id ] = sprintf( __( 'Move to “%s” (only this series)', 'podcast-core-engine' ), $term->name );
 		}
-		$actions[ __( 'Series: add', 'podcast-core-plugin' ) ]  = $add;
-		$actions[ __( 'Series: move', 'podcast-core-plugin' ) ] = $move;
-		$actions[ __( 'Series: remove', 'podcast-core-plugin' ) ] = array( 'podcast_core_remove' => __( 'Remove from all series', 'podcast-core-plugin' ) );
+		$actions[ __( 'Series: add', 'podcast-core-engine' ) ]  = $add;
+		$actions[ __( 'Series: move', 'podcast-core-engine' ) ] = $move;
+		$actions[ __( 'Series: remove', 'podcast-core-engine' ) ] = array( 'podcast_core_remove' => __( 'Remove from all series', 'podcast-core-engine' ) );
 		return $actions;
 	}
 
@@ -149,13 +149,13 @@ final class Admin_List {
 		$name = $term && ! is_wp_error( $term ) ? $term->name : '';
 		if ( 'remove' === $op ) {
 			/* translators: %d: number of episodes */
-			$text = sprintf( _n( '%d episode removed from all series.', '%d episodes removed from all series.', $done, 'podcast-core-plugin' ), $done );
+			$text = sprintf( _n( '%d episode removed from all series.', '%d episodes removed from all series.', $done, 'podcast-core-engine' ), $done );
 		} elseif ( 'move' === $op ) {
 			/* translators: 1: number of episodes, 2: series name */
-			$text = sprintf( _n( '%1$d episode moved to “%2$s”.', '%1$d episodes moved to “%2$s”.', $done, 'podcast-core-plugin' ), $done, $name );
+			$text = sprintf( _n( '%1$d episode moved to “%2$s”.', '%1$d episodes moved to “%2$s”.', $done, 'podcast-core-engine' ), $done, $name );
 		} else {
 			/* translators: 1: number of episodes, 2: series name */
-			$text = sprintf( _n( '%1$d episode added to “%2$s”.', '%1$d episodes added to “%2$s”.', $done, 'podcast-core-plugin' ), $done, $name );
+			$text = sprintf( _n( '%1$d episode added to “%2$s”.', '%1$d episodes added to “%2$s”.', $done, 'podcast-core-engine' ), $done, $name );
 		}
 		printf( '<div class="notice notice-success is-dismissible"><p>%s</p></div>', esc_html( $text ) );
 	}
@@ -166,11 +166,11 @@ final class Admin_List {
 		$out = array();
 		foreach ( $columns as $key => $label ) {
 			if ( 'title' === $key ) {
-				$out['podcast_core_number'] = _x( 'No.', 'episode number column', 'podcast-core-plugin' );
+				$out['podcast_core_number'] = _x( 'No.', 'episode number column', 'podcast-core-engine' );
 			}
 			$out[ $key ] = $label;
 			if ( 'title' === $key ) {
-				$out['podcast_core_season'] = __( 'Season', 'podcast-core-plugin' );
+				$out['podcast_core_season'] = __( 'Season', 'podcast-core-engine' );
 			}
 		}
 		return $out;

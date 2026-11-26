@@ -26,7 +26,7 @@ final class Editor {
 			PODCAST_CORE_VERSION,
 			true
 		);
-		wp_set_script_translations( 'podcast-core-sections-panel', 'podcast-core-plugin', PODCAST_CORE_DIR . 'languages' );
+		wp_set_script_translations( 'podcast-core-sections-panel', 'podcast-core-engine', PODCAST_CORE_DIR . 'languages' );
 
 		if ( ! $screen || PODCAST_CORE_EPISODE !== $screen->post_type ) {
 			return;
@@ -38,6 +38,6 @@ final class Editor {
 			PODCAST_CORE_VERSION,
 			true
 		);
-		wp_set_script_translations( 'podcast-core-episode-panel', 'podcast-core-plugin', PODCAST_CORE_DIR . 'languages' );
+		wp_set_script_translations( 'podcast-core-episode-panel', 'podcast-core-engine', PODCAST_CORE_DIR . 'languages' );
 	}
 }

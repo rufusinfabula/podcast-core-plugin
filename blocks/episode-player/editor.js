@@ -25,10 +25,10 @@
 					null,
 					el(
 						PanelBody,
-						{ title: __( 'Display', 'podcast-core-plugin' ) },
-						toggle( 'showCover', __( 'Show cover image', 'podcast-core-plugin' ) ),
-						toggle( 'showNumber', __( 'Show episode number', 'podcast-core-plugin' ) ),
-						toggle( 'showVideo', __( 'Show video', 'podcast-core-plugin' ) )
+						{ title: __( 'Display', 'podcast-core-engine' ) },
+						toggle( 'showCover', __( 'Show cover image', 'podcast-core-engine' ) ),
+						toggle( 'showNumber', __( 'Show episode number', 'podcast-core-engine' ) ),
+						toggle( 'showVideo', __( 'Show video', 'podcast-core-engine' ) )
 					)
 				),
 				el(
@@ -42,7 +42,7 @@
 							el(
 								'p',
 								{ className: 'pc-player__placeholder' },
-								__( 'Episode player: set an audio URL in "Episode details" to see it here.', 'podcast-core-plugin' )
+								__( 'Episode player: set an audio URL in "Episode details" to see it here.', 'podcast-core-engine' )
 							),
 					} )
 				)

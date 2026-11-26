@@ -1,41 +1,43 @@
-# Copyright (C) 2026 Fabio Ranfi Solutions
+# Copyright (C) 2026 Rufusinfabula
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Podcast Core Plugin 0.8.1\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/podcast-core-plugin\n"
+"Project-Id-Version: Podcast Core Engine 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/podcast-core-engine\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: it_IT\n"
 "MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-26T10:32:52+00:00\n"
+"POT-Creation-Date: 2026-11-25T19:25:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: podcast-core-plugin\n"
+"X-Domain: podcast-core-engine\n"
 
 #. Plugin Name of the plugin
-#: podcast-core-plugin.php
-msgid "Podcast Core Plugin"
+#: podcast-core-engine.php
+msgid "Podcast Core Engine"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: podcast-core-plugin.php
-msgid "https://github.com/rufusinfabula/podcast-core-plugin"
+#: podcast-core-engine.php
+msgid "https://github.com/rufusinfabula/podcast-core-engine"
 msgstr ""
 
 #. Description of the plugin
-#: podcast-core-plugin.php
+#: podcast-core-engine.php
 msgid "Publish your podcast on WordPress: episodes, series, a sticky audio player and automatic import from your RSS feed (Spotify, Spreaker…)."
-msgstr ""
+msgstr "Pubblica il tuo podcast su WordPress: episodi, serie, player audio fisso e import automatico dal feed RSS (Spotify, Spreaker…)."
 
 #. Author of the plugin
-#: podcast-core-plugin.php
+#: podcast-core-engine.php
 msgid "Fabio Ranfi Solutions"
 msgstr ""
 
 #. Author URI of the plugin
-#: podcast-core-plugin.php
+#: podcast-core-engine.php
 msgid "https://github.com/rufusinfabula"
 msgstr ""
 
@@ -43,363 +45,363 @@ msgstr ""
 #: blocks/episode-player/render.php:49
 #, php-format
 msgid "Episode %s"
-msgstr ""
+msgstr "Episodio %s"
 
 #: blocks/episode-player/render.php:58
 msgid "Play"
-msgstr ""
+msgstr "Riproduci"
 
 #: blocks/episode-player/render.php:58
 msgid "Pause"
-msgstr ""
+msgstr "Pausa"
 
 #: blocks/episode-player/render.php:61
 msgid "Seek"
-msgstr ""
+msgstr "Posizione di ascolto"
 
 #: includes/class-admin-list.php:36
 msgid "Filter by series"
-msgstr ""
+msgstr "Filtra per serie"
 
 #: includes/class-admin-list.php:38
 #: includes/class-post-types.php:165
 msgid "All series"
-msgstr ""
+msgstr "Tutte le serie"
 
 #: includes/class-admin-list.php:39
 msgid "— No series —"
-msgstr ""
+msgstr "— Senza serie —"
 
 #. translators: %s: series name
 #: includes/class-admin-list.php:94
 #, php-format
 msgid "Add to “%s”"
-msgstr ""
+msgstr "Aggiungi a «%s»"
 
 #. translators: %s: series name
 #: includes/class-admin-list.php:96
 #, php-format
 msgid "Move to “%s” (only this series)"
-msgstr ""
+msgstr "Sposta in «%s» (solo questa serie)"
 
 #: includes/class-admin-list.php:98
 msgid "Series: add"
-msgstr ""
+msgstr "Serie: aggiungi"
 
 #: includes/class-admin-list.php:99
 msgid "Series: move"
-msgstr ""
+msgstr "Serie: sposta"
 
 #: includes/class-admin-list.php:100
 msgid "Series: remove"
-msgstr ""
+msgstr "Serie: rimuovi"
 
 #: includes/class-admin-list.php:100
 msgid "Remove from all series"
-msgstr ""
+msgstr "Rimuovi da tutte le serie"
 
 #. translators: %d: number of episodes
 #: includes/class-admin-list.php:152
 #, php-format
 msgid "%d episode removed from all series."
 msgid_plural "%d episodes removed from all series."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d episodio rimosso da tutte le serie."
+msgstr[1] "%d episodi rimossi da tutte le serie."
 
 #. translators: 1: number of episodes, 2: series name
 #: includes/class-admin-list.php:155
 #, php-format
 msgid "%1$d episode moved to “%2$s”."
 msgid_plural "%1$d episodes moved to “%2$s”."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d episodio spostato in «%2$s»."
+msgstr[1] "%1$d episodi spostati in «%2$s»."
 
 #. translators: 1: number of episodes, 2: series name
 #: includes/class-admin-list.php:158
 #, php-format
 msgid "%1$d episode added to “%2$s”."
 msgid_plural "%1$d episodes added to “%2$s”."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$d episodio aggiunto a «%2$s»."
+msgstr[1] "%1$d episodi aggiunti a «%2$s»."
 
 #: includes/class-admin-list.php:169
 msgctxt "episode number column"
 msgid "No."
-msgstr ""
+msgstr "N."
 
 #: includes/class-admin-list.php:173
 #: assets/js/episode-panel.js:40
 msgid "Season"
-msgstr ""
+msgstr "Stagione"
 
 #. translators: %d: HTTP status code
 #: includes/class-feed.php:36
 #, php-format
 msgid "The feed answered with HTTP status %d."
-msgstr ""
+msgstr "Il feed ha risposto con lo stato HTTP %d."
 
 #: includes/class-feed.php:49
 msgid "This address does not contain a valid RSS feed."
-msgstr ""
+msgstr "Questo indirizzo non contiene un feed RSS valido."
 
 #: includes/class-import-page.php:25
 #: includes/class-import-page.php:26
 #: includes/class-import-page.php:116
 #: includes/class-settings.php:90
 msgid "Import from RSS"
-msgstr ""
+msgstr "Importa da RSS"
 
 #: includes/class-import-page.php:117
 msgid "Creates one episode for each item of your podcast feed: title, description, date, audio, duration, number, season and cover image. Episodes already on the site are recognised and never overwritten, so your edits are safe."
-msgstr ""
+msgstr "Crea un episodio per ogni elemento del feed del podcast: titolo, descrizione, data, audio, durata, numero, stagione e immagine. Gli episodi già presenti vengono riconosciuti e mai sovrascritti, quindi le tue modifiche sono al sicuro."
 
 #: includes/class-import-page.php:121
 msgid "Feed"
-msgstr ""
+msgstr "Feed"
 
 #: includes/class-import-page.php:126
 msgid "Not set."
-msgstr ""
+msgstr "Non impostato."
 
 #: includes/class-import-page.php:128
 msgid "Change in Settings → Podcast"
-msgstr ""
+msgstr "Modifica in Impostazioni → Podcast"
 
 #: includes/class-import-page.php:132
 #: includes/class-settings.php:92
 msgid "Automatic update"
-msgstr ""
+msgstr "Aggiornamento automatico"
 
 #. translators: %s: date and time
 #: includes/class-import-page.php:137
 #, php-format
 msgid "On — next check: %s"
-msgstr ""
+msgstr "Attivo — prossimo controllo: %s"
 
 #: includes/class-import-page.php:139
 msgid "Off"
-msgstr ""
+msgstr "Disattivato"
 
 #: includes/class-import-page.php:145
 msgid "Spotify API"
-msgstr ""
+msgstr "API Spotify"
 
 #. translators: %s: show name on Spotify
 #: includes/class-import-page.php:154
 #, php-format
 msgid "Connected — show: %s"
-msgstr ""
+msgstr "Collegata — programma: %s"
 
 #: includes/class-import-page.php:157
 msgid "Not configured (optional)"
-msgstr ""
+msgstr "Non configurata (facoltativa)"
 
 #: includes/class-import-page.php:163
 msgid "Last update"
-msgstr ""
+msgstr "Ultimo aggiornamento"
 
 #. translators: 1: imported episodes, 2: episodes already on the site
 #: includes/class-import-page.php:173
 #, php-format
 msgid "%1$d imported, %2$d already on the site"
-msgstr ""
+msgstr "%1$d importati, %2$d già presenti"
 
 #: includes/class-import-page.php:176
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: includes/class-import-page.php:185
 msgid "Check the feed"
-msgstr ""
+msgstr "Controlla il feed"
 
 #: includes/class-import-page.php:186
 msgid "Force update now"
-msgstr ""
+msgstr "Forza aggiornamento ora"
 
 #: includes/class-import-page.php:187
 msgid "Update images from Spotify"
-msgstr ""
+msgstr "Aggiorna immagini da Spotify"
 
 #: includes/class-import-page.php:189
 msgid "Update images from Spotify: replaces the feed image of existing episodes with the horizontal cover shown on Spotify. Images you chose by hand are kept."
-msgstr ""
+msgstr "Aggiorna immagini da Spotify: sostituisce l'immagine del feed degli episodi esistenti con la copertina orizzontale mostrata su Spotify. Le immagini scelte a mano restano."
 
 #: includes/class-importer.php:55
 #: includes/class-importer.php:107
 msgid "Set the feed address in Settings → Podcast first."
-msgstr ""
+msgstr "Prima imposta l'indirizzo del feed in Impostazioni → Podcast."
 
 #: includes/class-importer.php:58
 msgid "An import is already running. Try again in a few minutes."
-msgstr ""
+msgstr "È già in corso un import. Riprova tra qualche minuto."
 
 #: includes/class-importer.php:315
 msgid "The episode image is not a supported image type."
-msgstr ""
+msgstr "L'immagine dell'episodio non è in un formato supportato."
 
 #: includes/class-post-types.php:47
 msgid "As in Settings → Podcast"
-msgstr ""
+msgstr "Come in Impostazioni → Podcast"
 
 #: includes/class-post-types.php:48
 #: includes/class-settings.php:77
 msgid "Newest first"
-msgstr ""
+msgstr "Dal più recente"
 
 #: includes/class-post-types.php:49
 #: includes/class-settings.php:78
 msgid "Oldest first"
-msgstr ""
+msgstr "Dal più vecchio"
 
 #: includes/class-post-types.php:62
 #: includes/class-post-types.php:72
 #: includes/class-settings.php:72
 msgid "Episode order"
-msgstr ""
+msgstr "Ordine degli episodi"
 
 #: includes/class-post-types.php:64
 #: includes/class-post-types.php:74
 msgid "Order of the episodes on this series page."
-msgstr ""
+msgstr "Ordine degli episodi nella pagina di questa serie."
 
 #: includes/class-post-types.php:128
 msgid "Episodes"
-msgstr ""
+msgstr "Episodi"
 
 #: includes/class-post-types.php:129
 msgid "Episode"
-msgstr ""
+msgstr "Episodio"
 
 #: includes/class-post-types.php:130
 #: includes/class-settings.php:200
 #: includes/class-settings.php:201
 msgid "Podcast"
-msgstr ""
+msgstr "Podcast"
 
 #: includes/class-post-types.php:131
 msgid "All episodes"
-msgstr ""
+msgstr "Tutti gli episodi"
 
 #: includes/class-post-types.php:132
 msgid "Add new episode"
-msgstr ""
+msgstr "Aggiungi nuovo episodio"
 
 #: includes/class-post-types.php:133
 msgid "Add episode"
-msgstr ""
+msgstr "Aggiungi episodio"
 
 #: includes/class-post-types.php:134
 msgid "Edit episode"
-msgstr ""
+msgstr "Modifica episodio"
 
 #: includes/class-post-types.php:135
 msgid "New episode"
-msgstr ""
+msgstr "Nuovo episodio"
 
 #: includes/class-post-types.php:136
 msgid "View episode"
-msgstr ""
+msgstr "Visualizza episodio"
 
 #: includes/class-post-types.php:137
 msgid "View episodes"
-msgstr ""
+msgstr "Visualizza episodi"
 
 #: includes/class-post-types.php:138
 msgid "Search episodes"
-msgstr ""
+msgstr "Cerca episodi"
 
 #: includes/class-post-types.php:139
 msgid "No episodes found."
-msgstr ""
+msgstr "Nessun episodio trovato."
 
 #: includes/class-post-types.php:140
 msgid "No episodes found in Trash."
-msgstr ""
+msgstr "Nessun episodio nel cestino."
 
 #: includes/class-post-types.php:141
 msgid "Episode archives"
-msgstr ""
+msgstr "Archivio episodi"
 
 #: includes/class-post-types.php:142
 msgid "Episodes list"
-msgstr ""
+msgstr "Elenco episodi"
 
 #: includes/class-post-types.php:163
 #: includes/class-post-types.php:164
 msgid "Series"
-msgstr ""
+msgstr "Serie"
 
 #: includes/class-post-types.php:166
 msgid "Edit series"
-msgstr ""
+msgstr "Modifica serie"
 
 #: includes/class-post-types.php:167
 msgid "View series"
-msgstr ""
+msgstr "Visualizza serie"
 
 #: includes/class-post-types.php:168
 msgid "Add new series"
-msgstr ""
+msgstr "Aggiungi nuova serie"
 
 #: includes/class-post-types.php:169
 msgid "New series name"
-msgstr ""
+msgstr "Nome della nuova serie"
 
 #: includes/class-post-types.php:170
 msgid "Search series"
-msgstr ""
+msgstr "Cerca serie"
 
 #: includes/class-post-types.php:171
 msgid "No series found."
-msgstr ""
+msgstr "Nessuna serie trovata."
 
 #: includes/class-post-types.php:172
 msgid "&larr; Back to series"
-msgstr ""
+msgstr "&larr; Torna alle serie"
 
 #: includes/class-settings.php:66
 msgid "Addresses"
-msgstr ""
+msgstr "Indirizzi"
 
 #: includes/class-settings.php:67
 msgid "Episodes base"
-msgstr ""
+msgstr "Base degli episodi"
 
 #: includes/class-settings.php:67
 msgid "URL of the episode archive, e.g. /episodes/"
-msgstr ""
+msgstr "Indirizzo dell'archivio episodi, ad es. /episodi/"
 
 #: includes/class-settings.php:68
 msgid "Series base"
-msgstr ""
+msgstr "Base delle serie"
 
 #: includes/class-settings.php:68
 msgid "URL prefix of series pages, e.g. /series/name/"
-msgstr ""
+msgstr "Prefisso delle pagine delle serie, ad es. /serie/nome/"
 
 #: includes/class-settings.php:69
 msgid "Episodes per page"
-msgstr ""
+msgstr "Episodi per pagina"
 
 #: includes/class-settings.php:69
 msgid "In the episode archive and on series pages. 0 = same as Settings → Reading."
-msgstr ""
+msgstr "Nell'archivio episodi e nelle pagine delle serie. 0 = come in Impostazioni → Lettura."
 
 #: includes/class-settings.php:75
 msgid "In the episode archive and on series pages. Each series can override it (Podcast → Series). Narrative shows usually list the first episode first."
-msgstr ""
+msgstr "Nell'archivio episodi e nelle pagine delle serie. Ogni serie può avere un ordine suo (Podcast → Serie). I podcast narrativi di solito mostrano per prima la prima puntata."
 
 #: includes/class-settings.php:82
 msgid "Show"
-msgstr ""
+msgstr "Programma"
 
 #: includes/class-settings.php:83
 msgid "Show name"
-msgstr ""
+msgstr "Nome del podcast"
 
 #: includes/class-settings.php:83
 msgid "Leave empty to use the site title."
-msgstr ""
+msgstr "Lascia vuoto per usare il titolo del sito."
 
 #: includes/class-settings.php:84
 msgid "Spotify"
@@ -415,250 +417,250 @@ msgstr ""
 
 #: includes/class-settings.php:87
 msgid "RSS feed"
-msgstr ""
+msgstr "Feed RSS"
 
 #: includes/class-settings.php:88
 msgid "Email sign-up"
-msgstr ""
+msgstr "Iscrizione via email"
 
 #: includes/class-settings.php:88
 msgid "Page where listeners sign up to get new episodes or your newsletter by email (Substack, Mailchimp, Brevo…). Used by the theme's sign-up buttons."
-msgstr ""
+msgstr "Pagina dove gli ascoltatori si iscrivono per ricevere via email i nuovi episodi o la newsletter (Substack, Mailchimp, Brevo…). Usata dai pulsanti di iscrizione del tema."
 
 #: includes/class-settings.php:91
 msgid "Feed to import"
-msgstr ""
+msgstr "Feed da importare"
 
 #: includes/class-settings.php:91
 msgid "RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above."
-msgstr ""
+msgstr "Indirizzo RSS del podcast sulla piattaforma di hosting (Spotify for Creators, Anchor, Spreaker…). Lascia vuoto per usare il feed RSS indicato sopra."
 
 #: includes/class-settings.php:92
 msgid "Check the feed every hour and import new episodes."
-msgstr ""
+msgstr "Controlla il feed ogni ora e importa i nuovi episodi."
 
 #: includes/class-settings.php:95
 msgid "Episode image"
-msgstr ""
+msgstr "Immagine degli episodi"
 
 #: includes/class-settings.php:98
 msgid "Spotify images are the horizontal covers shown in the Spotify app (640×360). If Spotify does not provide one, the feed image is used."
-msgstr ""
+msgstr "Le immagini di Spotify sono le copertine orizzontali mostrate nell'app Spotify (640×360). Se Spotify non ne fornisce una, si usa l'immagine del feed."
 
 #: includes/class-settings.php:100
 msgid "From the feed (usually square)"
-msgstr ""
+msgstr "Dal feed (di solito quadrata)"
 
 #: includes/class-settings.php:101
 msgid "From Spotify (horizontal 16:9)"
-msgstr ""
+msgstr "Da Spotify (orizzontale 16:9)"
 
 #: includes/class-settings.php:107
 msgid "Spotify API (optional)"
-msgstr ""
+msgstr "API Spotify (facoltativo)"
 
 #: includes/class-settings.php:109
 msgid "Needed only if your podcast is not hosted on Spotify for Creators: the plugin then finds the Spotify link of each episode by itself (to get the Spotify image). Requires the show link in the \"Spotify\" field above."
-msgstr ""
+msgstr "Serve solo se il podcast non è ospitato su Spotify for Creators: il plugin trova da solo il link Spotify di ogni episodio (per prendere l'immagine di Spotify). Richiede il link del programma nel campo \"Spotify\" qui sopra."
 
 #: includes/class-settings.php:110
 msgid "Sign in on <a href=\"https://developer.spotify.com/dashboard\" target=\"_blank\" rel=\"noopener\">developer.spotify.com/dashboard</a> and create an app (any name; Redirect URI: your site address; API: Web API)."
-msgstr ""
+msgstr "Accedi a <a href=\"https://developer.spotify.com/dashboard\" target=\"_blank\" rel=\"noopener\">developer.spotify.com/dashboard</a> e crea un'app (nome a piacere; Redirect URI: l'indirizzo del sito; API: Web API)."
 
 #: includes/class-settings.php:111
 msgid "Open the app settings and copy the Client ID and the Client Secret here."
-msgstr ""
+msgstr "Apri le impostazioni dell'app e copia qui Client ID e Client Secret."
 
 #: includes/class-settings.php:115
 msgid "Client ID"
-msgstr ""
+msgstr "Client ID"
 
 #: includes/class-settings.php:116
 msgid "Client Secret"
-msgstr ""
+msgstr "Client Secret"
 
 #: includes/class-settings.php:116
 msgid "Stored and never shown again. Leave empty to keep the saved one."
-msgstr ""
+msgstr "Viene salvato e non più mostrato. Lascia vuoto per mantenere quello salvato."
 
 #: includes/class-settings.php:211
 msgid "Podcast settings"
-msgstr ""
+msgstr "Impostazioni podcast"
 
 #: includes/class-spotify.php:86
 msgid "Spotify refused the Client ID / Client Secret."
-msgstr ""
+msgstr "Spotify ha rifiutato Client ID / Client Secret."
 
 #. translators: %d: HTTP status code
 #: includes/class-spotify.php:114
 #, php-format
 msgid "Spotify API error (HTTP %d)."
-msgstr ""
+msgstr "Errore dell'API Spotify (HTTP %d)."
 
 #: includes/class-spotify.php:264
 msgid "The episode has an image chosen by hand."
-msgstr ""
+msgstr "L'episodio ha un'immagine scelta a mano."
 
 #: includes/class-spotify.php:268
 msgid "Spotify link of the episode not found."
-msgstr ""
+msgstr "Link Spotify dell'episodio non trovato."
 
 #: includes/class-spotify.php:272
 msgid "Spotify did not return an image for this episode."
-msgstr ""
+msgstr "Spotify non ha restituito un'immagine per questo episodio."
 
 #: assets/js/episode-panel.js:31
 msgid "Episode details"
-msgstr ""
+msgstr "Dettagli episodio"
 
 #: assets/js/episode-panel.js:33
 msgid "Episode number"
-msgstr ""
+msgstr "Numero episodio"
 
 #: assets/js/episode-panel.js:47
 msgid "Audio file URL (MP3)"
-msgstr ""
+msgstr "URL del file audio (MP3)"
 
 #: assets/js/episode-panel.js:55
 msgid "Duration"
-msgstr ""
+msgstr "Durata"
 
 #: assets/js/episode-panel.js:56
 msgid "HH:MM:SS, MM:SS or seconds."
-msgstr ""
+msgstr "HH:MM:SS, MM:SS oppure secondi."
 
 #: assets/js/episode-panel.js:63
 msgid "Episode page on the podcast platform"
-msgstr ""
+msgstr "Pagina dell'episodio sulla piattaforma"
 
 #: assets/js/episode-panel.js:64
 msgid "Filled in automatically by the RSS import (e.g. the Spotify episode page)."
-msgstr ""
+msgstr "Compilato automaticamente dall'import RSS (ad es. la pagina dell'episodio su Spotify)."
 
 #: assets/js/episode-panel.js:72
 msgid "Spotify link (open.spotify.com)"
-msgstr ""
+msgstr "Link Spotify (open.spotify.com)"
 
 #: assets/js/episode-panel.js:80
 msgid "Video URL (YouTube, Vimeo…)"
-msgstr ""
+msgstr "URL del video (YouTube, Vimeo…)"
 
 #: assets/js/import-page.js:23
 msgid "Something went wrong."
-msgstr ""
+msgstr "Qualcosa è andato storto."
 
 #: assets/js/import-page.js:28
 msgid "Reading the feed…"
-msgstr ""
+msgstr "Lettura del feed…"
 
 #. translators: 1: episodes in the feed, 2: new episodes, 3: episodes already on the site.
 #: assets/js/import-page.js:32
 #, js-format
 msgid "%1$d episodes in the feed: %2$d new, %3$d already on the site."
-msgstr ""
+msgstr "%1$d episodi nel feed: %2$d nuovi, %3$d già presenti."
 
 #: assets/js/import-page.js:51
 msgid "Importing… keep this page open."
-msgstr ""
+msgstr "Import in corso… lascia aperta questa pagina."
 
 #. translators: 1: episodes imported so far, 2: new episodes to import.
 #: assets/js/import-page.js:63
 #, js-format
 msgid "Imported %1$d of %2$d new episodes…"
-msgstr ""
+msgstr "Importati %1$d di %2$d nuovi episodi…"
 
 #. translators: %d: number of imported episodes.
 #: assets/js/import-page.js:76
 #, js-format
 msgid "Done: %d new episodes imported."
-msgstr ""
+msgstr "Fatto: %d nuovi episodi importati."
 
 #: assets/js/import-page.js:77
 msgid "Everything is up to date: no new episodes."
-msgstr ""
+msgstr "Tutto aggiornato: nessun nuovo episodio."
 
 #: assets/js/import-page.js:79
 msgid "Problems:"
-msgstr ""
+msgstr "Problemi:"
 
 #: assets/js/import-page.js:82
 msgid "Just now"
-msgstr ""
+msgstr "Adesso"
 
 #: assets/js/import-page.js:93
 msgid "Downloading images from Spotify… keep this page open."
-msgstr ""
+msgstr "Download delle immagini da Spotify… lascia aperta questa pagina."
 
 #. translators: 1: images updated so far, 2: images to update.
 #: assets/js/import-page.js:104
 #, js-format
 msgid "Updated %1$d of %2$d images…"
-msgstr ""
+msgstr "Aggiornate %1$d di %2$d immagini…"
 
 #. translators: %d: number of updated images.
 #: assets/js/import-page.js:116
 #, js-format
 msgid "Done: %d images updated."
-msgstr ""
+msgstr "Fatto: %d immagini aggiornate."
 
 #: assets/js/import-page.js:118
 msgid "Kept the feed image for:"
-msgstr ""
+msgstr "Mantenuta l'immagine del feed per:"
 
 #: assets/js/sections-panel.js:85
 msgid "Select section"
-msgstr ""
+msgstr "Seleziona la sezione"
 
 #: assets/js/sections-panel.js:87
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: assets/js/sections-panel.js:92
 msgid "Open a template or a page to see its sections."
-msgstr ""
+msgstr "Apri un template o una pagina per vederne le sezioni."
 
 #: assets/js/sections-panel.js:97
 #: assets/js/sections-panel.js:100
 msgid "Sections"
-msgstr ""
+msgstr "Sezioni"
 
 #: assets/js/sections-panel.js:104
 msgid "Switch sections on or off. Hidden sections stay in the page and can be switched back on at any time."
-msgstr ""
+msgstr "Attiva o disattiva le sezioni. Le sezioni nascoste restano nella pagina e si possono riattivare in qualsiasi momento."
 
 #: assets/js/sections-panel.js:109
 msgid "Spacing and colours of each kind of section: Design → Styles → Blocks."
-msgstr ""
+msgstr "Spaziature e colori di ogni tipo di sezione: Design → Stili → Blocchi."
 
 #: blocks/episode-player/editor.js:28
 msgid "Display"
-msgstr ""
+msgstr "Visualizzazione"
 
 #: blocks/episode-player/editor.js:29
 msgid "Show cover image"
-msgstr ""
+msgstr "Mostra immagine di copertina"
 
 #: blocks/episode-player/editor.js:30
 msgid "Show episode number"
-msgstr ""
+msgstr "Mostra numero episodio"
 
 #: blocks/episode-player/editor.js:31
 msgid "Show video"
-msgstr ""
+msgstr "Mostra video"
 
 #: blocks/episode-player/editor.js:45
 msgid "Episode player: set an audio URL in \"Episode details\" to see it here."
-msgstr ""
+msgstr "Player episodio: inserisci l'URL audio in \"Dettagli episodio\" per vederlo qui."
 
 #: blocks/episode-player/block.json
 msgctxt "block title"
 msgid "Episode Player"
-msgstr ""
+msgstr "Player episodio"
 
 #: blocks/episode-player/block.json
 msgctxt "block description"
 msgid "Audio player for the current episode, with cover, episode number and optional video."
-msgstr ""
+msgstr "Player audio dell'episodio corrente, con copertina, numero dell'episodio e video opzionale."
 
 #: blocks/episode-player/block.json
 #: blocks/sections/cta-section/block.json
@@ -667,32 +669,32 @@ msgstr ""
 #: blocks/sections/news-section/block.json
 msgctxt "block keyword"
 msgid "podcast"
-msgstr ""
+msgstr "podcast"
 
 #: blocks/episode-player/block.json
 msgctxt "block keyword"
 msgid "audio"
-msgstr ""
+msgstr "audio"
 
 #: blocks/episode-player/block.json
 msgctxt "block keyword"
 msgid "player"
-msgstr ""
+msgstr "player"
 
 #: blocks/episode-player/block.json
 msgctxt "block keyword"
 msgid "episode"
-msgstr ""
+msgstr "episodio"
 
 #: blocks/sections/cta-section/block.json
 msgctxt "block title"
 msgid "Call to action section"
-msgstr ""
+msgstr "Sezione call to action"
 
 #: blocks/sections/cta-section/block.json
 msgctxt "block description"
 msgid "A section that promotes a series, an episode or anything else."
-msgstr ""
+msgstr "Una sezione che promuove una serie, un episodio o altro."
 
 #: blocks/sections/cta-section/block.json
 #: blocks/sections/episodes-section/block.json
@@ -700,34 +702,34 @@ msgstr ""
 #: blocks/sections/news-section/block.json
 msgctxt "block keyword"
 msgid "section"
-msgstr ""
+msgstr "sezione"
 
 #: blocks/sections/episodes-section/block.json
 msgctxt "block title"
 msgid "Episodes section"
-msgstr ""
+msgstr "Sezione episodi"
 
 #: blocks/sections/episodes-section/block.json
 msgctxt "block description"
 msgid "A section that lists episodes."
-msgstr ""
+msgstr "Una sezione che elenca gli episodi."
 
 #: blocks/sections/hero/block.json
 msgctxt "block title"
 msgid "Hero"
-msgstr ""
+msgstr "Hero"
 
 #: blocks/sections/hero/block.json
 msgctxt "block description"
 msgid "The opening section of a page: tagline, text, buttons and images."
-msgstr ""
+msgstr "La sezione di apertura di una pagina: slogan, testo, pulsanti e immagini."
 
 #: blocks/sections/news-section/block.json
 msgctxt "block title"
 msgid "News section"
-msgstr ""
+msgstr "Sezione news"
 
 #: blocks/sections/news-section/block.json
 msgctxt "block description"
 msgid "A section that lists blog posts."
-msgstr ""
+msgstr "Una sezione che elenca gli articoli del blog."

@@ -83,7 +83,7 @@ final class Spotify {
 		}
 		$data = json_decode( wp_remote_retrieve_body( $response ), true );
 		if ( empty( $data['access_token'] ) ) {
-			return new \WP_Error( 'podcast_core_spotify_auth', __( 'Spotify refused the Client ID / Client Secret.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_spotify_auth', __( 'Spotify refused the Client ID / Client Secret.', 'podcast-core-engine' ) );
 		}
 		set_transient( $key, $data['access_token'], max( 60, (int) ( $data['expires_in'] ?? 3600 ) - 120 ) );
 		return $data['access_token'];
@@ -111,7 +111,7 @@ final class Spotify {
 		$data = json_decode( wp_remote_retrieve_body( $response ), true );
 		if ( 200 !== $code || ! is_array( $data ) ) {
 			/* translators: %d: HTTP status code */
-			return new \WP_Error( 'podcast_core_spotify_api', sprintf( __( 'Spotify API error (HTTP %d).', 'podcast-core-plugin' ), $code ) );
+			return new \WP_Error( 'podcast_core_spotify_api', sprintf( __( 'Spotify API error (HTTP %d).', 'podcast-core-engine' ), $code ) );
 		}
 		return $data;
 	}
@@ -226,7 +226,7 @@ final class Spotify {
 			$page,
 			array(
 				'timeout'    => 30,
-				'user-agent' => 'Mozilla/5.0 (compatible; Podcast Core Plugin/' . PODCAST_CORE_VERSION . ')',
+				'user-agent' => 'Mozilla/5.0 (compatible; Podcast Core Engine/' . PODCAST_CORE_VERSION . ')',
 			)
 		);
 		$map      = array();
@@ -261,15 +261,15 @@ final class Spotify {
 	 */
 	public static function apply_image( int $post_id, bool $force = false ) {
 		if ( ! $force && ! self::replaceable( $post_id ) ) {
-			return new \WP_Error( 'podcast_core_custom_image', __( 'The episode has an image chosen by hand.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_custom_image', __( 'The episode has an image chosen by hand.', 'podcast-core-engine' ) );
 		}
 		$url = self::episode_url( $post_id );
 		if ( ! $url ) {
-			return new \WP_Error( 'podcast_core_no_spotify', __( 'Spotify link of the episode not found.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_no_spotify', __( 'Spotify link of the episode not found.', 'podcast-core-engine' ) );
 		}
 		$thumb = self::thumbnail( $url );
 		if ( ! $thumb ) {
-			return new \WP_Error( 'podcast_core_no_thumbnail', __( 'Spotify did not return an image for this episode.', 'podcast-core-plugin' ) );
+			return new \WP_Error( 'podcast_core_no_thumbnail', __( 'Spotify did not return an image for this episode.', 'podcast-core-engine' ) );
 		}
 		$image = Importer::image( $thumb, $post_id, get_the_title( $post_id ) );
 		if ( ! is_wp_error( $image ) ) {

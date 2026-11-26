@@ -36,7 +36,7 @@ final class Blocks {
 			$type = register_block_type( PODCAST_CORE_DIR . 'blocks/' . $block );
 			if ( $type && ! empty( $type->editor_script_handles ) ) {
 				foreach ( $type->editor_script_handles as $handle ) {
-					wp_set_script_translations( $handle, 'podcast-core-plugin', PODCAST_CORE_DIR . 'languages' );
+					wp_set_script_translations( $handle, 'podcast-core-engine', PODCAST_CORE_DIR . 'languages' );
 				}
 			}
 		}

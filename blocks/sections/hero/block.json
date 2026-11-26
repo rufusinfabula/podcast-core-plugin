@@ -10,7 +10,7 @@
     "podcast",
     "section"
   ],
-  "textdomain": "podcast-core-plugin",
+  "textdomain": "podcast-core-engine",
   "supports": {
     "html": false,
     "anchor": true,

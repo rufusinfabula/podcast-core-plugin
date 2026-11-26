@@ -44,9 +44,9 @@ final class Post_Types {
 
 	private static function order_select( string $current ): string {
 		$options = array(
-			''     => __( 'As in Settings → Podcast', 'podcast-core-plugin' ),
-			'desc' => __( 'Newest first', 'podcast-core-plugin' ),
-			'asc'  => __( 'Oldest first', 'podcast-core-plugin' ),
+			''     => __( 'As in Settings → Podcast', 'podcast-core-engine' ),
+			'desc' => __( 'Newest first', 'podcast-core-engine' ),
+			'asc'  => __( 'Oldest first', 'podcast-core-engine' ),
 		);
 		$html    = '<select name="podcast_core_order" id="podcast_core_order">';
 		foreach ( $options as $value => $label ) {
@@ -59,9 +59,9 @@ final class Post_Types {
 		wp_nonce_field( 'podcast_core_series_order', 'podcast_core_series_order_nonce' );
 		printf(
 			'<div class="form-field"><label for="podcast_core_order">%s</label>%s<p>%s</p></div>',
-			esc_html__( 'Episode order', 'podcast-core-plugin' ),
+			esc_html__( 'Episode order', 'podcast-core-engine' ),
 			self::order_select( '' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in order_select().
-			esc_html__( 'Order of the episodes on this series page.', 'podcast-core-plugin' )
+			esc_html__( 'Order of the episodes on this series page.', 'podcast-core-engine' )
 		);
 	}
 
@@ -69,9 +69,9 @@ final class Post_Types {
 		wp_nonce_field( 'podcast_core_series_order', 'podcast_core_series_order_nonce' );
 		printf(
 			'<tr class="form-field"><th scope="row"><label for="podcast_core_order">%s</label></th><td>%s<p class="description">%s</p></td></tr>',
-			esc_html__( 'Episode order', 'podcast-core-plugin' ),
+			esc_html__( 'Episode order', 'podcast-core-engine' ),
 			self::order_select( (string) get_term_meta( $term->term_id, 'podcast_core_order', true ) ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			esc_html__( 'Order of the episodes on this series page.', 'podcast-core-plugin' )
+			esc_html__( 'Order of the episodes on this series page.', 'podcast-core-engine' )
 		);
 	}
 
@@ -125,21 +125,21 @@ final class Post_Types {
 			PODCAST_CORE_EPISODE,
 			array(
 				'labels'        => array(
-					'name'               => __( 'Episodes', 'podcast-core-plugin' ),
-					'singular_name'      => __( 'Episode', 'podcast-core-plugin' ),
-					'menu_name'          => __( 'Podcast', 'podcast-core-plugin' ),
-					'all_items'          => __( 'All episodes', 'podcast-core-plugin' ),
-					'add_new_item'       => __( 'Add new episode', 'podcast-core-plugin' ),
-					'add_new'            => __( 'Add episode', 'podcast-core-plugin' ),
-					'edit_item'          => __( 'Edit episode', 'podcast-core-plugin' ),
-					'new_item'           => __( 'New episode', 'podcast-core-plugin' ),
-					'view_item'          => __( 'View episode', 'podcast-core-plugin' ),
-					'view_items'         => __( 'View episodes', 'podcast-core-plugin' ),
-					'search_items'       => __( 'Search episodes', 'podcast-core-plugin' ),
-					'not_found'          => __( 'No episodes found.', 'podcast-core-plugin' ),
-					'not_found_in_trash' => __( 'No episodes found in Trash.', 'podcast-core-plugin' ),
-					'archives'           => __( 'Episode archives', 'podcast-core-plugin' ),
-					'items_list'         => __( 'Episodes list', 'podcast-core-plugin' ),
+					'name'               => __( 'Episodes', 'podcast-core-engine' ),
+					'singular_name'      => __( 'Episode', 'podcast-core-engine' ),
+					'menu_name'          => __( 'Podcast', 'podcast-core-engine' ),
+					'all_items'          => __( 'All episodes', 'podcast-core-engine' ),
+					'add_new_item'       => __( 'Add new episode', 'podcast-core-engine' ),
+					'add_new'            => __( 'Add episode', 'podcast-core-engine' ),
+					'edit_item'          => __( 'Edit episode', 'podcast-core-engine' ),
+					'new_item'           => __( 'New episode', 'podcast-core-engine' ),
+					'view_item'          => __( 'View episode', 'podcast-core-engine' ),
+					'view_items'         => __( 'View episodes', 'podcast-core-engine' ),
+					'search_items'       => __( 'Search episodes', 'podcast-core-engine' ),
+					'not_found'          => __( 'No episodes found.', 'podcast-core-engine' ),
+					'not_found_in_trash' => __( 'No episodes found in Trash.', 'podcast-core-engine' ),
+					'archives'           => __( 'Episode archives', 'podcast-core-engine' ),
+					'items_list'         => __( 'Episodes list', 'podcast-core-engine' ),
 				),
 				'public'        => true,
 				'show_in_rest'  => true,
@@ -160,16 +160,16 @@ final class Post_Types {
 			PODCAST_CORE_EPISODE,
 			array(
 				'labels'            => array(
-					'name'          => __( 'Series', 'podcast-core-plugin' ),
-					'singular_name' => __( 'Series', 'podcast-core-plugin' ),
-					'all_items'     => __( 'All series', 'podcast-core-plugin' ),
-					'edit_item'     => __( 'Edit series', 'podcast-core-plugin' ),
-					'view_item'     => __( 'View series', 'podcast-core-plugin' ),
-					'add_new_item'  => __( 'Add new series', 'podcast-core-plugin' ),
-					'new_item_name' => __( 'New series name', 'podcast-core-plugin' ),
-					'search_items'  => __( 'Search series', 'podcast-core-plugin' ),
-					'not_found'     => __( 'No series found.', 'podcast-core-plugin' ),
-					'back_to_items' => __( '&larr; Back to series', 'podcast-core-plugin' ),
+					'name'          => __( 'Series', 'podcast-core-engine' ),
+					'singular_name' => __( 'Series', 'podcast-core-engine' ),
+					'all_items'     => __( 'All series', 'podcast-core-engine' ),
+					'edit_item'     => __( 'Edit series', 'podcast-core-engine' ),
+					'view_item'     => __( 'View series', 'podcast-core-engine' ),
+					'add_new_item'  => __( 'Add new series', 'podcast-core-engine' ),
+					'new_item_name' => __( 'New series name', 'podcast-core-engine' ),
+					'search_items'  => __( 'Search series', 'podcast-core-engine' ),
+					'not_found'     => __( 'No series found.', 'podcast-core-engine' ),
+					'back_to_items' => __( '&larr; Back to series', 'podcast-core-engine' ),
 				),
 				'public'            => true,
 				'hierarchical'      => true,

@@ -28,23 +28,23 @@
 
 		return el(
 			PluginDocumentSettingPanel,
-			{ name: 'podcast-core-episode', title: __( 'Episode details', 'podcast-core-plugin' ), initialOpen: true },
+			{ name: 'podcast-core-episode', title: __( 'Episode details', 'podcast-core-engine' ), initialOpen: true },
 			el( NumberField, {
-				label: __( 'Episode number', 'podcast-core-plugin' ),
+				label: __( 'Episode number', 'podcast-core-engine' ),
 				min: 0,
 				value: meta.podcast_core_episode_number || '',
 				onChange: ( v ) => set( 'podcast_core_episode_number', toInt( v ) ),
 				__next40pxDefaultSize: true,
 			} ),
 			el( NumberField, {
-				label: __( 'Season', 'podcast-core-plugin' ),
+				label: __( 'Season', 'podcast-core-engine' ),
 				min: 0,
 				value: meta.podcast_core_season_number || '',
 				onChange: ( v ) => set( 'podcast_core_season_number', toInt( v ) ),
 				__next40pxDefaultSize: true,
 			} ),
 			el( TextControl, {
-				label: __( 'Audio file URL (MP3)', 'podcast-core-plugin' ),
+				label: __( 'Audio file URL (MP3)', 'podcast-core-engine' ),
 				type: 'url',
 				value: meta.podcast_core_audio_url || '',
 				onChange: ( v ) => set( 'podcast_core_audio_url', v ),
@@ -52,16 +52,16 @@
 				__nextHasNoMarginBottom: true,
 			} ),
 			el( TextControl, {
-				label: __( 'Duration', 'podcast-core-plugin' ),
-				help: __( 'HH:MM:SS, MM:SS or seconds.', 'podcast-core-plugin' ),
+				label: __( 'Duration', 'podcast-core-engine' ),
+				help: __( 'HH:MM:SS, MM:SS or seconds.', 'podcast-core-engine' ),
 				value: meta.podcast_core_duration || '',
 				onChange: ( v ) => set( 'podcast_core_duration', v ),
 				__next40pxDefaultSize: true,
 				__nextHasNoMarginBottom: true,
 			} ),
 			el( TextControl, {
-				label: __( 'Episode page on the podcast platform', 'podcast-core-plugin' ),
-				help: __( 'Filled in automatically by the RSS import (e.g. the Spotify episode page).', 'podcast-core-plugin' ),
+				label: __( 'Episode page on the podcast platform', 'podcast-core-engine' ),
+				help: __( 'Filled in automatically by the RSS import (e.g. the Spotify episode page).', 'podcast-core-engine' ),
 				type: 'url',
 				value: meta.podcast_core_source_url || '',
 				onChange: ( v ) => set( 'podcast_core_source_url', v ),
@@ -69,7 +69,7 @@
 				__nextHasNoMarginBottom: true,
 			} ),
 			el( TextControl, {
-				label: __( 'Spotify link (open.spotify.com)', 'podcast-core-plugin' ),
+				label: __( 'Spotify link (open.spotify.com)', 'podcast-core-engine' ),
 				type: 'url',
 				value: meta.podcast_core_spotify_url || '',
 				onChange: ( v ) => set( 'podcast_core_spotify_url', v ),
@@ -77,7 +77,7 @@
 				__nextHasNoMarginBottom: true,
 			} ),
 			el( TextControl, {
-				label: __( 'Video URL (YouTube, Vimeo…)', 'podcast-core-plugin' ),
+				label: __( 'Video URL (YouTube, Vimeo…)', 'podcast-core-engine' ),
 				type: 'url',
 				value: meta.podcast_core_video_url || '',
 				onChange: ( v ) => set( 'podcast_core_video_url', v ),

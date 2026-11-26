@@ -1,7 +1,7 @@
-# Podcast Core Plugin
+# Podcast Core Engine
 
 Episodes, series and an audio player for podcast websites built with WordPress.
-Lightweight, no third-party dependencies. Pairs with [Podcast Core Theme](https://github.com/rufusinfabula/podcast-core-theme).
+Lightweight, no third-party dependencies. Pairs with [Podcast Core Studio](https://github.com/rufusinfabula/podcast-core-studio).
 
 > Status: early development (0.2.0). Not ready for production.
 
@@ -65,10 +65,10 @@ Changes the post type, copies the series terms and the mapped meta. Old meta is 
 - Regenerate translations after changing strings:
 
 ```bash
-wp i18n make-pot . languages/podcast-core-plugin.pot --domain=podcast-core-plugin --exclude=languages
-# update languages/podcast-core-plugin-it_IT.po, then:
-wp i18n make-mo languages/podcast-core-plugin-it_IT.po languages/
-wp i18n make-json languages/podcast-core-plugin-it_IT.po languages/ --no-purge
+wp i18n make-pot . languages/podcast-core-engine.pot --domain=podcast-core-engine --exclude=languages
+# update languages/podcast-core-engine-it_IT.po, then:
+wp i18n make-mo languages/podcast-core-engine-it_IT.po languages/
+wp i18n make-json languages/podcast-core-engine-it_IT.po languages/ --no-purge
 ```
 
 ## Credits
