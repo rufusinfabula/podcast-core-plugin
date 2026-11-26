@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.0 – unreleased
+- Episodes list: **series filter** (including *No series*), **bulk actions** to add episodes to a series, move them to a series (removing the others) or remove them from all series, and sortable **No.** and **Season** columns.
+
 ## 0.7.0 – unreleased
 - **Episode order** (Settings → Podcast): newest first or oldest first, for the episode archive and series pages. Each series can override it (Podcast → Series → edit), e.g. a narrative series from the first episode. Term meta `podcast_core_order`.
 

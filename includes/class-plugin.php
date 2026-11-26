@@ -35,6 +35,7 @@ final class Plugin {
 		Schema::init();
 		Importer::init();
 		Import_Page::init();
+		Admin_List::init();
 
 		if ( defined( 'WP_CLI' ) && WP_CLI ) {
 			\WP_CLI::add_command( 'podcast-core', CLI::class );

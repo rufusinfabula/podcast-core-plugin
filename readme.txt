@@ -4,7 +4,7 @@ Tags: podcast, episodes, audio player, series
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.7.0
+Stable tag: 0.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ This plugin is in early development.
 2. Activate the plugin from the Plugins screen.
 
 == Changelog ==
+
+= 0.8.0 =
+* Bulk series assignment, series filter and number/season columns in the episodes list.
 
 = 0.7.0 =
 * Episode order setting (newest or oldest first), with per-series override.

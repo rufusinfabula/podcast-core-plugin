@@ -8,6 +8,7 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-11-25T19:25:55+00:00\n"
@@ -52,6 +53,81 @@ msgstr "Pausa"
 #: blocks/episode-player/render.php:61
 msgid "Seek"
 msgstr "Posizione di ascolto"
+
+#: includes/class-admin-list.php:36
+msgid "Filter by series"
+msgstr "Filtra per serie"
+
+#: includes/class-admin-list.php:38
+#: includes/class-post-types.php:165
+msgid "All series"
+msgstr "Tutte le serie"
+
+#: includes/class-admin-list.php:39
+msgid "— No series —"
+msgstr "— Senza serie —"
+
+#. translators: %s: series name
+#: includes/class-admin-list.php:94
+#, php-format
+msgid "Add to “%s”"
+msgstr "Aggiungi a «%s»"
+
+#. translators: %s: series name
+#: includes/class-admin-list.php:96
+#, php-format
+msgid "Move to “%s” (only this series)"
+msgstr "Sposta in «%s» (solo questa serie)"
+
+#: includes/class-admin-list.php:98
+msgid "Series: add"
+msgstr "Serie: aggiungi"
+
+#: includes/class-admin-list.php:99
+msgid "Series: move"
+msgstr "Serie: sposta"
+
+#: includes/class-admin-list.php:100
+msgid "Series: remove"
+msgstr "Serie: rimuovi"
+
+#: includes/class-admin-list.php:100
+msgid "Remove from all series"
+msgstr "Rimuovi da tutte le serie"
+
+#. translators: %d: number of episodes
+#: includes/class-admin-list.php:152
+#, php-format
+msgid "%d episode removed from all series."
+msgid_plural "%d episodes removed from all series."
+msgstr[0] "%d episodio rimosso da tutte le serie."
+msgstr[1] "%d episodi rimossi da tutte le serie."
+
+#. translators: 1: number of episodes, 2: series name
+#: includes/class-admin-list.php:155
+#, php-format
+msgid "%1$d episode moved to “%2$s”."
+msgid_plural "%1$d episodes moved to “%2$s”."
+msgstr[0] "%1$d episodio spostato in «%2$s»."
+msgstr[1] "%1$d episodi spostati in «%2$s»."
+
+#. translators: 1: number of episodes, 2: series name
+#: includes/class-admin-list.php:158
+#, php-format
+msgid "%1$d episode added to “%2$s”."
+msgid_plural "%1$d episodes added to “%2$s”."
+msgstr[0] "%1$d episodio aggiunto a «%2$s»."
+msgstr[1] "%1$d episodi aggiunti a «%2$s»."
+
+#: includes/class-admin-list.php:169
+msgctxt "episode number column"
+msgid "No."
+msgstr "N."
+
+#: includes/class-admin-list.php:173
+#: assets/js/episode-panel.js:40
+msgid "Season"
+msgstr "Stagione"
 
 #. translators: %d: HTTP status code
 #: includes/class-feed.php:36
@@ -250,10 +326,6 @@ msgstr "Elenco episodi"
 msgid "Series"
 msgstr "Serie"
 
-#: includes/class-post-types.php:165
-msgid "All series"
-msgstr "Tutte le serie"
-
 #: includes/class-post-types.php:166
 msgid "Edit series"
 msgstr "Modifica serie"
@@ -431,10 +503,6 @@ msgstr "Dettagli episodio"
 #: assets/js/episode-panel.js:33
 msgid "Episode number"
 msgstr "Numero episodio"
-
-#: assets/js/episode-panel.js:40
-msgid "Season"
-msgstr "Stagione"
 
 #: assets/js/episode-panel.js:47
 msgid "Audio file URL (MP3)"
