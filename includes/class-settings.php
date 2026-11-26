@@ -31,6 +31,7 @@ final class Settings {
 			'apple_url'     => '',
 			'youtube_url'   => '',
 			'rss_url'       => '',
+			'newsletter_url' => '',
 			'feed_url'      => '',
 			'auto_sync'     => true,
 			'image_source'  => 'feed',
@@ -84,6 +85,7 @@ final class Settings {
 		self::field( 'apple_url', __( 'Apple Podcasts', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
 		self::field( 'youtube_url', __( 'YouTube', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
 		self::field( 'rss_url', __( 'RSS feed', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
+		self::field( 'newsletter_url', __( 'Newsletter', 'podcast-core-plugin' ), 'podcast_core_show', 'url', __( 'Sign-up page of your newsletter (Substack, Mailchimp, Brevo…). Used by the theme\'s newsletter buttons.', 'podcast-core-plugin' ) );
 
 		add_settings_section( 'podcast_core_import', __( 'Import from RSS', 'podcast-core-plugin' ), '__return_false', self::PAGE );
 		self::field( 'feed_url', __( 'Feed to import', 'podcast-core-plugin' ), 'podcast_core_import', 'url', __( 'RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above.', 'podcast-core-plugin' ) );
@@ -181,7 +183,7 @@ final class Settings {
 		$clean['per_page']  = min( 100, absint( $input['per_page'] ?? 0 ) );
 		$clean['order']     = 'asc' === ( $input['order'] ?? '' ) ? 'asc' : 'desc';
 		$clean['show_name'] = sanitize_text_field( $input['show_name'] ?? '' );
-		foreach ( array( 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'feed_url' ) as $key ) {
+		foreach ( array( 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'feed_url', 'newsletter_url' ) as $key ) {
 			$clean[ $key ] = esc_url_raw( $input[ $key ] ?? '' );
 		}
 		$clean['spotify_client_id'] = sanitize_text_field( $input['spotify_client_id'] ?? '' );
