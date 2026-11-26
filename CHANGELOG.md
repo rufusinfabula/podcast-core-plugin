@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.0 – unreleased
+- **Episode order** (Settings → Podcast): newest first or oldest first, for the episode archive and series pages. Each series can override it (Podcast → Series → edit), e.g. a narrative series from the first episode. Term meta `podcast_core_order`.
+
 ## 0.6.0 – unreleased
 - **Spotify Web API (optional)**: with a Client ID and Client Secret (Settings → Podcast → Spotify API) and the show link in the *Spotify* field, the plugin finds the Spotify link of every episode for shows hosted anywhere, matching by title (case, accents and punctuation ignored) or by the most similar title published within two days. Used to fetch the Spotify episode image.
 - Lookup order for the Spotify link: episode field → Spotify for Creators page → Web API.

@@ -25,6 +25,7 @@ final class Settings {
 			'episodes_slug' => 'episodes',
 			'series_slug'   => 'series',
 			'per_page'      => 0,
+			'order'         => 'desc',
 			'show_name'     => '',
 			'spotify_url'   => '',
 			'apple_url'     => '',
@@ -65,6 +66,17 @@ final class Settings {
 		self::field( 'episodes_slug', __( 'Episodes base', 'podcast-core-plugin' ), 'podcast_core_urls', 'text', __( 'URL of the episode archive, e.g. /episodes/', 'podcast-core-plugin' ) );
 		self::field( 'series_slug', __( 'Series base', 'podcast-core-plugin' ), 'podcast_core_urls', 'text', __( 'URL prefix of series pages, e.g. /series/name/', 'podcast-core-plugin' ) );
 		self::field( 'per_page', __( 'Episodes per page', 'podcast-core-plugin' ), 'podcast_core_urls', 'number', __( 'In the episode archive and on series pages. 0 = same as Settings → Reading.', 'podcast-core-plugin' ) );
+		self::field(
+			'order',
+			__( 'Episode order', 'podcast-core-plugin' ),
+			'podcast_core_urls',
+			'select',
+			__( 'In the episode archive and on series pages. Each series can override it (Podcast → Series). Narrative shows usually list the first episode first.', 'podcast-core-plugin' ),
+			array(
+				'desc' => __( 'Newest first', 'podcast-core-plugin' ),
+				'asc'  => __( 'Oldest first', 'podcast-core-plugin' ),
+			)
+		);
 
 		add_settings_section( 'podcast_core_show', __( 'Show', 'podcast-core-plugin' ), '__return_false', self::PAGE );
 		self::field( 'show_name', __( 'Show name', 'podcast-core-plugin' ), 'podcast_core_show', 'text', __( 'Leave empty to use the site title.', 'podcast-core-plugin' ) );
@@ -167,6 +179,7 @@ final class Settings {
 			$clean[ $key ] = '' !== $slug ? $slug : $defaults[ $key ];
 		}
 		$clean['per_page']  = min( 100, absint( $input['per_page'] ?? 0 ) );
+		$clean['order']     = 'asc' === ( $input['order'] ?? '' ) ? 'asc' : 'desc';
 		$clean['show_name'] = sanitize_text_field( $input['show_name'] ?? '' );
 		foreach ( array( 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'feed_url' ) as $key ) {
 			$clean[ $key ] = esc_url_raw( $input[ $key ] ?? '' );

@@ -11,7 +11,7 @@ Lightweight, no third-party dependencies. Pairs with [Podcast Core Theme](https:
 - Native episode fields (no ACF): number, season, audio URL, duration, video URL — edited in the block editor sidebar ("Episode details")
 - **Episode Player** block (`podcast-core/episode-player`): cover, episode number, custom audio controls, optional video embed. Accessible (native range input, keyboard friendly), works with several players per page, falls back to native audio controls without JavaScript
 - schema.org `PodcastEpisode` structured data on episode pages
-- **Settings → Podcast**: archive and series URL bases, show name, platform links (Spotify, Apple Podcasts, YouTube, RSS)
+- **Settings → Podcast**: archive and series URL bases, episodes per page, episode order (newest or oldest first — each series can override it, handy for narrative shows), show name, platform links (Spotify, Apple Podcasts, YouTube, RSS)
 - **Section blocks** (Hero, Episodes section, News section, Call to action section): style every instance at once in *Design → Styles → Blocks*
 - **Sections panel** in the Site Editor: switch sections of a template on/off without deleting them
 - **Import from RSS**: one episode per feed item (text, audio, cover, number, season, date); hourly automatic update plus *Force update now*; local edits are never overwritten
