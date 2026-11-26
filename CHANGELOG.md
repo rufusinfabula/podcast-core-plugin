@@ -1,6 +1,7 @@
 # Changelog
 
 ## 0.5.0 – unreleased
+- **Episodes per page** setting for the episode archive and series pages.
 - **Episode images from Spotify**: Settings → Podcast → *Episode image* = *From Spotify (horizontal 16:9)* uses the cover Spotify shows for each episode (640×360, official oEmbed). The open.spotify.com link of each episode is read from the public Spotify for Creators page and stored (`podcast_core_spotify_url`, editable in Episode details); if it cannot be found, the feed image is used.
 - *Update images from Spotify* button (Podcast → Import from RSS) and `wp podcast-core images [--force]`: replace feed images of existing episodes; images chosen by hand are kept; unused feed images are deleted.
 

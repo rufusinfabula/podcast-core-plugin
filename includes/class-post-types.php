@@ -13,6 +13,20 @@ final class Post_Types {
 
 	public static function init(): void {
 		add_action( 'init', array( __CLASS__, 'register' ) );
+		add_action( 'pre_get_posts', array( __CLASS__, 'per_page' ) );
+	}
+
+	/**
+	 * Episodes per page on the episode archive and series pages (Settings → Podcast).
+	 */
+	public static function per_page( \WP_Query $query ): void {
+		$per_page = (int) Settings::get( 'per_page' );
+		if ( $per_page < 1 || is_admin() || ! $query->is_main_query() ) {
+			return;
+		}
+		if ( $query->is_post_type_archive( PODCAST_CORE_EPISODE ) || $query->is_tax( PODCAST_CORE_SERIES ) ) {
+			$query->set( 'posts_per_page', $per_page );
+		}
 	}
 
 	public static function register(): void {

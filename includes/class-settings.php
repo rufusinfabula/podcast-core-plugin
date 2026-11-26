@@ -24,6 +24,7 @@ final class Settings {
 		return array(
 			'episodes_slug' => 'episodes',
 			'series_slug'   => 'series',
+			'per_page'      => 0,
 			'show_name'     => '',
 			'spotify_url'   => '',
 			'apple_url'     => '',
@@ -61,6 +62,7 @@ final class Settings {
 		add_settings_section( 'podcast_core_urls', __( 'Addresses', 'podcast-core-plugin' ), '__return_false', self::PAGE );
 		self::field( 'episodes_slug', __( 'Episodes base', 'podcast-core-plugin' ), 'podcast_core_urls', 'text', __( 'URL of the episode archive, e.g. /episodes/', 'podcast-core-plugin' ) );
 		self::field( 'series_slug', __( 'Series base', 'podcast-core-plugin' ), 'podcast_core_urls', 'text', __( 'URL prefix of series pages, e.g. /series/name/', 'podcast-core-plugin' ) );
+		self::field( 'per_page', __( 'Episodes per page', 'podcast-core-plugin' ), 'podcast_core_urls', 'number', __( 'In the episode archive and on series pages. 0 = same as Settings → Reading.', 'podcast-core-plugin' ) );
 
 		add_settings_section( 'podcast_core_show', __( 'Show', 'podcast-core-plugin' ), '__return_false', self::PAGE );
 		self::field( 'show_name', __( 'Show name', 'podcast-core-plugin' ), 'podcast_core_show', 'text', __( 'Leave empty to use the site title.', 'podcast-core-plugin' ) );
@@ -112,7 +114,7 @@ final class Settings {
 					return;
 				}
 				printf(
-					'<input type="%1$s" id="podcast_core_%2$s" name="%3$s[%2$s]" value="%4$s" class="regular-text" />',
+					'<input type="%1$s" id="podcast_core_%2$s" name="%3$s[%2$s]" value="%4$s" class="' . ( 'number' === $type ? 'small-text" min="0" step="1' : 'regular-text' ) . '" />',
 					esc_attr( $type ),
 					esc_attr( $key ),
 					esc_attr( self::OPTION ),
@@ -137,6 +139,7 @@ final class Settings {
 			$slug          = sanitize_title( $input[ $key ] ?? '' );
 			$clean[ $key ] = '' !== $slug ? $slug : $defaults[ $key ];
 		}
+		$clean['per_page']  = min( 100, absint( $input['per_page'] ?? 0 ) );
 		$clean['show_name'] = sanitize_text_field( $input['show_name'] ?? '' );
 		foreach ( array( 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'feed_url' ) as $key ) {
 			$clean[ $key ] = esc_url_raw( $input[ $key ] ?? '' );
