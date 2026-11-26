@@ -33,7 +33,7 @@ msgstr "Episodi, serie e un player audio per i siti di podcast. Leggero, senza d
 
 #. Author of the plugin
 #: podcast-core-plugin.php
-msgid "Rufusinfabula"
+msgid "Fabio Ranfi Solutions"
 msgstr ""
 
 #. translators: %s: episode number
