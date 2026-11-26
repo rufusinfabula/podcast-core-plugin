@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.8.1 – unreleased
-- Newsletter address in Settings → Podcast, used by the theme's newsletter buttons.
+- "Email sign-up" address in Settings → Podcast (new episodes or newsletter by email), used by the theme's sign-up buttons.
 
 ## 0.8.0 – unreleased
 - Episodes list: **series filter** (including *No series*), **bulk actions** to add episodes to a series, move them to a series (removing the others) or remove them from all series, and sortable **No.** and **Season** columns.

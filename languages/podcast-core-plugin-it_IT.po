@@ -420,12 +420,12 @@ msgid "RSS feed"
 msgstr "Feed RSS"
 
 #: includes/class-settings.php:88
-msgid "Newsletter"
-msgstr "Newsletter"
+msgid "Email sign-up"
+msgstr "Iscrizione via email"
 
 #: includes/class-settings.php:88
-msgid "Sign-up page of your newsletter (Substack, Mailchimp, Brevo…). Used by the theme's newsletter buttons."
-msgstr "Pagina di iscrizione della newsletter (Substack, Mailchimp, Brevo…). Usata dai pulsanti newsletter del tema."
+msgid "Page where listeners sign up to get new episodes or your newsletter by email (Substack, Mailchimp, Brevo…). Used by the theme's sign-up buttons."
+msgstr "Pagina dove gli ascoltatori si iscrivono per ricevere via email i nuovi episodi o la newsletter (Substack, Mailchimp, Brevo…). Usata dai pulsanti di iscrizione del tema."
 
 #: includes/class-settings.php:91
 msgid "Feed to import"

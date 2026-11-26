@@ -85,7 +85,7 @@ final class Settings {
 		self::field( 'apple_url', __( 'Apple Podcasts', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
 		self::field( 'youtube_url', __( 'YouTube', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
 		self::field( 'rss_url', __( 'RSS feed', 'podcast-core-plugin' ), 'podcast_core_show', 'url' );
-		self::field( 'newsletter_url', __( 'Newsletter', 'podcast-core-plugin' ), 'podcast_core_show', 'url', __( 'Sign-up page of your newsletter (Substack, Mailchimp, Brevo…). Used by the theme\'s newsletter buttons.', 'podcast-core-plugin' ) );
+		self::field( 'newsletter_url', __( 'Email sign-up', 'podcast-core-plugin' ), 'podcast_core_show', 'url', __( 'Page where listeners sign up to get new episodes or your newsletter by email (Substack, Mailchimp, Brevo…). Used by the theme\'s sign-up buttons.', 'podcast-core-plugin' ) );
 
 		add_settings_section( 'podcast_core_import', __( 'Import from RSS', 'podcast-core-plugin' ), '__return_false', self::PAGE );
 		self::field( 'feed_url', __( 'Feed to import', 'podcast-core-plugin' ), 'podcast_core_import', 'url', __( 'RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above.', 'podcast-core-plugin' ) );
