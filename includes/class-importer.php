@@ -57,7 +57,7 @@ final class Importer {
 		if ( get_transient( self::LOCK ) ) {
 			return new \WP_Error( 'podcast_core_locked', __( 'An import is already running. Try again in a few minutes.', 'podcast-core-plugin' ) );
 		}
-		set_transient( self::LOCK, 1, 10 * MINUTE_IN_SECONDS );
+		set_transient( self::LOCK, 1, 30 * MINUTE_IN_SECONDS );
 
 		$episodes = Feed::fetch( $url );
 		if ( is_wp_error( $episodes ) ) {
@@ -82,6 +82,7 @@ final class Importer {
 				++$result['pending'];
 				continue;
 			}
+			set_transient( self::LOCK, 1, 30 * MINUTE_IN_SECONDS ); // Keep the lock while images are processed.
 			$id = self::create( $episode );
 			if ( is_wp_error( $id ) ) {
 				$result['errors'][] = $episode['title'] . ': ' . $id->get_error_message();
