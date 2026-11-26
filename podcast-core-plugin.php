@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Podcast Core Plugin
  * Plugin URI:        https://github.com/rufusinfabula/podcast-core-plugin
- * Description:       Episodes, series and an audio player for podcast websites. Lightweight, no third-party dependencies.
+ * Description:       Publish your podcast on WordPress: episodes, series, a sticky audio player and automatic import from your RSS feed (Spotify, Spreaker…).
  * Version:           0.8.1
  * Requires at least: 6.7
  * Requires PHP:      8.1

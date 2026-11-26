@@ -28,8 +28,8 @@ msgstr ""
 
 #. Description of the plugin
 #: podcast-core-plugin.php
-msgid "Episodes, series and an audio player for podcast websites. Lightweight, no third-party dependencies."
-msgstr "Episodi, serie e un player audio per i siti di podcast. Leggero, senza dipendenze da plugin di terze parti."
+msgid "Publish your podcast on WordPress: episodes, series, a sticky audio player and automatic import from your RSS feed (Spotify, Spreaker…)."
+msgstr "Pubblica il tuo podcast su WordPress: episodi, serie, player audio fisso e import automatico dal feed RSS (Spotify, Spreaker…)."
 
 #. Author of the plugin
 #: podcast-core-plugin.php

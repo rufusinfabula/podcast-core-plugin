@@ -1,6 +1,6 @@
 === Podcast Core Plugin ===
 Contributors: rufusinfabula
-Tags: podcast, episodes, audio player, series
+Tags: podcast, episodes, audio player, rss import, spotify
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
@@ -8,28 +8,68 @@ Stable tag: 0.8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Episodes, series and an audio player for podcast websites.
+Publish your podcast on WordPress: episodes, series, a sticky audio player and automatic import from your RSS feed (Spotify, Spreaker…).
 
 == Description ==
 
-Podcast Core Plugin turns WordPress into a home for your podcast:
+Podcast Core Plugin turns WordPress into the home of your podcast. Paste your RSS feed: every episode becomes a page on your site, with its player, cover, number and description — and new episodes arrive by themselves.
 
-* An "Episode" post type with number, season, audio URL, duration and video link
-* A "Series" taxonomy to group episodes
-* An accessible audio player block with cover and optional video
-* schema.org PodcastEpisode structured data
-* Settings for archive URLs, episodes per page, episode order (newest or oldest first, per series too) and the platforms where your show is available
-* Import from your podcast RSS feed (Spotify for Creators, Anchor, Spreaker…), with automatic hourly updates
-* A WP-CLI command to migrate episodes from other setups (e.g. CPT UI + ACF)
+= Episodes and series =
 
-No third-party plugins required. Works with any theme; pairs with Podcast Core Theme.
+* An **Episode** post type with number, season, audio file, duration, video and links to Spotify and to the episode page on your hosting platform, edited in the block editor sidebar.
+* **Series** to group episodes, each with its own page and its own order.
+* Episode archive and series pages with **episodes per page** and **order** settings: newest first, or oldest first for narrative shows. Each series can have its own order.
 
-This plugin is in early development.
+= Import from your podcast feed =
+
+* **One-click import** of every episode from any podcast RSS feed (Spotify for Creators, Spreaker, Buzzsprout, Podbean…): title, description (converted to editable blocks), original date, audio, duration, episode and season number, cover image.
+* **Automatic updates every hour**, plus a *Force update now* button. Episodes already on your site are never overwritten, so your edits are safe.
+* **Horizontal covers from Spotify** (optional): use the 16:9 images Spotify shows for each episode instead of the feed artwork. Automatic for shows on Spotify for Creators; for other hosts, with a free Spotify API key.
+
+= Player and blocks =
+
+* **Episode Player** block: cover, episode number, accessible custom controls, optional video; falls back to the browser player without JavaScript. Several players on the same page work independently.
+* **Section blocks** — Hero, Episodes section, News section, Call to action section — whose spacing, colours and typography can be set for the whole site in Design → Styles → Blocks.
+* A **Sections** panel in the Site Editor to switch sections of a page on and off without deleting them.
+
+= Everything else =
+
+* schema.org **PodcastEpisode** structured data for search engines.
+* **Bulk series assignment**, series filter and number/season columns in the episodes list.
+* Show links (Spotify, Apple Podcasts, YouTube, RSS) and an email sign-up address that themes can use.
+* WP-CLI commands: `wp podcast-core import`, `wp podcast-core images`, `wp podcast-core migrate` (from other setups such as CPT UI + ACF).
+* No third-party plugins required. Translation ready; Italian included.
+
+Works with any theme; designed together with **Podcast Core Theme**.
 
 == Installation ==
 
-1. Upload the `podcast-core-plugin` folder to `/wp-content/plugins/`.
-2. Activate the plugin from the Plugins screen.
+1. In your admin area, go to Plugins → Add New Plugin, search for "Podcast Core Plugin" and install it, or upload the plugin zip.
+2. Activate the plugin.
+3. Go to Settings → Podcast: paste your podcast RSS feed in *Feed to import* and choose the episode image source.
+4. Go to Podcast → Import from RSS and click *Force update now*.
+
+== Frequently Asked Questions ==
+
+= Which podcast hosts are supported? =
+
+Any host that publishes a standard podcast RSS feed: Spotify for Creators (Anchor), Spreaker, Buzzsprout, Podbean, Libsyn, Captivate, Transistor and many others.
+
+= Will an update overwrite the changes I made to an episode? =
+
+No. Episodes already on your site are recognised and left untouched; updates only add new episodes.
+
+= Is the audio stored on my site? =
+
+No. The player plays the audio file from your hosting platform, like podcast apps do. Only cover images are copied into your Media Library.
+
+= How do I get the horizontal Spotify covers? =
+
+Settings → Podcast → Episode image → From Spotify. If your show is not hosted on Spotify for Creators, also add the show link and a Spotify API Client ID and Secret (free, from developer.spotify.com).
+
+= Can I show the first episode first? =
+
+Yes: Settings → Podcast → Episode order → Oldest first. Each series can also have its own order (Podcast → Series).
 
 == Changelog ==
 
