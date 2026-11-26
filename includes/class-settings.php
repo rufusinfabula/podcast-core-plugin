@@ -31,6 +31,7 @@ final class Settings {
 			'rss_url'       => '',
 			'feed_url'      => '',
 			'auto_sync'     => true,
+			'image_source'  => 'feed',
 		);
 	}
 
@@ -71,13 +72,35 @@ final class Settings {
 		add_settings_section( 'podcast_core_import', __( 'Import from RSS', 'podcast-core-plugin' ), '__return_false', self::PAGE );
 		self::field( 'feed_url', __( 'Feed to import', 'podcast-core-plugin' ), 'podcast_core_import', 'url', __( 'RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above.', 'podcast-core-plugin' ) );
 		self::field( 'auto_sync', __( 'Automatic update', 'podcast-core-plugin' ), 'podcast_core_import', 'checkbox', __( 'Check the feed every hour and import new episodes.', 'podcast-core-plugin' ) );
+		self::field(
+			'image_source',
+			__( 'Episode image', 'podcast-core-plugin' ),
+			'podcast_core_import',
+			'select',
+			__( 'Spotify images are the horizontal covers shown in the Spotify app (640×360). If Spotify does not provide one, the feed image is used.', 'podcast-core-plugin' ),
+			array(
+				'feed'    => __( 'From the feed (usually square)', 'podcast-core-plugin' ),
+				'spotify' => __( 'From Spotify (horizontal 16:9)', 'podcast-core-plugin' ),
+			)
+		);
 	}
 
-	private static function field( string $key, string $label, string $section, string $type, string $help = '' ): void {
+	private static function field( string $key, string $label, string $section, string $type, string $help = '', array $options = array() ): void {
 		add_settings_field(
 			'podcast_core_' . $key,
 			$label,
-			function () use ( $key, $type, $help ) {
+			function () use ( $key, $type, $help, $options ) {
+				if ( 'select' === $type ) {
+					printf( '<select id="podcast_core_%1$s" name="%2$s[%1$s]">', esc_attr( $key ), esc_attr( self::OPTION ) );
+					foreach ( $options as $value => $text ) {
+						printf( '<option value="%s" %s>%s</option>', esc_attr( $value ), selected( self::get( $key ), $value, false ), esc_html( $text ) );
+					}
+					echo '</select>';
+					if ( $help ) {
+						printf( '<p class="description">%s</p>', esc_html( $help ) );
+					}
+					return;
+				}
 				if ( 'checkbox' === $type ) {
 					printf(
 						'<label><input type="checkbox" id="podcast_core_%1$s" name="%2$s[%1$s]" value="1" %3$s /> %4$s</label>',
@@ -118,7 +141,8 @@ final class Settings {
 		foreach ( array( 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'feed_url' ) as $key ) {
 			$clean[ $key ] = esc_url_raw( $input[ $key ] ?? '' );
 		}
-		$clean['auto_sync'] = ! empty( $input['auto_sync'] );
+		$clean['auto_sync']    = ! empty( $input['auto_sync'] );
+		$clean['image_source'] = in_array( $input['image_source'] ?? '', array( 'feed', 'spotify' ), true ) ? $input['image_source'] : 'feed';
 		return $clean;
 	}
 

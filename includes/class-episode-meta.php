@@ -23,6 +23,7 @@ final class Episode_Meta {
 			'duration'       => array( 'string', array( __CLASS__, 'sanitize_duration' ) ),
 			'video_url'      => array( 'string', 'esc_url_raw' ),
 			'source_url'     => array( 'string', 'esc_url_raw' ),
+			'spotify_url'    => array( 'string', 'esc_url_raw' ),
 		);
 	}
 

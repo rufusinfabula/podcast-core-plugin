@@ -185,7 +185,8 @@ final class Importer {
 		if ( is_wp_error( $id ) ) {
 			return $id;
 		}
-		if ( $episode['image_url'] ) {
+		$image = 'spotify' === Settings::get( 'image_source' ) ? Spotify::apply_image( $id ) : null;
+		if ( ( null === $image || is_wp_error( $image ) ) && $episode['image_url'] ) {
 			$image = self::image( $episode['image_url'], $id, $episode['title'] );
 			if ( ! is_wp_error( $image ) ) {
 				set_post_thumbnail( $id, $image );

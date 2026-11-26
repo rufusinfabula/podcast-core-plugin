@@ -69,6 +69,14 @@
 				__nextHasNoMarginBottom: true,
 			} ),
 			el( TextControl, {
+				label: __( 'Spotify link (open.spotify.com)', 'podcast-core-plugin' ),
+				type: 'url',
+				value: meta.podcast_core_spotify_url || '',
+				onChange: ( v ) => set( 'podcast_core_spotify_url', v ),
+				__next40pxDefaultSize: true,
+				__nextHasNoMarginBottom: true,
+			} ),
+			el( TextControl, {
 				label: __( 'Video URL (YouTube, Vimeo…)', 'podcast-core-plugin' ),
 				type: 'url',
 				value: meta.podcast_core_video_url || '',

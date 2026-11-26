@@ -4,6 +4,7 @@
 	const bar = document.getElementById( 'pc-import-progress' );
 	const previewBtn = document.getElementById( 'pc-import-preview' );
 	const runBtn = document.getElementById( 'pc-import-run' );
+	const imagesBtn = document.getElementById( 'pc-import-images' );
 	if ( ! out || ! runBtn ) {
 		return;
 	}
@@ -12,6 +13,9 @@
 	const busy = ( on ) => {
 		previewBtn.disabled = on;
 		runBtn.disabled = on;
+		if ( imagesBtn ) {
+			imagesBtn.disabled = on;
+		}
 	};
 	const fail = ( e ) => {
 		busy( false );
@@ -77,4 +81,43 @@
 		say( html );
 		document.getElementById( 'pc-import-last' ).textContent = __( 'Just now', 'podcast-core-plugin' );
 	} );
+
+	if ( imagesBtn ) {
+		imagesBtn.addEventListener( 'click', async () => {
+			busy( true );
+			bar.style.display = 'block';
+			bar.value = 0;
+			let done = 0;
+			let total = null;
+			let errors = [];
+			say( __( 'Downloading images from Spotify… keep this page open.', 'podcast-core-plugin' ) );
+			try {
+				for ( ;; ) {
+					const r = await wp.apiFetch( { path: '/podcast-core/v1/import/images', method: 'POST' } );
+					if ( total === null ) {
+						total = r.total;
+					}
+					done += r.done;
+					errors = errors.concat( r.errors );
+					bar.value = total ? Math.round( ( ( total - r.remaining ) / total ) * 100 ) : 100;
+					// translators: 1: images updated so far, 2: images to update.
+					say( sprintf( __( 'Updated %1$d of %2$d images…', 'podcast-core-plugin' ), done, total ) );
+					if ( ! r.remaining ) {
+						break;
+					}
+				}
+			} catch ( e ) {
+				fail( e );
+				return;
+			}
+			bar.value = 100;
+			busy( false );
+			// translators: %d: number of updated images.
+			let html = sprintf( __( 'Done: %d images updated.', 'podcast-core-plugin' ), done );
+			if ( errors.length ) {
+				html += '</p><p><strong>' + __( 'Kept the feed image for:', 'podcast-core-plugin' ) + '</strong></p><ul style="list-style:disc;margin-left:2em">' + errors.map( ( e ) => '<li>' + esc( e ) + '</li>' ).join( '' ) + '</ul><p>';
+			}
+			say( html );
+		} );
+	}
 } )();

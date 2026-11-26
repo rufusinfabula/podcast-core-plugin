@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0 – unreleased
+- **Episode images from Spotify**: Settings → Podcast → *Episode image* = *From Spotify (horizontal 16:9)* uses the cover Spotify shows for each episode (640×360, official oEmbed). The open.spotify.com link of each episode is read from the public Spotify for Creators page and stored (`podcast_core_spotify_url`, editable in Episode details); if it cannot be found, the feed image is used.
+- *Update images from Spotify* button (Podcast → Import from RSS) and `wp podcast-core images [--force]`: replace feed images of existing episodes; images chosen by hand are kept; unused feed images are deleted.
+
 ## 0.4.0 – unreleased
 - **Import from RSS**: Settings → Podcast → *Feed to import* and *Automatic update* (hourly check); Podcast → *Import from RSS* page with preview, *Force update now* and progress; `wp podcast-core import [--dry-run] [--url=]`.
 - Each feed item becomes a published episode with its original date, title, description converted to blocks (paragraphs, lists, headings), audio URL, duration, episode and season number, link to the episode page on the platform and cover image (downloaded once into the Media Library and reused).

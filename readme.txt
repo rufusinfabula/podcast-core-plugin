@@ -4,7 +4,7 @@ Tags: podcast, episodes, audio player, series
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.4.0
+Stable tag: 0.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,9 @@ This plugin is in early development.
 2. Activate the plugin from the Plugins screen.
 
 == Changelog ==
+
+= 0.5.0 =
+* Optional horizontal episode images from Spotify.
 
 = 0.4.0 =
 * Import episodes from an RSS feed, with hourly automatic update and manual force update.

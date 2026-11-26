@@ -163,6 +163,44 @@ final class CLI {
 	}
 
 	/**
+	 * Uses the horizontal cover Spotify shows for each episode as featured image.
+	 *
+	 * Only episodes whose image came from the feed are changed, unless --force.
+	 * Feed images no longer used are deleted at the end.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--force]
+	 * : Also replace images chosen by hand.
+	 *
+	 * @param array $args       Positional args.
+	 * @param array $assoc_args Named args.
+	 */
+	public function images( array $args, array $assoc_args ): void {
+		$force = ! empty( $assoc_args['force'] );
+		$ids   = $force ? get_posts(
+			array(
+				'post_type'      => PODCAST_CORE_EPISODE,
+				'post_status'    => 'any',
+				'posts_per_page' => -1,
+				'fields'         => 'ids',
+			)
+		) : Spotify::pending();
+		$done  = 0;
+		foreach ( $ids as $id ) {
+			$result = Spotify::apply_image( $id, $force );
+			if ( is_wp_error( $result ) ) {
+				WP_CLI::warning( sprintf( '#%d %s: %s', $id, get_the_title( $id ), $result->get_error_message() ) );
+			} else {
+				++$done;
+				WP_CLI::log( sprintf( '#%d %s', $id, get_the_title( $id ) ) );
+			}
+		}
+		$deleted = Spotify::delete_unused_feed_images();
+		WP_CLI::success( sprintf( '%d images updated, %d unused feed images deleted.', $done, $deleted ) );
+	}
+
+	/**
 	 * Copies terms (keeping slug, description and hierarchy). Returns old_id => new_id.
 	 */
 	private function migrate_terms( string $from_tax, bool $dry_run ): array {

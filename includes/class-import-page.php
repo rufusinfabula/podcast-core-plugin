@@ -50,11 +50,51 @@ final class Import_Page {
 		);
 		register_rest_route(
 			'podcast-core/v1',
+			'/import/images',
+			array(
+				'methods'             => 'POST',
+				'permission_callback' => $permission,
+				'callback'            => array( __CLASS__, 'images_batch' ),
+			)
+		);
+		register_rest_route(
+			'podcast-core/v1',
 			'/import/run',
 			array(
 				'methods'             => 'POST',
 				'permission_callback' => $permission,
 				'callback'            => fn() => self::response( Importer::sync( 'manual', self::BATCH ) ),
+			)
+		);
+	}
+
+	/**
+	 * Replaces feed images with Spotify ones, a few episodes per request.
+	 */
+	public static function images_batch() {
+		$pending = Spotify::pending();
+		$done    = 0;
+		$errors  = array();
+		foreach ( array_slice( $pending, 0, self::BATCH ) as $id ) {
+			$result = Spotify::apply_image( $id );
+			if ( is_wp_error( $result ) ) {
+				// Mark as handled so the batch moves on: keep the feed image, remember why.
+				update_post_meta( $id, '_podcast_core_spotify_error', $result->get_error_message() );
+				$errors[] = get_the_title( $id ) . ': ' . $result->get_error_message();
+			} else {
+				++$done;
+			}
+		}
+		$remaining = max( 0, count( $pending ) - self::BATCH );
+		if ( ! $remaining ) {
+			Spotify::delete_unused_feed_images();
+		}
+		return rest_ensure_response(
+			array(
+				'done'      => $done,
+				'errors'    => $errors,
+				'remaining' => $errors ? 0 : $remaining,
+				'total'     => count( $pending ),
 			)
 		);
 	}
@@ -126,7 +166,9 @@ final class Import_Page {
 				<p>
 					<button type="button" class="button" id="pc-import-preview"><?php esc_html_e( 'Check the feed', 'podcast-core-plugin' ); ?></button>
 					<button type="button" class="button button-primary" id="pc-import-run"><?php esc_html_e( 'Force update now', 'podcast-core-plugin' ); ?></button>
+					<button type="button" class="button" id="pc-import-images"><?php esc_html_e( 'Update images from Spotify', 'podcast-core-plugin' ); ?></button>
 				</p>
+				<p class="description"><?php esc_html_e( 'Update images from Spotify: replaces the feed image of existing episodes with the horizontal cover shown on Spotify. Images you chose by hand are kept.', 'podcast-core-plugin' ); ?></p>
 				<div id="pc-import-output" aria-live="polite"></div>
 				<progress id="pc-import-progress" max="100" value="0" style="width:100%;max-width:600px;display:none"></progress>
 			<?php endif; ?>
