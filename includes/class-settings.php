@@ -24,7 +24,7 @@ final class Settings {
 	 */
 	private const TABS = array(
 		'podcast'  => array( 'show_name', 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'newsletter_url' ),
-		'settings' => array( 'episodes_slug', 'series_slug', 'per_page', 'order', 'feed_url', 'auto_sync', 'image_source', 'spotify_client_id', 'spotify_client_secret' ),
+		'settings' => array( 'episodes_slug', 'series_slug', 'per_page', 'order', 'feed_url', 'auto_sync', 'image_source', 'spotify_client_id', 'spotify_client_secret', 'consent' ),
 		'styles'   => array( 'hero_images' ),
 	);
 
@@ -62,6 +62,7 @@ final class Settings {
 			'rss_url'       => '',
 			'newsletter_url' => '',
 			'hero_images'   => array(),
+			'consent'       => false,
 			'feed_url'      => '',
 			'auto_sync'     => true,
 			'image_source'  => 'feed',
@@ -128,6 +129,9 @@ final class Settings {
 			self::page( 'styles' )
 		);
 		self::field( 'hero_images', __( 'Hero images', 'podcast-core-engine' ), 'podcast_core_site', 'images', __( 'Shown in the hero of the home page by themes that support it (Podcast Core Studio). With more than one image they rotate with a crossfade; drag to change the order. Leave empty to use the images placed in the home page template.', 'podcast-core-engine' ) );
+
+		add_settings_section( 'podcast_core_privacy', __( 'Privacy', 'podcast-core-engine' ), '__return_false', self::page( 'settings' ) );
+		self::field( 'consent', __( 'Cookie notice', 'podcast-core-engine' ), 'podcast_core_privacy', 'checkbox', __( 'Show a cookie notice on the first visit and load videos from YouTube and Vimeo (which set third-party cookies) only after the visitor accepts, or clicks "Load the video". The choice can be changed from any link to #pc-cookie-settings, e.g. in the footer.', 'podcast-core-engine' ) );
 
 		add_settings_section( 'podcast_core_import', __( 'Import from RSS', 'podcast-core-engine' ), '__return_false', self::page( 'settings' ) );
 		self::field( 'feed_url', __( 'Feed to import', 'podcast-core-engine' ), 'podcast_core_import', 'url', __( 'RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above.', 'podcast-core-engine' ) );
@@ -266,6 +270,7 @@ final class Settings {
 		$images               = is_array( $input['hero_images'] ?? '' ) ? $input['hero_images'] : explode( ',', (string) ( $input['hero_images'] ?? '' ) );
 		$clean['hero_images'] = array_values( array_filter( array_map( 'absint', $images ), 'wp_attachment_is_image' ) );
 		$clean['auto_sync']    = ! empty( $input['auto_sync'] );
+		$clean['consent']      = ! empty( $input['consent'] );
 		$clean['image_source'] = in_array( $input['image_source'] ?? '', array( 'feed', 'spotify' ), true ) ? $input['image_source'] : 'feed';
 
 		$out = array();

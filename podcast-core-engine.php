@@ -37,6 +37,7 @@ require_once PODCAST_CORE_DIR . 'includes/class-importer.php';
 require_once PODCAST_CORE_DIR . 'includes/class-spotify.php';
 require_once PODCAST_CORE_DIR . 'includes/class-import-page.php';
 require_once PODCAST_CORE_DIR . 'includes/class-admin-list.php';
+require_once PODCAST_CORE_DIR . 'includes/class-consent.php';
 require_once PODCAST_CORE_DIR . 'includes/class-plugin.php';
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {

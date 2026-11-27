@@ -1,0 +1,67 @@
+/*
+ * Cookie notice and video placeholders — neutral base styles.
+ * Themes customise them through the .pc-consent* classes.
+ */
+.pc-consent {
+	position: fixed;
+	right: 1rem;
+	bottom: 1rem;
+	left: 1rem;
+	z-index: 9999;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem 1.5rem;
+	max-width: 56rem;
+	margin: 0 auto;
+	padding: 1rem 1.25rem;
+	border-radius: 12px;
+	background: #fff;
+	color: #111;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+	font-size: 0.9rem;
+}
+.pc-consent[hidden] {
+	display: none;
+}
+.pc-consent__text,
+.pc-consent__actions {
+	margin: 0;
+}
+.pc-consent__text {
+	flex: 1 1 20rem;
+}
+.pc-consent__actions {
+	display: flex;
+	gap: 0.5rem;
+}
+.pc-consent__button,
+.pc-consent-embed__load {
+	padding: 0.55em 1.2em;
+	border: 2px solid currentColor;
+	border-radius: 999px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+}
+.pc-consent-embed {
+	display: grid;
+	aspect-ratio: 16 / 9;
+	background: color-mix(in srgb, currentColor 8%, transparent);
+}
+.pc-consent-embed__placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	padding: 1.5rem;
+	text-align: center;
+}
+.pc-consent-embed__placeholder p {
+	margin: 0;
+	max-width: 30rem;
+}
