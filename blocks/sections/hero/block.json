@@ -24,6 +24,10 @@
       "link": true,
       "gradients": true
     },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    },
     "spacing": {
       "padding": true,
       "margin": [

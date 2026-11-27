@@ -1,6 +1,7 @@
 # Changelog
 
 ## 0.9.0 – unreleased
+- Section blocks (Hero, Episodes, News, Call to action): **background image** with size and position (block sidebar → Styles → Background).
 - **Renamed to Podcast Core Engine** (was Podcast Core Plugin): plugin folder and main file `podcast-core-engine/podcast-core-engine.php`, text domain `podcast-core-engine`. Settings, episodes and data are unchanged (same option names and post type). The companion theme is now **Podcast Core Studio**.
 
 ## 0.8.1 – unreleased
