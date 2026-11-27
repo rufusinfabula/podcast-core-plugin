@@ -1,0 +1,11 @@
+/* Episode Video — the embed fills the block width at 16:9. */
+.pc-episode-video {
+	scroll-margin-top: 1.5rem; /* target of the player's "Watch the video" button */
+}
+.pc-episode-video iframe {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border: 0;
+}

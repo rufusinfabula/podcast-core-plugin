@@ -28,7 +28,49 @@
 						{ title: __( 'Display', 'podcast-core-engine' ) },
 						toggle( 'showCover', __( 'Show cover image', 'podcast-core-engine' ) ),
 						toggle( 'showNumber', __( 'Show episode number', 'podcast-core-engine' ) ),
-						toggle( 'showVideo', __( 'Show video', 'podcast-core-engine' ) )
+						toggle( 'showVideo', __( 'Show video', 'podcast-core-engine' ) ),
+						! attributes.showVideo &&
+							toggle( 'showVideoLink', __( '"Watch the video" button (to the Episode Video block)', 'podcast-core-engine' ) ),
+						! attributes.showVideo &&
+							attributes.showVideoLink &&
+							el( wp.components.SelectControl, {
+								label: __( 'Button style', 'podcast-core-engine' ),
+								value: attributes.videoLinkStyle,
+								options: [
+									{ label: __( 'Pill', 'podcast-core-engine' ), value: 'pill' },
+									{ label: __( 'Card with image', 'podcast-core-engine' ), value: 'card' },
+									{ label: __( 'Bar under the player', 'podcast-core-engine' ), value: 'bar' },
+								],
+								onChange: ( v ) => setAttributes( { videoLinkStyle: v } ),
+								__nextHasNoMarginBottom: true,
+								__next40pxDefaultSize: true,
+							} ),
+						! attributes.showVideo &&
+							attributes.showVideoLink &&
+							el( wp.components.SelectControl, {
+								label: __( 'Button position', 'podcast-core-engine' ),
+								value: attributes.videoLinkPosition,
+								options: [
+									{ label: __( 'Under the player', 'podcast-core-engine' ), value: 'player' },
+									{ label: __( 'In the episode text (centred)', 'podcast-core-engine' ), value: 'content' },
+								],
+								onChange: ( v ) => setAttributes( { videoLinkPosition: v } ),
+								__nextHasNoMarginBottom: true,
+								__next40pxDefaultSize: true,
+							} ),
+						! attributes.showVideo &&
+							attributes.showVideoLink &&
+							'content' === attributes.videoLinkPosition &&
+							el( wp.components.RangeControl, {
+								label: __( 'After text block no.', 'podcast-core-engine' ),
+								help: __( 'Paragraphs, lists and headings of the episode text count as blocks.', 'podcast-core-engine' ),
+								value: attributes.videoLinkAfter,
+								min: 1,
+								max: 10,
+								onChange: ( v ) => setAttributes( { videoLinkAfter: v } ),
+								__nextHasNoMarginBottom: true,
+								__next40pxDefaultSize: true,
+							} )
 					)
 				),
 				el(

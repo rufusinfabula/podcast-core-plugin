@@ -1,6 +1,7 @@
 # Changelog
 
 ## 0.10.0 – unreleased
+- **Episode Video block** (`podcast-core/episode-video`): the episode's video on its own, to place it anywhere in the episode template (e.g. after the text) with the Episode Player's *Show video* turned off. The player then shows a **Watch the video** link that scrolls to it (option *"Watch the video" button*), styled as a pill, a card with the episode image, or a bar attached under the player (*Button style*), under the player or in the episode text after a chosen block, centred (*Button position*, *After text block no.*).
 - **Settings moved to Podcast → Settings** (was Settings → Podcast; the old address redirects), in three tabs: *Podcast* (show name, platform links, email sign-up), *General* (URL bases, episode order and number per page, RSS import, Spotify API) and *Styles*. Same option as before; each tab saves only its own values.
 - **Hero images** (Podcast → Settings → Styles): one or more images from the Media Library, in a chosen order, for the theme's hero (`podcast_core_hero_images()`). The site icon (favicon) stays in Appearance → Editor → Design → Identity.
 - **Partners** (Podcast → Partners): partners, sponsors, supporters or friends of the podcast, each with logo, name, short text, website and order. Optional **Partner types** to group them. Private records, no public pages. Post type `podcast_partner`, taxonomy `podcast_partner_type`, meta `podcast_core_partner_url`.

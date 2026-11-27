@@ -122,12 +122,96 @@
 .pc-player-video {
 	margin-top: var(--pc-gap, 1.25rem);
 }
-.pc-player-video iframe {
+/* "Watch the video" link under the player, when the video is in the Episode Video block */
+.pc-player-videolink {
+	margin-top: var(--pc-gap, 1.25rem);
+}
+.pc-player-videolink a {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	color: inherit;
+	font-weight: 600;
+	text-decoration: none;
+}
+.pc-player-videolink svg {
+	flex: none;
+}
+.pc-player-videolink__arrow {
+	transition: transform 0.15s ease;
+}
+.pc-player-videolink a:hover .pc-player-videolink__arrow,
+.pc-player-videolink a:focus-visible .pc-player-videolink__arrow {
+	transform: translateY(3px);
+}
+/* Pill */
+.pc-player-videolink--pill a {
+	display: inline-flex;
+	padding: 0.55em 1.1em;
+	border: 2px solid currentColor;
+	border-radius: 999px;
+}
+/* Card: image with play sign, title and hint, arrow */
+.pc-player-videolink--card a {
+	gap: 1rem;
+	max-width: 36rem;
+	padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+	border-radius: 12px;
+	background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.pc-player-videolink__media {
+	position: relative;
+	flex: none;
+	width: 8rem;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	border-radius: 8px;
+	background: color-mix(in srgb, currentColor 15%, transparent);
+}
+.pc-player-videolink__media img {
 	display: block;
 	width: 100%;
-	height: auto;
-	aspect-ratio: 16 / 9;
-	border-radius: var(--pc-radius);
+	height: 100%;
+	object-fit: cover;
+}
+.pc-player-videolink__play {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.25);
+}
+.pc-player-videolink__text {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 0.15rem;
+}
+.pc-player-videolink__text span {
+	font-weight: 400;
+	font-size: 0.875em;
+	opacity: 0.8;
+}
+/* In the episode text, after the first paragraph: centred */
+.pc-player-videolink--in-text {
+	margin-block: 1.5em;
+}
+.pc-player-videolink--in-text a {
+	width: fit-content;
+	margin-inline: auto;
+}
+/* Bar: a band attached under the player, as wide as it */
+.pc-player-videolink--bar {
+	margin-top: 0;
+}
+.pc-player-videolink--bar a {
+	justify-content: center;
+	padding: 0.7em 1em;
+	background: color-mix(in srgb, currentColor 8%, transparent);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	font-size: 0.85em;
 }
 .pc-player__placeholder {
 	padding: 1rem;

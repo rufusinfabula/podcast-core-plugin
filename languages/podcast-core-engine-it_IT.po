@@ -632,7 +632,7 @@ msgstr "Mostra numero episodio"
 msgid "Show video"
 msgstr "Mostra video"
 
-#: blocks/episode-player/editor.js:45
+#: blocks/episode-player/editor.js:87
 msgid "Episode player: set an audio URL in \"Episode details\" to see it here."
 msgstr "Player episodio: inserisci l'URL audio in \"Dettagli episodio\" per vederlo qui."
 
@@ -647,6 +647,7 @@ msgid "Audio player for the current episode, with cover, episode number and opti
 msgstr "Player audio dell'episodio corrente, con copertina, numero dell'episodio e video opzionale."
 
 #: blocks/episode-player/block.json
+#: blocks/episode-video/block.json
 #: blocks/partners/block.json
 #: blocks/sections/cta-section/block.json
 #: blocks/sections/episodes-section/block.json
@@ -669,6 +670,7 @@ msgid "player"
 msgstr "player"
 
 #: blocks/episode-player/block.json
+#: blocks/episode-video/block.json
 msgctxt "block keyword"
 msgid "episode"
 msgstr "episodio"
@@ -1095,3 +1097,75 @@ msgstr "Settings"
 msgctxt "settings tab"
 msgid "General"
 msgstr "Impostazioni"
+
+#: blocks/episode-video/editor.js:18
+msgid "Episode video: shown here when the episode has a Video URL."
+msgstr "Video dell’episodio: compare qui quando l’episodio ha un URL del video."
+
+#: blocks/episode-video/block.json
+msgctxt "block title"
+msgid "Episode Video"
+msgstr "Video dell’episodio"
+
+#: blocks/episode-video/block.json
+msgctxt "block description"
+msgid "The episode's video (Episode details → Video URL), on its own. Use it with the Episode Player's \"Show video\" turned off to place the video elsewhere, for example after the episode text."
+msgstr "Il video dell’episodio (Dettagli episodio → URL del video), da solo. Usalo con l’opzione \"Mostra video\" del blocco Player episodio disattivata per mettere il video altrove, per esempio dopo il testo dell’episodio."
+
+#: blocks/episode-video/block.json
+msgctxt "block keyword"
+msgid "video"
+msgstr "video"
+
+#: blocks/episode-video/block.json
+msgctxt "block keyword"
+msgid "youtube"
+msgstr "youtube"
+
+#: blocks/episode-player/render.php:77
+msgid "Watch the video"
+msgstr "Guarda il video"
+
+#: blocks/episode-player/editor.js:33
+msgid "\"Watch the video\" button (to the Episode Video block)"
+msgstr "Pulsante \"Guarda il video\" (verso il blocco Video dell’episodio)"
+
+#: blocks/episode-player/editor.js:37
+msgid "Button style"
+msgstr "Stile del pulsante"
+
+#: blocks/episode-player/editor.js:40
+msgid "Pill"
+msgstr "Pillola"
+
+#: blocks/episode-player/editor.js:41
+msgid "Card with image"
+msgstr "Scheda con immagine"
+
+#: blocks/episode-player/editor.js:42
+msgid "Bar under the player"
+msgstr "Barra sotto il player"
+
+#: blocks/episode-player/editor.js:51
+msgid "Button position"
+msgstr "Posizione del pulsante"
+
+#: blocks/episode-player/editor.js:54
+msgid "Under the player"
+msgstr "Sotto il player"
+
+#: blocks/episode-player/editor.js:55
+msgid "In the episode text (centred)"
+msgstr "Nel testo dell’episodio (centrato)"
+
+#: blocks/episode-player/editor.js:65
+msgid "After text block no."
+msgstr "Dopo il blocco di testo n."
+
+#: blocks/episode-player/editor.js:66
+msgid "Paragraphs, lists and headings of the episode text count as blocks."
+msgstr "Paragrafi, elenchi e titoli del testo dell’episodio contano come blocchi."
+
+#: blocks/episode-player/render.php:81
+msgid "This episode is also available as a video podcast"
+msgstr "Questo episodio è disponibile anche in versione video-podcast"

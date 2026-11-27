@@ -29,6 +29,31 @@
     "showVideo": {
       "type": "boolean",
       "default": true
+    },
+    "showVideoLink": {
+      "type": "boolean",
+      "default": true
+    },
+    "videoLinkStyle": {
+      "type": "string",
+      "default": "pill",
+      "enum": [
+        "pill",
+        "card",
+        "bar"
+      ]
+    },
+    "videoLinkPosition": {
+      "type": "string",
+      "default": "player",
+      "enum": [
+        "player",
+        "content"
+      ]
+    },
+    "videoLinkAfter": {
+      "type": "number",
+      "default": 1
     }
   },
   "supports": {
