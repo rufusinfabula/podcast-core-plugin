@@ -1,5 +1,5 @@
 /**
- * Section blocks (Hero, Episodes, News, Call to action): plain containers whose
+ * Section blocks (Hero, Episodes, News, Call to action, Partners): plain containers whose
  * spacing, colours and typography can be set per block or for every instance in
  * Design → Styles → Blocks.
  */
@@ -8,7 +8,7 @@
 	const { useBlockProps, useInnerBlocksProps, InnerBlocks } = wp.blockEditor;
 	const { createElement: el } = wp.element;
 
-	const names = [ 'hero', 'episodes-section', 'news-section', 'cta-section' ];
+	const names = [ 'hero', 'episodes-section', 'news-section', 'cta-section', 'partners-section' ];
 
 	names.forEach( ( slug ) => {
 		registerBlockType( 'podcast-core/' + slug, {

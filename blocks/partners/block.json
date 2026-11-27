@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "podcast-core/partners",
+  "title": "Partners",
+  "category": "widgets",
+  "icon": "groups",
+  "description": "Logos, names and short texts of your partners, sponsors, supporters or friends (Podcast → Partners), each linked to their website.",
+  "keywords": [
+    "podcast",
+    "partner",
+    "sponsor",
+    "supporter",
+    "logo"
+  ],
+  "textdomain": "podcast-core-engine",
+  "attributes": {
+    "type": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "number",
+      "default": 4
+    },
+    "limit": {
+      "type": "number",
+      "default": 0
+    },
+    "showName": {
+      "type": "boolean",
+      "default": true
+    },
+    "showText": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    },
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "style": "file:./style.css",
+  "render": "file:./render.php",
+  "selectors": {
+    "root": ".wp-block-podcast-core-partners"
+  }
+}

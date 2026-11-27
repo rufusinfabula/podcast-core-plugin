@@ -52,7 +52,7 @@ final class Importer {
 	public static function sync( string $trigger = 'manual', ?int $limit = null ) {
 		$url = self::feed_url();
 		if ( '' === $url ) {
-			return new \WP_Error( 'podcast_core_no_feed', __( 'Set the feed address in Settings → Podcast first.', 'podcast-core-engine' ) );
+			return new \WP_Error( 'podcast_core_no_feed', __( 'Set the feed address in Podcast → Settings → General first.', 'podcast-core-engine' ) );
 		}
 		if ( get_transient( self::LOCK ) ) {
 			return new \WP_Error( 'podcast_core_locked', __( 'An import is already running. Try again in a few minutes.', 'podcast-core-engine' ) );
@@ -104,7 +104,7 @@ final class Importer {
 	public static function preview() {
 		$url = self::feed_url();
 		if ( '' === $url ) {
-			return new \WP_Error( 'podcast_core_no_feed', __( 'Set the feed address in Settings → Podcast first.', 'podcast-core-engine' ) );
+			return new \WP_Error( 'podcast_core_no_feed', __( 'Set the feed address in Podcast → Settings → General first.', 'podcast-core-engine' ) );
 		}
 		$episodes = Feed::fetch( $url );
 		if ( is_wp_error( $episodes ) ) {

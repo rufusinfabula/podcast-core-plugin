@@ -44,7 +44,7 @@ final class Post_Types {
 
 	private static function order_select( string $current ): string {
 		$options = array(
-			''     => __( 'As in Settings → Podcast', 'podcast-core-engine' ),
+			''     => __( 'As in Podcast → Settings → General', 'podcast-core-engine' ),
 			'desc' => __( 'Newest first', 'podcast-core-engine' ),
 			'asc'  => __( 'Oldest first', 'podcast-core-engine' ),
 		);
@@ -91,7 +91,7 @@ final class Post_Types {
 	}
 
 	/**
-	 * Episodes per page and order on the episode archive and series pages (Settings → Podcast;
+	 * Episodes per page and order on the episode archive and series pages (Podcast → Settings → General;
 	 * series can override the order).
 	 */
 	public static function per_page( \WP_Query $query ): void {

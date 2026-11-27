@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "podcast-core/partners-section",
+  "title": "Partners section",
+  "category": "theme",
+  "icon": "groups",
+  "description": "A section for partners, sponsors, supporters or friends: an editable title, an optional text and the Partners block.",
+  "keywords": [
+    "podcast",
+    "section",
+    "partner",
+    "sponsor"
+  ],
+  "textdomain": "podcast-core-engine",
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true,
+      "gradients": true
+    },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "blockGap": true,
+      "__experimentalDefaultControls": {
+        "padding": true,
+        "margin": true
+      }
+    },
+    "typography": {
+      "fontSize": true
+    },
+    "__experimentalBorder": {
+      "radius": true,
+      "color": true,
+      "width": true,
+      "style": true
+    },
+    "layout": {
+      "default": {
+        "type": "constrained"
+      },
+      "allowSizingOnChildren": true
+    }
+  },
+  "selectors": {
+    "root": ".wp-block-podcast-core-partners-section"
+  },
+  "editorScript": "podcast-core-sections-editor"
+}

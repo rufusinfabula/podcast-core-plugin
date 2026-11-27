@@ -42,7 +42,7 @@ final class Spotify {
 
 	/* ---------------------------------------------------------------------
 	 * Spotify Web API (optional): finds the Spotify link of episodes hosted
-	 * anywhere, using the show link (Settings → Podcast → Spotify) and the
+	 * anywhere, using the show link (Podcast → Settings → Podcast → Spotify) and the
 	 * Client ID / Secret of an app created on developer.spotify.com.
 	 * ------------------------------------------------------------------ */
 
@@ -51,7 +51,7 @@ final class Spotify {
 	}
 
 	/**
-	 * Show id from the show link in Settings → Podcast (open.spotify.com/show/…).
+	 * Show id from the show link in Podcast → Settings → Podcast (open.spotify.com/show/…).
 	 */
 	public static function show_id(): string {
 		return preg_match( '#open\.spotify\.com/(?:intl-[a-z-]+/)?show/([A-Za-z0-9]{22})#', (string) Settings::get( 'spotify_url' ), $m ) ? $m[1] : '';

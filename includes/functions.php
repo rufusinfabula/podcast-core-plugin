@@ -12,6 +12,8 @@ defined( 'ABSPATH' ) || exit;
  */
 const PODCAST_CORE_EPISODE = 'podcast_episode';
 const PODCAST_CORE_SERIES  = 'podcast_series';
+const PODCAST_CORE_PARTNER = 'podcast_partner';
+const PODCAST_CORE_PARTNER_TYPE = 'podcast_partner_type';
 
 /**
  * Returns one episode field.
@@ -55,4 +57,13 @@ function podcast_core_duration_to_seconds( string $duration ): int {
  */
 function podcast_core_get_setting( string $key ) {
 	return PodcastCore\Settings::get( $key );
+}
+
+/**
+ * Hero images chosen in Podcast → Settings → Styles (attachment IDs, in order; empty if none).
+ *
+ * @return int[]
+ */
+function podcast_core_hero_images(): array {
+	return PodcastCore\Settings::hero_images();
 }

@@ -1,0 +1,71 @@
+/*
+ * Partners — neutral base styles.
+ * Themes customise them through these custom properties or the .pc-partner* classes.
+ */
+.pc-partners {
+	--pc-partners-gap: 1.5rem;
+	--pc-partners-logo-height: 96px;
+}
+.pc-partners__list {
+	display: grid;
+	grid-template-columns: repeat(var(--pc-partners-columns, 4), minmax(0, 1fr));
+	gap: var(--pc-partners-gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.pc-partner {
+	display: flex;
+	margin: 0;
+}
+.pc-partner__inner {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+	text-align: center;
+	color: inherit;
+	text-decoration: none;
+}
+a.pc-partner__inner:hover .pc-partner__name,
+a.pc-partner__inner:focus-visible .pc-partner__name {
+	text-decoration: underline;
+}
+.pc-partner__logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: var(--pc-partners-logo-height);
+}
+.pc-partner__logo img {
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+}
+.pc-partner__name {
+	font-weight: 700;
+	line-height: 1.3;
+}
+.pc-partner__text {
+	font-size: 0.875em;
+	line-height: 1.45;
+}
+@media (max-width: 960px) {
+	.pc-partners__list {
+		grid-template-columns: repeat(min(var(--pc-partners-columns, 4), 3), minmax(0, 1fr));
+	}
+}
+@media (max-width: 700px) {
+	.pc-partners__list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+@media (max-width: 420px) {
+	.pc-partners__list {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

@@ -4,7 +4,7 @@ Tags: podcast, episodes, audio player, rss import, spotify
 Requires at least: 6.7
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 0.9.0
+Stable tag: 0.10.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,7 +46,7 @@ Works with any theme; designed together with **Podcast Core Studio**.
 
 1. In your admin area, go to Plugins → Add New Plugin, search for "Podcast Core Engine" and install it, or upload the plugin zip.
 2. Activate the plugin.
-3. Go to Settings → Podcast: paste your podcast RSS feed in *Feed to import* and choose the episode image source.
+3. Go to Podcast → Settings → General: paste your podcast RSS feed in *Feed to import* and choose the episode image source.
 4. Go to Podcast → Import from RSS and click *Force update now*.
 
 == Frequently Asked Questions ==
@@ -65,11 +65,11 @@ No. The player plays the audio file from your hosting platform, like podcast app
 
 = How do I get the horizontal Spotify covers? =
 
-Settings → Podcast → Episode image → From Spotify. If your show is not hosted on Spotify for Creators, also add the show link and a Spotify API Client ID and Secret (free, from developer.spotify.com).
+Podcast → Settings → General → Episode image → From Spotify. If your show is not hosted on Spotify for Creators, also add the show link (Podcast → Settings → Podcast) and a Spotify API Client ID and Secret (free, from developer.spotify.com).
 
 = Can I show the first episode first? =
 
-Yes: Settings → Podcast → Episode order → Oldest first. Each series can also have its own order (Podcast → Series).
+Yes: Podcast → Settings → General → Episode order → Oldest first. Each series can also have its own order (Podcast → Series).
 
 == Changelog ==
 

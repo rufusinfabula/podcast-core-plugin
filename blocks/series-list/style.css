@@ -1,0 +1,157 @@
+/*
+ * Series list — neutral base styles.
+ * Themes customise them through these custom properties or the .pc-series* classes.
+ */
+.pc-series-list {
+	--pc-series-gap: 1rem;
+	--pc-series-icon-size: 48px;
+}
+.pc-series-list__list {
+	display: grid;
+	grid-template-columns: repeat(var(--pc-series-columns, 3), minmax(0, 1fr));
+	gap: var(--pc-series-gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.pc-series {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin: 0;
+}
+.pc-series__inner {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 0.75rem;
+	color: inherit;
+	text-decoration: none;
+}
+.pc-series__head {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: inherit;
+	text-decoration: none;
+}
+a.pc-series__inner:hover .pc-series__name,
+a.pc-series__inner:focus-visible .pc-series__name {
+	text-decoration: underline;
+}
+.pc-series__icon {
+	flex: none;
+	width: var(--pc-series-icon-size);
+	height: var(--pc-series-icon-size);
+}
+.pc-series__icon img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+.pc-series__body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 0.25rem;
+	min-width: 0;
+}
+.pc-series__name {
+	font-weight: 700;
+	line-height: 1.3;
+}
+.pc-series__text {
+	font-size: 0.875em;
+	line-height: 1.45;
+}
+.pc-series__count {
+	flex: none;
+	padding: 0.2em 0.65em;
+	border-radius: 999px;
+	font-size: 0.75em;
+	font-weight: 600;
+	line-height: 1.4;
+	white-space: nowrap;
+	background: color-mix(in srgb, currentColor 12%, transparent);
+}
+/* Latest episodes of the series: images (16:9) stacked from the left, newest on top, each one
+   covering 30% of the next; together they fill the card (one episode = full width), centred in
+   the space left in the card. When the series has more episodes, a cut card with three dots follows,
+   showing 40% of an image width.
+   Image width w: w + (n - 1) × 0.7w + more × 0.4w = 100%. */
+.pc-series__episodes {
+	--pc-series-overlap: 0.3;
+	--pc-series-more-visible: 0.4;
+	--pc-series-episode-width: calc(100% / (1 + (1 - var(--pc-series-overlap)) * (var(--pc-series-episodes, 1) - 1) + var(--pc-series-more-visible) * var(--pc-series-more, 0)));
+	display: flex;
+	margin: auto 0; /* centred vertically in the rest of the card */
+	padding: 0;
+	list-style: none;
+}
+.pc-series__episode,
+.pc-series__more {
+	position: relative;
+	flex: none;
+	width: var(--pc-series-episode-width);
+	margin: 0;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	border-radius: 6px;
+}
+.pc-series__episode + .pc-series__episode,
+.pc-series__episode + .pc-series__more {
+	margin-left: calc(var(--pc-series-episode-width) * var(--pc-series-overlap) * -1);
+}
+.pc-series__episode {
+	display: block;
+	background: color-mix(in srgb, currentColor 10%, transparent);
+	box-shadow: 4px 0 10px rgba(0, 0, 0, 0.25);
+	transition: transform 0.2s ease;
+}
+.pc-series__episode img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+/* The image under the pointer comes to the front and lifts */
+.pc-series__episode:hover {
+	z-index: 20 !important; /* above the stacking order set inline */
+	transform: translateY(-4px);
+}
+/* Cut card: only its right part shows, with the ellipsis */
+.pc-series__more {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: calc(var(--pc-series-episode-width) * (var(--pc-series-overlap) + var(--pc-series-more-visible)));
+	/* the left part is under the previous image: the dots are centred in the visible part */
+	padding-left: calc(var(--pc-series-episode-width) * var(--pc-series-overlap));
+	box-sizing: border-box;
+	background: linear-gradient(to right, color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 4%, transparent));
+}
+.pc-series__dots {
+	display: flex;
+	flex: none;
+	gap: 0.22em;
+}
+.pc-series__dots > span {
+	flex: none;
+	width: 0.42em;
+	height: 0.42em;
+	border-radius: 50%;
+	background: currentColor;
+	opacity: 0.45;
+	filter: blur(0.5px);
+}
+@media (max-width: 960px) {
+	.pc-series-list__list {
+		grid-template-columns: repeat(min(var(--pc-series-columns, 3), 2), minmax(0, 1fr));
+	}
+}
+@media (max-width: 600px) {
+	.pc-series-list__list {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

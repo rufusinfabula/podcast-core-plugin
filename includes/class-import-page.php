@@ -110,7 +110,7 @@ final class Import_Page {
 		$feed     = Importer::feed_url();
 		$status   = get_option( Importer::STATUS_OPT );
 		$next     = wp_next_scheduled( Importer::CRON_HOOK );
-		$settings = admin_url( 'options-general.php?page=podcast-core' );
+		$settings = Settings::url( 'settings' );
 		?>
 		<div class="wrap">
 			<h1><?php esc_html_e( 'Import from RSS', 'podcast-core-engine' ); ?></h1>
@@ -125,7 +125,7 @@ final class Import_Page {
 						<?php else : ?>
 							<em><?php esc_html_e( 'Not set.', 'podcast-core-engine' ); ?></em>
 						<?php endif; ?>
-						— <a href="<?php echo esc_url( $settings ); ?>"><?php esc_html_e( 'Change in Settings → Podcast', 'podcast-core-engine' ); ?></a>
+						— <a href="<?php echo esc_url( $settings ); ?>"><?php esc_html_e( 'Change in Podcast → Settings → General', 'podcast-core-engine' ); ?></a>
 					</td>
 				</tr>
 				<tr>

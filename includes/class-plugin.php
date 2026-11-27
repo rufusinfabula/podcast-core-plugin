@@ -29,6 +29,8 @@ final class Plugin {
 
 		Settings::init();
 		Post_Types::init();
+		Partners::init();
+		Series_Icons::init();
 		Episode_Meta::init();
 		Editor::init();
 		Blocks::init();
@@ -51,6 +53,7 @@ final class Plugin {
 	 */
 	public static function activate(): void {
 		Post_Types::register();
+		Partners::register();
 		flush_rewrite_rules();
 	}
 

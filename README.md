@@ -11,7 +11,7 @@ Lightweight, no third-party dependencies. Pairs with [Podcast Core Studio](https
 - Native episode fields (no ACF): number, season, audio URL, duration, video URL — edited in the block editor sidebar ("Episode details")
 - **Episode Player** block (`podcast-core/episode-player`): cover, episode number, custom audio controls, optional video embed. Accessible (native range input, keyboard friendly), works with several players per page, falls back to native audio controls without JavaScript
 - schema.org `PodcastEpisode` structured data on episode pages
-- **Settings → Podcast**: archive and series URL bases, episodes per page, episode order (newest or oldest first — each series can override it, handy for narrative shows), show name, platform links (Spotify, Apple Podcasts, YouTube, RSS)
+- **Podcast → Settings**, three tabs: *Podcast* (show name, platform links: Spotify, Apple Podcasts, YouTube, RSS, email sign-up), *General* (archive and series URL bases, episodes per page, episode order — newest or oldest first, each series can override it, handy for narrative shows — RSS import, Spotify API), *Styles* (hero images)
 - **Episodes list tools**: filter by series (or *No series*), bulk add / move / remove series, sortable number and season columns
 - **Section blocks** (Hero, Episodes section, News section, Call to action section): style every instance at once in *Design → Styles → Blocks*
 - **Sections panel** in the Site Editor: switch sections of a template on/off without deleting them
@@ -39,10 +39,10 @@ Filter: `podcast_core_schema_episode` ( array $data, WP_Post $post ).
 
 ## Importing from your podcast feed
 
-1. *Settings → Podcast → Import from RSS*: paste the RSS address of your show (Spotify for Creators, Anchor, Spreaker, Buzzsprout…) and choose whether to update automatically every hour.
+1. *Podcast → Settings → General → Import from RSS*: paste the RSS address of your show (Spotify for Creators, Anchor, Spreaker, Buzzsprout…) and choose whether to update automatically every hour.
 2. *Podcast → Import from RSS*: **Check the feed**, then **Force update now**. Episodes are imported in small batches with a progress bar.
 3. Edit any imported episode as usual: later updates only add new episodes.
-4. Hosting on Spotify for Creators? Set *Episode image* to *From Spotify* to use the horizontal covers shown in the Spotify app (640×360) instead of the feed artwork, and run *Update images from Spotify* for existing episodes. The Spotify link of each episode is found, in order: in the episode's *Spotify link* field; on the public Spotify for Creators page (shows hosted there); with the **Spotify Web API** if you add a Client ID and Secret in *Settings → Podcast → Spotify API* (shows hosted anywhere — create a free app at developer.spotify.com/dashboard). Without a link the feed image is kept.
+4. Hosting on Spotify for Creators? Set *Episode image* to *From Spotify* to use the horizontal covers shown in the Spotify app (640×360) instead of the feed artwork, and run *Update images from Spotify* for existing episodes. The Spotify link of each episode is found, in order: in the episode's *Spotify link* field; on the public Spotify for Creators page (shows hosted there); with the **Spotify Web API** if you add a Client ID and Secret in *Podcast → Settings → General → Spotify API* (shows hosted anywhere — create a free app at developer.spotify.com/dashboard). Without a link the feed image is kept.
 
 ```bash
 wp podcast-core import --dry-run

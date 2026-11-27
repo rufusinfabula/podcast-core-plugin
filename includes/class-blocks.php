@@ -18,7 +18,7 @@ final class Blocks {
 	/**
 	 * Section blocks share one editor script.
 	 */
-	public const SECTIONS = array( 'hero', 'episodes-section', 'news-section', 'cta-section' );
+	public const SECTIONS = array( 'hero', 'episodes-section', 'news-section', 'cta-section', 'partners-section' );
 
 	public static function register(): void {
 		wp_register_script(
@@ -32,7 +32,7 @@ final class Blocks {
 			register_block_type( PODCAST_CORE_DIR . 'blocks/sections/' . $section );
 		}
 
-		foreach ( array( 'episode-player' ) as $block ) {
+		foreach ( array( 'episode-player', 'partners', 'series-list' ) as $block ) {
 			$type = register_block_type( PODCAST_CORE_DIR . 'blocks/' . $block );
 			if ( $type && ! empty( $type->editor_script_handles ) ) {
 				foreach ( $type->editor_script_handles as $handle ) {

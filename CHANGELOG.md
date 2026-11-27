@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.10.0 – unreleased
+- **Settings moved to Podcast → Settings** (was Settings → Podcast; the old address redirects), in three tabs: *Podcast* (show name, platform links, email sign-up), *General* (URL bases, episode order and number per page, RSS import, Spotify API) and *Styles*. Same option as before; each tab saves only its own values.
+- **Hero images** (Podcast → Settings → Styles): one or more images from the Media Library, in a chosen order, for the theme's hero (`podcast_core_hero_images()`). The site icon (favicon) stays in Appearance → Editor → Design → Identity.
+- **Partners** (Podcast → Partners): partners, sponsors, supporters or friends of the podcast, each with logo, name, short text, website and order. Optional **Partner types** to group them. Private records, no public pages. Post type `podcast_partner`, taxonomy `podcast_partner_type`, meta `podcast_core_partner_url`.
+- **Partners block** (`podcast-core/partners`): grid of logos, names and short texts linked to the partners' websites; filter by type, columns (1–6), maximum number, show/hide name and text. Styles via `.pc-partner*` classes (the wrapper also has `pc-partners--columns-N`) and the `--pc-partners-*` custom properties.
+- **Series icons**: each series and sub-series can have an icon (Podcast → Series → Icon, from the Media Library). Term meta `podcast_core_icon` (attachment ID), also in the REST API and in the series list table.
+- **Series list block** (`podcast-core/series-list`): the main series, or the sub-series of one series, each with icon, name, optional description and a badge with the number of episodes, linked to the series page; optionally the images of the latest episodes of each series (0–12), stacked from the left (newest on top, 30% overlap, filling the card), with a cut card with three dots when the series has more episodes. The whole card (name, badge, images) links to the series page. Order by name or by most recent episode. Columns (1–6), hide empty series. Styles via `.pc-series*` classes and `--pc-series-*` custom properties.
+- **Partners section** block (`podcast-core/partners-section`): container with an editable title, like the other section blocks.
+
 ## 0.9.0 – unreleased
 - Section blocks (Hero, Episodes, News, Call to action): **background image** with size and position (block sidebar → Styles → Background).
 - **Renamed to Podcast Core Engine** (was Podcast Core Plugin): plugin folder and main file `podcast-core-engine/podcast-core-engine.php`, text domain `podcast-core-engine`. Settings, episodes and data are unchanged (same option names and post type). The companion theme is now **Podcast Core Studio**.

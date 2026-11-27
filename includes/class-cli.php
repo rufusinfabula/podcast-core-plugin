@@ -115,7 +115,7 @@ final class CLI {
 	 * ## OPTIONS
 	 *
 	 * [--url=<url>]
-	 * : Feed address. Default: the one in Settings → Podcast.
+	 * : Feed address. Default: the one in Podcast → Settings → General.
 	 *
 	 * [--dry-run]
 	 * : Only count new and existing episodes.

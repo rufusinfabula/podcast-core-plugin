@@ -1,0 +1,81 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "podcast-core/series-list",
+  "title": "Series list",
+  "category": "widgets",
+  "icon": "playlist-audio",
+  "description": "The podcast's series, or the sub-series of one series, each with its icon, name and number of episodes, linked to the series page.",
+  "keywords": [
+    "podcast",
+    "series",
+    "sub-series",
+    "shows",
+    "specials"
+  ],
+  "textdomain": "podcast-core-engine",
+  "attributes": {
+    "parent": {
+      "type": "string",
+      "default": ""
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCount": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDescription": {
+      "type": "boolean",
+      "default": false
+    },
+    "episodes": {
+      "type": "number",
+      "default": 0
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "name",
+      "enum": [
+        "name",
+        "latest"
+      ]
+    },
+    "hideEmpty": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "color": {
+      "background": true,
+      "text": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true,
+      "blockGap": true
+    },
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "editorScript": "file:./editor.js",
+  "style": "file:./style.css",
+  "render": "file:./render.php",
+  "selectors": {
+    "root": ".wp-block-podcast-core-series-list"
+  }
+}

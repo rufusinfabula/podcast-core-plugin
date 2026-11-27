@@ -1,23 +1,23 @@
-# Copyright (C) 2026 Rufusinfabula
-# This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
 "Project-Id-Version: Podcast Core Engine 0.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/podcast-core-engine\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: it_IT\n"
 "MIME-Version: 1.0\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-11-25T19:25:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: podcast-core-engine\n"
 
 #. Plugin Name of the plugin
 #: podcast-core-engine.php
+#: includes/class-settings.php:284
+#: includes/class-settings.php:347
 msgid "Podcast Core Engine"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgstr "Questo indirizzo non contiene un feed RSS valido."
 #: includes/class-import-page.php:25
 #: includes/class-import-page.php:26
 #: includes/class-import-page.php:116
-#: includes/class-settings.php:90
+#: includes/class-settings.php:132
 msgid "Import from RSS"
 msgstr "Importa da RSS"
 
@@ -163,12 +163,8 @@ msgstr "Feed"
 msgid "Not set."
 msgstr "Non impostato."
 
-#: includes/class-import-page.php:128
-msgid "Change in Settings → Podcast"
-msgstr "Modifica in Impostazioni → Podcast"
-
 #: includes/class-import-page.php:132
-#: includes/class-settings.php:92
+#: includes/class-settings.php:134
 msgid "Automatic update"
 msgstr "Aggiornamento automatico"
 
@@ -226,11 +222,6 @@ msgstr "Aggiorna immagini da Spotify"
 msgid "Update images from Spotify: replaces the feed image of existing episodes with the horizontal cover shown on Spotify. Images you chose by hand are kept."
 msgstr "Aggiorna immagini da Spotify: sostituisce l'immagine del feed degli episodi esistenti con la copertina orizzontale mostrata su Spotify. Le immagini scelte a mano restano."
 
-#: includes/class-importer.php:55
-#: includes/class-importer.php:107
-msgid "Set the feed address in Settings → Podcast first."
-msgstr "Prima imposta l'indirizzo del feed in Impostazioni → Podcast."
-
 #: includes/class-importer.php:58
 msgid "An import is already running. Try again in a few minutes."
 msgstr "È già in corso un import. Riprova tra qualche minuto."
@@ -239,23 +230,19 @@ msgstr "È già in corso un import. Riprova tra qualche minuto."
 msgid "The episode image is not a supported image type."
 msgstr "L'immagine dell'episodio non è in un formato supportato."
 
-#: includes/class-post-types.php:47
-msgid "As in Settings → Podcast"
-msgstr "Come in Impostazioni → Podcast"
-
 #: includes/class-post-types.php:48
-#: includes/class-settings.php:77
+#: includes/class-settings.php:109
 msgid "Newest first"
 msgstr "Dal più recente"
 
 #: includes/class-post-types.php:49
-#: includes/class-settings.php:78
+#: includes/class-settings.php:110
 msgid "Oldest first"
 msgstr "Dal più vecchio"
 
 #: includes/class-post-types.php:62
 #: includes/class-post-types.php:72
-#: includes/class-settings.php:72
+#: includes/class-settings.php:104
 msgid "Episode order"
 msgstr "Ordine degli episodi"
 
@@ -273,8 +260,7 @@ msgid "Episode"
 msgstr "Episodio"
 
 #: includes/class-post-types.php:130
-#: includes/class-settings.php:200
-#: includes/class-settings.php:201
+#: includes/class-settings.php:341
 msgid "Podcast"
 msgstr "Podcast"
 
@@ -328,6 +314,7 @@ msgstr "Elenco episodi"
 
 #: includes/class-post-types.php:163
 #: includes/class-post-types.php:164
+#: blocks/series-list/editor.js:34
 msgid "Series"
 msgstr "Serie"
 
@@ -359,133 +346,130 @@ msgstr "Nessuna serie trovata."
 msgid "&larr; Back to series"
 msgstr "&larr; Torna alle serie"
 
-#: includes/class-settings.php:66
+#: includes/class-settings.php:98
 msgid "Addresses"
 msgstr "Indirizzi"
 
-#: includes/class-settings.php:67
+#: includes/class-settings.php:99
 msgid "Episodes base"
 msgstr "Base degli episodi"
 
-#: includes/class-settings.php:67
+#: includes/class-settings.php:99
 msgid "URL of the episode archive, e.g. /episodes/"
 msgstr "Indirizzo dell'archivio episodi, ad es. /episodi/"
 
-#: includes/class-settings.php:68
+#: includes/class-settings.php:100
 msgid "Series base"
 msgstr "Base delle serie"
 
-#: includes/class-settings.php:68
+#: includes/class-settings.php:100
 msgid "URL prefix of series pages, e.g. /series/name/"
 msgstr "Prefisso delle pagine delle serie, ad es. /serie/nome/"
 
-#: includes/class-settings.php:69
+#: includes/class-settings.php:101
 msgid "Episodes per page"
 msgstr "Episodi per pagina"
 
-#: includes/class-settings.php:69
+#: includes/class-settings.php:101
 msgid "In the episode archive and on series pages. 0 = same as Settings → Reading."
 msgstr "Nell'archivio episodi e nelle pagine delle serie. 0 = come in Impostazioni → Lettura."
 
-#: includes/class-settings.php:75
+#: includes/class-settings.php:107
 msgid "In the episode archive and on series pages. Each series can override it (Podcast → Series). Narrative shows usually list the first episode first."
 msgstr "Nell'archivio episodi e nelle pagine delle serie. Ogni serie può avere un ordine suo (Podcast → Serie). I podcast narrativi di solito mostrano per prima la prima puntata."
 
-#: includes/class-settings.php:82
+#: includes/class-settings.php:114
 msgid "Show"
 msgstr "Programma"
 
-#: includes/class-settings.php:83
+#: includes/class-settings.php:115
+#: blocks/partners/editor.js:64
 msgid "Show name"
 msgstr "Nome del podcast"
 
-#: includes/class-settings.php:83
+#: includes/class-settings.php:115
 msgid "Leave empty to use the site title."
 msgstr "Lascia vuoto per usare il titolo del sito."
 
-#: includes/class-settings.php:84
+#: includes/class-settings.php:116
 msgid "Spotify"
 msgstr ""
 
-#: includes/class-settings.php:85
+#: includes/class-settings.php:117
 msgid "Apple Podcasts"
 msgstr ""
 
-#: includes/class-settings.php:86
+#: includes/class-settings.php:118
 msgid "YouTube"
 msgstr ""
 
-#: includes/class-settings.php:87
+#: includes/class-settings.php:119
 msgid "RSS feed"
 msgstr "Feed RSS"
 
-#: includes/class-settings.php:88
+#: includes/class-settings.php:120
 msgid "Email sign-up"
 msgstr "Iscrizione via email"
 
-#: includes/class-settings.php:88
+#: includes/class-settings.php:120
 msgid "Page where listeners sign up to get new episodes or your newsletter by email (Substack, Mailchimp, Brevo…). Used by the theme's sign-up buttons."
 msgstr "Pagina dove gli ascoltatori si iscrivono per ricevere via email i nuovi episodi o la newsletter (Substack, Mailchimp, Brevo…). Usata dai pulsanti di iscrizione del tema."
 
-#: includes/class-settings.php:91
+#: includes/class-settings.php:133
 msgid "Feed to import"
 msgstr "Feed da importare"
 
-#: includes/class-settings.php:91
+#: includes/class-settings.php:133
 msgid "RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above."
 msgstr "Indirizzo RSS del podcast sulla piattaforma di hosting (Spotify for Creators, Anchor, Spreaker…). Lascia vuoto per usare il feed RSS indicato sopra."
 
-#: includes/class-settings.php:92
+#: includes/class-settings.php:134
 msgid "Check the feed every hour and import new episodes."
 msgstr "Controlla il feed ogni ora e importa i nuovi episodi."
 
-#: includes/class-settings.php:95
+#: includes/class-settings.php:137
 msgid "Episode image"
 msgstr "Immagine degli episodi"
 
-#: includes/class-settings.php:98
+#: includes/class-settings.php:140
 msgid "Spotify images are the horizontal covers shown in the Spotify app (640×360). If Spotify does not provide one, the feed image is used."
 msgstr "Le immagini di Spotify sono le copertine orizzontali mostrate nell'app Spotify (640×360). Se Spotify non ne fornisce una, si usa l'immagine del feed."
 
-#: includes/class-settings.php:100
+#: includes/class-settings.php:142
 msgid "From the feed (usually square)"
 msgstr "Dal feed (di solito quadrata)"
 
-#: includes/class-settings.php:101
+#: includes/class-settings.php:143
 msgid "From Spotify (horizontal 16:9)"
 msgstr "Da Spotify (orizzontale 16:9)"
 
-#: includes/class-settings.php:107
+#: includes/class-settings.php:149
 msgid "Spotify API (optional)"
 msgstr "API Spotify (facoltativo)"
 
-#: includes/class-settings.php:109
+#: includes/class-settings.php:151
 msgid "Needed only if your podcast is not hosted on Spotify for Creators: the plugin then finds the Spotify link of each episode by itself (to get the Spotify image). Requires the show link in the \"Spotify\" field above."
 msgstr "Serve solo se il podcast non è ospitato su Spotify for Creators: il plugin trova da solo il link Spotify di ogni episodio (per prendere l'immagine di Spotify). Richiede il link del programma nel campo \"Spotify\" qui sopra."
 
-#: includes/class-settings.php:110
+#: includes/class-settings.php:152
 msgid "Sign in on <a href=\"https://developer.spotify.com/dashboard\" target=\"_blank\" rel=\"noopener\">developer.spotify.com/dashboard</a> and create an app (any name; Redirect URI: your site address; API: Web API)."
 msgstr "Accedi a <a href=\"https://developer.spotify.com/dashboard\" target=\"_blank\" rel=\"noopener\">developer.spotify.com/dashboard</a> e crea un'app (nome a piacere; Redirect URI: l'indirizzo del sito; API: Web API)."
 
-#: includes/class-settings.php:111
+#: includes/class-settings.php:153
 msgid "Open the app settings and copy the Client ID and the Client Secret here."
 msgstr "Apri le impostazioni dell'app e copia qui Client ID e Client Secret."
 
-#: includes/class-settings.php:115
+#: includes/class-settings.php:157
 msgid "Client ID"
 msgstr "Client ID"
 
-#: includes/class-settings.php:116
+#: includes/class-settings.php:158
 msgid "Client Secret"
 msgstr "Client Secret"
 
-#: includes/class-settings.php:116
+#: includes/class-settings.php:158
 msgid "Stored and never shown again. Leave empty to keep the saved one."
 msgstr "Viene salvato e non più mostrato. Lascia vuoto per mantenere quello salvato."
-
-#: includes/class-settings.php:211
-msgid "Podcast settings"
-msgstr "Impostazioni podcast"
 
 #: includes/class-spotify.php:86
 msgid "Spotify refused the Client ID / Client Secret."
@@ -663,10 +647,13 @@ msgid "Audio player for the current episode, with cover, episode number and opti
 msgstr "Player audio dell'episodio corrente, con copertina, numero dell'episodio e video opzionale."
 
 #: blocks/episode-player/block.json
+#: blocks/partners/block.json
 #: blocks/sections/cta-section/block.json
 #: blocks/sections/episodes-section/block.json
 #: blocks/sections/hero/block.json
 #: blocks/sections/news-section/block.json
+#: blocks/sections/partners-section/block.json
+#: blocks/series-list/block.json
 msgctxt "block keyword"
 msgid "podcast"
 msgstr "podcast"
@@ -700,6 +687,7 @@ msgstr "Una sezione che promuove una serie, un episodio o altro."
 #: blocks/sections/episodes-section/block.json
 #: blocks/sections/hero/block.json
 #: blocks/sections/news-section/block.json
+#: blocks/sections/partners-section/block.json
 msgctxt "block keyword"
 msgid "section"
 msgstr "sezione"
@@ -733,3 +721,377 @@ msgstr "Sezione news"
 msgctxt "block description"
 msgid "A section that lists blog posts."
 msgstr "Una sezione che elenca gli articoli del blog."
+
+#: includes/class-partners.php:36
+#: includes/class-partners.php:38
+#: blocks/partners/editor.js:34
+msgid "Partners"
+msgstr "Partner"
+
+#: includes/class-partners.php:37
+msgid "Partner"
+msgstr "Partner"
+
+#: includes/class-partners.php:39
+msgid "Add new partner"
+msgstr "Aggiungi nuovo partner"
+
+#: includes/class-partners.php:40
+msgid "Add partner"
+msgstr "Aggiungi partner"
+
+#: includes/class-partners.php:41
+msgid "Edit partner"
+msgstr "Modifica partner"
+
+#: includes/class-partners.php:42
+msgid "New partner"
+msgstr "Nuovo partner"
+
+#: includes/class-partners.php:43
+msgid "Search partners"
+msgstr "Cerca partner"
+
+#: includes/class-partners.php:44
+msgid "No partners found."
+msgstr "Nessun partner trovato."
+
+#: includes/class-partners.php:45
+msgid "No partners found in Trash."
+msgstr "Nessun partner nel cestino."
+
+#: includes/class-partners.php:46
+#: includes/class-partners.php:156
+msgid "Logo"
+msgstr "Logo"
+
+#: includes/class-partners.php:47
+msgid "Set logo"
+msgstr "Imposta logo"
+
+#: includes/class-partners.php:48
+msgid "Remove logo"
+msgstr "Rimuovi logo"
+
+#: includes/class-partners.php:49
+msgid "Use as logo"
+msgstr "Usa come logo"
+
+#: includes/class-partners.php:66
+msgid "Partner types"
+msgstr "Tipi di partner"
+
+#: includes/class-partners.php:67
+msgid "Partner type"
+msgstr "Tipo di partner"
+
+#: includes/class-partners.php:68
+#: blocks/partners/editor.js:38
+msgid "All types"
+msgstr "Tutti i tipi"
+
+#: includes/class-partners.php:69
+msgid "Edit type"
+msgstr "Modifica tipo"
+
+#: includes/class-partners.php:70
+msgid "Add new type"
+msgstr "Aggiungi nuovo tipo"
+
+#: includes/class-partners.php:71
+msgid "New type name"
+msgstr "Nome del nuovo tipo"
+
+#: includes/class-partners.php:72
+msgid "Search types"
+msgstr "Cerca tipi"
+
+#: includes/class-partners.php:73
+msgid "No types found."
+msgstr "Nessun tipo trovato."
+
+#: includes/class-partners.php:74
+msgid "&larr; Back to types"
+msgstr "&larr; Torna ai tipi"
+
+#: includes/class-partners.php:76
+msgid "For example Partner, Sponsor, Supporter, Friends. A Partners block can show one type only."
+msgstr "Per esempio Partner, Sponsor, Sostenitori, Amici. Un blocco Partner può mostrare un solo tipo."
+
+#: includes/class-partners.php:108
+msgid "Partner name"
+msgstr "Nome del partner"
+
+#: includes/class-partners.php:112
+#: includes/class-partners.php:122
+#: includes/class-partners.php:160
+msgid "Website"
+msgstr "Sito web"
+
+#: includes/class-partners.php:115
+#: includes/class-partners.php:131
+msgid "Short text"
+msgstr "Testo breve"
+
+#: includes/class-partners.php:124
+msgid "The logo and the name link here (opens in a new tab)."
+msgstr "Logo e nome portano qui (si apre in una nuova scheda)."
+
+#: includes/class-partners.php:133
+msgid "One or two sentences about the partner. The logo is the \"Logo\" box in the sidebar; the order is \"Order\" under Attributes."
+msgstr "Una o due frasi sul partner. Il logo si imposta nel riquadro \"Logo\" a destra; l'ordine in \"Ordine\" sotto Attributi."
+
+#: includes/class-partners.php:161
+#: blocks/series-list/editor.js:60
+msgid "Order"
+msgstr "Ordine"
+
+#: blocks/partners/editor.js:36
+msgid "Type"
+msgstr "Tipo"
+
+#: blocks/partners/editor.js:42
+msgid "Manage partners and types in Podcast → Partners."
+msgstr "Partner e tipi si gestiscono in Podcast → Partner."
+
+#: blocks/partners/editor.js:47
+#: blocks/series-list/editor.js:51
+msgid "Columns"
+msgstr "Colonne"
+
+#: blocks/partners/editor.js:56
+msgid "Maximum number (0 = all)"
+msgstr "Numero massimo (0 = tutti)"
+
+#: blocks/partners/editor.js:65
+msgid "Show short text"
+msgstr "Mostra il testo breve"
+
+#: blocks/partners/editor.js:78
+msgid "Partners: add them in Podcast → Partners to see them here."
+msgstr "Partner: aggiungili in Podcast → Partner per vederli qui."
+
+#: blocks/partners/block.json
+msgctxt "block title"
+msgid "Partners"
+msgstr "Partner"
+
+#: blocks/partners/block.json
+msgctxt "block description"
+msgid "Logos, names and short texts of your partners, sponsors, supporters or friends (Podcast → Partners), each linked to their website."
+msgstr "Loghi, nomi e testi brevi di partner, sponsor, sostenitori o amici (Podcast → Partner), ognuno con il link al suo sito."
+
+#: blocks/partners/block.json
+#: blocks/sections/partners-section/block.json
+msgctxt "block keyword"
+msgid "partner"
+msgstr "partner"
+
+#: blocks/partners/block.json
+#: blocks/sections/partners-section/block.json
+msgctxt "block keyword"
+msgid "sponsor"
+msgstr "sponsor"
+
+#: blocks/partners/block.json
+msgctxt "block keyword"
+msgid "supporter"
+msgstr "sostenitore"
+
+#: blocks/partners/block.json
+msgctxt "block keyword"
+msgid "logo"
+msgstr "logo"
+
+#: blocks/sections/partners-section/block.json
+msgctxt "block title"
+msgid "Partners section"
+msgstr "Sezione partner"
+
+#: blocks/sections/partners-section/block.json
+msgctxt "block description"
+msgid "A section for partners, sponsors, supporters or friends: an editable title, an optional text and the Partners block."
+msgstr "Una sezione per partner, sponsor, sostenitori o amici: titolo modificabile, testo facoltativo e blocco Partner."
+
+#. translators: %s: number of episodes
+#: blocks/series-list/render.php:111
+#, php-format
+msgid "%s episode"
+msgid_plural "%s episodes"
+msgstr[0] "%s episodio"
+msgstr[1] "%s episodi"
+
+#: includes/class-series-icons.php:60
+msgid "Series icon"
+msgstr "Icona della serie"
+
+#: includes/class-series-icons.php:61
+msgid "Use as icon"
+msgstr "Usa come icona"
+
+#: includes/class-series-icons.php:75
+msgid "Choose image"
+msgstr "Scegli immagine"
+
+#: includes/class-series-icons.php:76
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: includes/class-series-icons.php:85
+#: includes/class-series-icons.php:94
+#: includes/class-series-icons.php:119
+msgid "Icon"
+msgstr "Icona"
+
+#: includes/class-series-icons.php:87
+#: includes/class-series-icons.php:96
+msgid "Optional. A small square image shown next to the series name, for example in the Series list block."
+msgstr "Facoltativa. Una piccola immagine quadrata mostrata accanto al nome della serie, per esempio nel blocco Elenco serie."
+
+#: blocks/series-list/editor.js:38
+msgid "Main series"
+msgstr "Serie principali"
+
+#. translators: %s: series name
+#: blocks/series-list/editor.js:41
+#, js-format
+msgid "Sub-series of %s"
+msgstr "Sottoserie di %s"
+
+#: blocks/series-list/editor.js:46
+msgid "Manage series, sub-series and their icons in Podcast → Series."
+msgstr "Gestisci serie, sottoserie e icone in Podcast → Serie."
+
+#: blocks/series-list/editor.js:80
+msgid "Show icon"
+msgstr "Mostra icona"
+
+#: blocks/series-list/editor.js:81
+msgid "Show number of episodes"
+msgstr "Mostra il numero di episodi"
+
+#: blocks/series-list/editor.js:82
+msgid "Show description"
+msgstr "Mostra descrizione"
+
+#: blocks/series-list/editor.js:83
+msgid "Hide series without episodes"
+msgstr "Nascondi le serie senza episodi"
+
+#: blocks/series-list/editor.js:93
+msgid "Series list: no series to show yet."
+msgstr "Elenco serie: ancora nessuna serie da mostrare."
+
+#: blocks/series-list/block.json
+msgctxt "block title"
+msgid "Series list"
+msgstr "Elenco serie"
+
+#: blocks/series-list/block.json
+msgctxt "block description"
+msgid "The podcast's series, or the sub-series of one series, each with its icon, name and number of episodes, linked to the series page."
+msgstr "Le serie del podcast, o le sottoserie di una serie, ciascuna con icona, nome e numero di episodi, collegata alla pagina della serie."
+
+#: blocks/series-list/block.json
+msgctxt "block keyword"
+msgid "series"
+msgstr "serie"
+
+#: blocks/series-list/block.json
+msgctxt "block keyword"
+msgid "sub-series"
+msgstr "sottoserie"
+
+#: blocks/series-list/block.json
+msgctxt "block keyword"
+msgid "shows"
+msgstr "programmi"
+
+#: blocks/series-list/block.json
+msgctxt "block keyword"
+msgid "specials"
+msgstr "speciali"
+
+#: blocks/series-list/editor.js:36
+msgid "Series to show"
+msgstr "Serie da mostrare"
+
+#: blocks/series-list/editor.js:71
+msgid "Latest episodes under each series"
+msgstr "Ultimi episodi sotto ogni serie"
+
+#: blocks/series-list/editor.js:63
+msgid "By name"
+msgstr "Per nome"
+
+#: blocks/series-list/editor.js:64
+msgid "Most recent episode first"
+msgstr "Prima quella con l’episodio più recente"
+
+#: blocks/series-list/editor.js:72
+msgid "Their images, under the series name. The whole card links to the series. 0 = none."
+msgstr "Le loro immagini, sotto il nome della serie. Tutta la scheda porta alla serie. 0 = nessuno."
+
+#. translators: %s: number of further episodes
+#: blocks/series-list/render.php:136
+#, php-format
+msgid "and %s more episode"
+msgid_plural "and %s more episodes"
+msgstr[0] "e un altro episodio"
+msgstr[1] "e altri %s episodi"
+
+#: includes/class-settings.php:124
+msgid "Home page"
+msgstr "Homepage"
+
+#: includes/class-settings.php:126
+msgid "The site icon (favicon), logo, title and tagline are in Appearance → Editor → Design → Identity."
+msgstr "Icona del sito (favicon), logo, titolo e motto sono in Aspetto → Editor → Design → Identità."
+
+#: includes/class-settings.php:130
+#: includes/class-settings.php:322
+msgid "Hero images"
+msgstr "Foto dell’hero"
+
+#: includes/class-settings.php:130
+msgid "Shown in the hero of the home page by themes that support it (Podcast Core Studio). With more than one image they rotate with a crossfade; drag to change the order. Leave empty to use the images placed in the home page template."
+msgstr "Mostrate nell’hero della homepage dai temi che lo supportano (Podcast Core Studio). Con più immagini ruotano in dissolvenza; trascinale per cambiare l’ordine. Lascia vuoto per usare le immagini inserite nel template della homepage."
+
+#: includes/class-settings.php:194
+msgid "Choose images"
+msgstr "Scegli immagini"
+
+#: includes/class-settings.php:195
+msgid "Remove all"
+msgstr "Rimuovi tutte"
+
+#: includes/class-settings.php:343
+msgid "Styles"
+msgstr "Stili"
+
+#: includes/class-settings.php:323
+msgid "Use these images"
+msgstr "Usa queste immagini"
+
+#: includes/class-import-page.php:128
+msgid "Change in Podcast → Settings → General"
+msgstr "Cambia in Podcast → Settings → Impostazioni"
+
+#: includes/class-importer.php:55
+#: includes/class-importer.php:107
+msgid "Set the feed address in Podcast → Settings → General first."
+msgstr "Imposta prima l’indirizzo del feed in Podcast → Settings → Impostazioni."
+
+#: includes/class-post-types.php:47
+msgid "As in Podcast → Settings → General"
+msgstr "Come in Podcast → Settings → Impostazioni"
+
+#: includes/class-settings.php:285
+msgctxt "admin menu"
+msgid "Settings"
+msgstr "Settings"
+
+#: includes/class-settings.php:342
+msgctxt "settings tab"
+msgid "General"
+msgstr "Impostazioni"
