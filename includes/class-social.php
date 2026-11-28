@@ -102,7 +102,7 @@ final class Social {
 			// Pages: only their excerpt (their content is often layout: buttons, query loops…).
 			$text            = has_excerpt( $post ) ? $post->post_excerpt : ( 'page' === $post->post_type ? '' : $post->post_content );
 			$data['description'] = self::summary( $text ) ?: $default_desc;
-			$data['image']   = self::image( (int) get_post_thumbnail_id( $post ) );
+			$data['image']   = self::image( (int) get_post_thumbnail_id( $post ) ) ?: self::first_image( $post->post_content );
 			if ( 'article' === $data['type'] ) {
 				$data['article'] = array(
 					'published_time' => get_post_time( 'c', true, $post ),
@@ -166,6 +166,13 @@ final class Social {
 			'height' => (int) $src[2],
 			'alt'    => trim( (string) get_post_meta( $id, '_wp_attachment_image_alt', true ) ),
 		);
+	}
+
+	/**
+	 * First image of the Media Library placed in the content (Image block or classic image).
+	 */
+	private static function first_image( string $content ): ?array {
+		return preg_match( '/wp-image-(\d+)/', $content, $m ) ? self::image( (int) $m[1] ) : null;
 	}
 
 	/**
