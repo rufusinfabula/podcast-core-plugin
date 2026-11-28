@@ -9,15 +9,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-27T21:57:19+00:00\n"
+"POT-Creation-Date: 2026-11-28T11:51:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: podcast-core-engine\n"
 
 #. Plugin Name of the plugin
 #: podcast-core-engine.php
-#: includes/class-settings.php:289
-#: includes/class-settings.php:352
+#: includes/class-settings.php:305
+#: includes/class-settings.php:368
 msgid "Podcast Core Engine"
 msgstr ""
 
@@ -169,7 +169,7 @@ msgid "Load the video"
 msgstr ""
 
 #: includes/class-consent.php:75
-#: includes/class-settings.php:134
+#: includes/class-settings.php:147
 msgid "Cookie notice"
 msgstr ""
 
@@ -202,7 +202,7 @@ msgstr ""
 #: includes/class-import-page.php:25
 #: includes/class-import-page.php:26
 #: includes/class-import-page.php:116
-#: includes/class-settings.php:136
+#: includes/class-settings.php:149
 msgid "Import from RSS"
 msgstr ""
 
@@ -223,7 +223,7 @@ msgid "Change in Podcast → Settings → General"
 msgstr ""
 
 #: includes/class-import-page.php:132
-#: includes/class-settings.php:138
+#: includes/class-settings.php:151
 msgid "Automatic update"
 msgstr ""
 
@@ -423,18 +423,18 @@ msgid "As in Podcast → Settings → General"
 msgstr ""
 
 #: includes/class-post-types.php:48
-#: includes/class-settings.php:110
+#: includes/class-settings.php:112
 msgid "Newest first"
 msgstr ""
 
 #: includes/class-post-types.php:49
-#: includes/class-settings.php:111
+#: includes/class-settings.php:113
 msgid "Oldest first"
 msgstr ""
 
 #: includes/class-post-types.php:62
 #: includes/class-post-types.php:72
-#: includes/class-settings.php:105
+#: includes/class-settings.php:107
 msgid "Episode order"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgid "Episode"
 msgstr ""
 
 #: includes/class-post-types.php:130
-#: includes/class-settings.php:346
+#: includes/class-settings.php:362
 msgid "Podcast"
 msgstr ""
 
@@ -565,179 +565,203 @@ msgstr ""
 msgid "Optional. A small square image shown next to the series name, for example in the Series list block."
 msgstr ""
 
-#: includes/class-settings.php:99
+#: includes/class-settings.php:101
 msgid "Addresses"
 msgstr ""
 
-#: includes/class-settings.php:100
+#: includes/class-settings.php:102
 msgid "Episodes base"
 msgstr ""
 
-#: includes/class-settings.php:100
+#: includes/class-settings.php:102
 msgid "URL of the episode archive, e.g. /episodes/"
 msgstr ""
 
-#: includes/class-settings.php:101
+#: includes/class-settings.php:103
 msgid "Series base"
 msgstr ""
 
-#: includes/class-settings.php:101
+#: includes/class-settings.php:103
 msgid "URL prefix of series pages, e.g. /series/name/"
 msgstr ""
 
-#: includes/class-settings.php:102
+#: includes/class-settings.php:104
 msgid "Episodes per page"
 msgstr ""
 
-#: includes/class-settings.php:102
+#: includes/class-settings.php:104
 msgid "In the episode archive and on series pages. 0 = same as Settings → Reading."
 msgstr ""
 
-#: includes/class-settings.php:108
+#: includes/class-settings.php:110
 msgid "In the episode archive and on series pages. Each series can override it (Podcast → Series). Narrative shows usually list the first episode first."
 msgstr ""
 
-#: includes/class-settings.php:115
+#: includes/class-settings.php:117
 msgid "Show"
 msgstr ""
 
-#: includes/class-settings.php:116
+#: includes/class-settings.php:118
 #: blocks/partners/editor.js:64
 msgid "Show name"
 msgstr ""
 
-#: includes/class-settings.php:116
+#: includes/class-settings.php:118
 msgid "Leave empty to use the site title."
 msgstr ""
 
-#: includes/class-settings.php:117
+#: includes/class-settings.php:119
 msgid "Spotify"
 msgstr ""
 
-#: includes/class-settings.php:118
+#: includes/class-settings.php:120
 msgid "Apple Podcasts"
 msgstr ""
 
-#: includes/class-settings.php:119
+#: includes/class-settings.php:121
 msgid "YouTube"
 msgstr ""
 
-#: includes/class-settings.php:120
+#: includes/class-settings.php:122
 msgid "RSS feed"
 msgstr ""
 
-#: includes/class-settings.php:121
+#: includes/class-settings.php:123
 msgid "Email sign-up"
 msgstr ""
 
-#: includes/class-settings.php:121
+#: includes/class-settings.php:123
 msgid "Page where listeners sign up to get new episodes or your newsletter by email (Substack, Mailchimp, Brevo…). Used by the theme's sign-up buttons."
 msgstr ""
 
-#: includes/class-settings.php:125
-msgid "Home page"
-msgstr ""
-
 #: includes/class-settings.php:127
-msgid "The site icon (favicon), logo, title and tagline are in Appearance → Editor → Design → Identity."
+msgid "Sharing and search engines"
 msgstr ""
 
-#: includes/class-settings.php:131
-#: includes/class-settings.php:327
-msgid "Hero images"
-msgstr ""
-
-#: includes/class-settings.php:131
-msgid "Shown in the hero of the home page by themes that support it (Podcast Core Studio). With more than one image they rotate with a crossfade; drag to change the order. Leave empty to use the images placed in the home page template."
+#: includes/class-settings.php:129
+msgid "Every page gets a description and Open Graph tags, used by search engines and by the previews of links shared on WhatsApp, Facebook, LinkedIn, X… Episodes, posts and pages use their own text and image; these values are for the home page and the pages that have none. Turned off automatically when an SEO plugin (Yoast, Rank Math, SEOPress, All in One SEO, The SEO Framework) is active."
 msgstr ""
 
 #: includes/class-settings.php:133
-msgid "Privacy"
+msgid "Description"
+msgstr ""
+
+#: includes/class-settings.php:133
+msgid "One or two sentences about the podcast (about 150 characters). Empty = the site tagline."
 msgstr ""
 
 #: includes/class-settings.php:134
-msgid "Show a cookie notice on the first visit and load videos from YouTube and Vimeo (which set third-party cookies) only after the visitor accepts, or clicks \"Load the video\". The choice can be changed from any link to #pc-cookie-settings, e.g. in the footer."
+msgid "Sharing image"
 msgstr ""
 
-#: includes/class-settings.php:137
-msgid "Feed to import"
-msgstr ""
-
-#: includes/class-settings.php:137
-msgid "RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above."
+#: includes/class-settings.php:134
+msgid "Ideally 1200 × 630 pixels. Only the first image is used. Empty = the site icon."
 msgstr ""
 
 #: includes/class-settings.php:138
-msgid "Check the feed every hour and import new episodes."
+msgid "Home page"
 msgstr ""
 
-#: includes/class-settings.php:141
-msgid "Episode image"
+#: includes/class-settings.php:140
+msgid "The site icon (favicon), logo, title and tagline are in Appearance → Editor → Design → Identity."
 msgstr ""
 
 #: includes/class-settings.php:144
-msgid "Spotify images are the horizontal covers shown in the Spotify app (640×360). If Spotify does not provide one, the feed image is used."
+msgid "Hero images"
+msgstr ""
+
+#: includes/class-settings.php:144
+msgid "Shown in the hero of the home page by themes that support it (Podcast Core Studio). With more than one image they rotate with a crossfade; drag to change the order. Leave empty to use the images placed in the home page template."
 msgstr ""
 
 #: includes/class-settings.php:146
-msgid "From the feed (usually square)"
+msgid "Privacy"
 msgstr ""
 
 #: includes/class-settings.php:147
-msgid "From Spotify (horizontal 16:9)"
+msgid "Show a cookie notice on the first visit and load videos from YouTube and Vimeo (which set third-party cookies) only after the visitor accepts, or clicks \"Load the video\". The choice can be changed from any link to #pc-cookie-settings, e.g. in the footer."
 msgstr ""
 
-#: includes/class-settings.php:153
-msgid "Spotify API (optional)"
+#: includes/class-settings.php:150
+msgid "Feed to import"
 msgstr ""
 
-#: includes/class-settings.php:155
-msgid "Needed only if your podcast is not hosted on Spotify for Creators: the plugin then finds the Spotify link of each episode by itself (to get the Spotify image). Requires the show link in the \"Spotify\" field above."
+#: includes/class-settings.php:150
+msgid "RSS address of the podcast on your hosting platform (Spotify for Creators, Anchor, Spreaker…). Leave empty to use the RSS feed above."
 msgstr ""
 
-#: includes/class-settings.php:156
-msgid "Sign in on <a href=\"https://developer.spotify.com/dashboard\" target=\"_blank\" rel=\"noopener\">developer.spotify.com/dashboard</a> and create an app (any name; Redirect URI: your site address; API: Web API)."
+#: includes/class-settings.php:151
+msgid "Check the feed every hour and import new episodes."
+msgstr ""
+
+#: includes/class-settings.php:154
+msgid "Episode image"
 msgstr ""
 
 #: includes/class-settings.php:157
+msgid "Spotify images are the horizontal covers shown in the Spotify app (640×360). If Spotify does not provide one, the feed image is used."
+msgstr ""
+
+#: includes/class-settings.php:159
+msgid "From the feed (usually square)"
+msgstr ""
+
+#: includes/class-settings.php:160
+msgid "From Spotify (horizontal 16:9)"
+msgstr ""
+
+#: includes/class-settings.php:166
+msgid "Spotify API (optional)"
+msgstr ""
+
+#: includes/class-settings.php:168
+msgid "Needed only if your podcast is not hosted on Spotify for Creators: the plugin then finds the Spotify link of each episode by itself (to get the Spotify image). Requires the show link in the \"Spotify\" field above."
+msgstr ""
+
+#: includes/class-settings.php:169
+msgid "Sign in on <a href=\"https://developer.spotify.com/dashboard\" target=\"_blank\" rel=\"noopener\">developer.spotify.com/dashboard</a> and create an app (any name; Redirect URI: your site address; API: Web API)."
+msgstr ""
+
+#: includes/class-settings.php:170
 msgid "Open the app settings and copy the Client ID and the Client Secret here."
 msgstr ""
 
-#: includes/class-settings.php:161
+#: includes/class-settings.php:174
 msgid "Client ID"
 msgstr ""
 
-#: includes/class-settings.php:162
+#: includes/class-settings.php:175
 msgid "Client Secret"
 msgstr ""
 
-#: includes/class-settings.php:162
+#: includes/class-settings.php:175
 msgid "Stored and never shown again. Leave empty to keep the saved one."
 msgstr ""
 
-#: includes/class-settings.php:198
+#: includes/class-settings.php:211
+#: includes/class-settings.php:343
 msgid "Choose images"
 msgstr ""
 
-#: includes/class-settings.php:199
+#: includes/class-settings.php:212
 msgid "Remove all"
 msgstr ""
 
-#: includes/class-settings.php:290
+#: includes/class-settings.php:306
 msgctxt "admin menu"
 msgid "Settings"
 msgstr ""
 
-#: includes/class-settings.php:328
+#: includes/class-settings.php:344
 msgid "Use these images"
 msgstr ""
 
-#: includes/class-settings.php:347
+#: includes/class-settings.php:363
 msgctxt "settings tab"
 msgid "General"
 msgstr ""
 
-#: includes/class-settings.php:348
+#: includes/class-settings.php:364
 msgid "Styles"
 msgstr ""
 

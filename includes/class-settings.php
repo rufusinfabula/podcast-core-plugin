@@ -23,7 +23,7 @@ final class Settings {
 	 * Pages of the menu: slug suffix => keys saved by that page.
 	 */
 	private const TABS = array(
-		'podcast'  => array( 'show_name', 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'newsletter_url' ),
+		'podcast'  => array( 'show_name', 'spotify_url', 'apple_url', 'youtube_url', 'rss_url', 'newsletter_url', 'share_description', 'share_image' ),
 		'settings' => array( 'episodes_slug', 'series_slug', 'per_page', 'order', 'feed_url', 'auto_sync', 'image_source', 'spotify_client_id', 'spotify_client_secret', 'consent' ),
 		'styles'   => array( 'hero_images' ),
 	);
@@ -62,6 +62,8 @@ final class Settings {
 			'rss_url'       => '',
 			'newsletter_url' => '',
 			'hero_images'   => array(),
+			'share_description' => '',
+			'share_image'   => array(),
 			'consent'       => false,
 			'feed_url'      => '',
 			'auto_sync'     => true,
@@ -119,6 +121,17 @@ final class Settings {
 		self::field( 'youtube_url', __( 'YouTube', 'podcast-core-engine' ), 'podcast_core_show', 'url' );
 		self::field( 'rss_url', __( 'RSS feed', 'podcast-core-engine' ), 'podcast_core_show', 'url' );
 		self::field( 'newsletter_url', __( 'Email sign-up', 'podcast-core-engine' ), 'podcast_core_show', 'url', __( 'Page where listeners sign up to get new episodes or your newsletter by email (Substack, Mailchimp, Brevo…). Used by the theme\'s sign-up buttons.', 'podcast-core-engine' ) );
+
+		add_settings_section(
+			'podcast_core_share',
+			__( 'Sharing and search engines', 'podcast-core-engine' ),
+			function () {
+				echo '<p>' . esc_html__( 'Every page gets a description and Open Graph tags, used by search engines and by the previews of links shared on WhatsApp, Facebook, LinkedIn, X… Episodes, posts and pages use their own text and image; these values are for the home page and the pages that have none. Turned off automatically when an SEO plugin (Yoast, Rank Math, SEOPress, All in One SEO, The SEO Framework) is active.', 'podcast-core-engine' ) . '</p>';
+			},
+			self::page( 'podcast' )
+		);
+		self::field( 'share_description', __( 'Description', 'podcast-core-engine' ), 'podcast_core_share', 'text', __( 'One or two sentences about the podcast (about 150 characters). Empty = the site tagline.', 'podcast-core-engine' ) );
+		self::field( 'share_image', __( 'Sharing image', 'podcast-core-engine' ), 'podcast_core_share', 'images', __( 'Ideally 1200 × 630 pixels. Only the first image is used. Empty = the site icon.', 'podcast-core-engine' ) );
 
 		add_settings_section(
 			'podcast_core_site',
@@ -268,6 +281,9 @@ final class Settings {
 		// Empty field = keep the saved secret; removing the Client ID removes the secret too.
 		$clean['spotify_client_secret'] = '' === $clean['spotify_client_id'] ? '' : ( '' !== $secret ? $secret : (string) self::get( 'spotify_client_secret' ) );
 		$images               = is_array( $input['hero_images'] ?? '' ) ? $input['hero_images'] : explode( ',', (string) ( $input['hero_images'] ?? '' ) );
+		$share                = is_array( $input['share_image'] ?? '' ) ? $input['share_image'] : explode( ',', (string) ( $input['share_image'] ?? '' ) );
+		$clean['share_image'] = array_slice( array_values( array_filter( array_map( 'absint', $share ), 'wp_attachment_is_image' ) ), 0, 1 );
+		$clean['share_description'] = sanitize_text_field( $input['share_description'] ?? '' );
 		$clean['hero_images'] = array_values( array_filter( array_map( 'absint', $images ), 'wp_attachment_is_image' ) );
 		$clean['auto_sync']    = ! empty( $input['auto_sync'] );
 		$clean['consent']      = ! empty( $input['consent'] );
@@ -315,7 +331,7 @@ final class Settings {
 	}
 
 	public static function assets( string $hook ): void {
-		if ( self::$hook !== $hook || 'styles' !== self::current_tab() ) {
+		if ( self::$hook !== $hook || ! in_array( self::current_tab(), array( 'styles', 'podcast' ), true ) ) {
 			return;
 		}
 		wp_enqueue_media();
@@ -324,7 +340,7 @@ final class Settings {
 			'podcast-core-settings-images',
 			'podcastCoreImages',
 			array(
-				'title'  => __( 'Hero images', 'podcast-core-engine' ),
+				'title'  => __( 'Choose images', 'podcast-core-engine' ),
 				'button' => __( 'Use these images', 'podcast-core-engine' ),
 			)
 		);
